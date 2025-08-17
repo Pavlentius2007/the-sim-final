@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@thesim.com",
+      "passwordHash": "$2b$12$Xsz2yAGDr78B2kDgWpPNDuVnxrKVuXyMxe06WpNiAOtzG8GiT.aBW",
+      "role": "admin",
+      "firstName": "Администратор",
+      "lastName": "Системы",
+      "isActive": true,
+      "createdAt": "2025-08-12T06:43:48.269Z",
+      "lastLogin": null,
+      "permissions": [
+        "all"
+      ]
+    }
+  ]
+}

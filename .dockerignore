@@ -1,0 +1,53 @@
+# 🐳 Docker ignore файл для CosmicLanding
+# Исключаем ненужные файлы для уменьшения размера образа
+
+# Git
+.git
+.gitignore
+
+# Документация
+*.md
+LICENSE.md
+SETUP.md
+ENVIRONMENT.md
+WHITELABEL_READY_REPORT.md
+
+# Временные файлы
+.next
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Кеш
+.cache
+.parcel-cache
+.tsbuildinfo
+
+# Логи
+logs
+*.log
+
+# Тесты
+coverage
+.nyc_output
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Переменные окружения
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Скрипты разработки
+scripts/

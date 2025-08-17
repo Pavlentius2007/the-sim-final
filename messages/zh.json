@@ -1,0 +1,265 @@
+{
+  "navigation": {
+    "home": "首页",
+    "about": "关于",
+    "services": "服务",
+    "contact": "联系",
+    "personalCabinet": "个人中心"
+  },
+  "common": {
+    "back": "返回"
+  },
+  "hero": {
+    "title": "The SIM — 您可靠的数字资产管理合作伙伴",
+    "subtitle": "通过资本保护、智能买卖和投资组合多元化进行投资",
+    "ctaButton": "开始投资",
+    "learnMore": "了解更多",
+    "stats": {
+      "managedAssets": "管理资产",
+      "satisfiedClients": "满意客户",
+      "support": "支持"
+    }
+  },
+  "about": {
+    "title": "数字资产服务",
+    "description": "从市场波动中获利，而非预测。",
+    "features": {
+      "market": {
+        "title": "适用于任何市场阶段",
+        "description": "增长、下跌或横盘 — 我们的系统适应任何条件"
+      },
+      "assets": {
+        "title": "仅使用验证资产",
+        "description": "精心挑选的高流动性加密货币"
+      },
+      "trends": {
+        "title": "跟随市场",
+        "description": "我们不试图\"猜测\"方向，而是与当前趋势合作"
+      },
+      "api": {
+        "title": "通过API与币安合作",
+        "description": "不在自有账户存储资金，直接集成"
+      }
+    },
+    "dashboard": {
+      "title": "对投资的完全控制",
+      "description": "强大的仪表板，实时跟踪所有资产",
+      "features": {
+        "realTime": "实时投资组合监控",
+        "analytics": "详细的盈利能力分析",
+        "security": "银行级安全"
+      }
+    }
+  },
+  "benefits": {
+    "title": "优势",
+    "protection": "资本保护",
+    "smartTrading": "智能交易",
+    "why": {
+      "title": "为什么",
+      "subtitle": "8个关键优势，使我们的平台独一无二"
+    },
+    "hedging": {
+      "title": "对冲",
+      "description": "自动保护资本免受剧烈市场波动"
+    },
+    "smartBuying": {
+      "title": "智能购买",
+      "description": "存款分布网格，实现最佳仓位进入"
+    },
+    "smartSelling": {
+      "title": "智能销售",
+      "description": "AI为每个仓位确定最佳加价"
+    },
+    "analytics": {
+      "title": "市场分析",
+      "description": "每日监控和分析市场趋势"
+    },
+    "liquidation": {
+      "title": "清算",
+      "description": "资产控制和管理，最小化风险"
+    },
+    "diversification": {
+      "title": "多元化",
+      "description": "分布到30多个资产，降低风险"
+    },
+    "reinvestment": {
+      "title": "再投资",
+      "description": "自动利润投资，实现资本增长"
+    },
+    "liquidity": {
+      "title": "流动性控制",
+      "description": "通过流动性管理确保稳定性"
+    }
+  },
+  "video": {
+    "title": "视频回顾",
+    "subtitle": "了解更多关于我们平台如何工作以及如何帮助您投资",
+    "videoTitle": "The SIM - 完整平台概述",
+    "duration": "2:25",
+    "durationLabel": "时长",
+    "quality": "高清",
+    "qualityLabel": "质量",
+    "language": "中文",
+    "languageLabel": "语言",
+    "whatYouLearn": {
+      "title": "您将从视频中学到什么",
+      "features": {
+        "overview": {
+          "title": "平台原理",
+          "description": "The SIM如何从市场波动中获利并保护您的资本"
+        },
+        "features": {
+          "title": "界面演示",
+          "description": "个人账户和所有可用功能的详细概述"
+        },
+        "dashboard": {
+          "title": "投资策略",
+          "description": "如何设置参数以优化与您资本的合作"
+        }
+      }
+    },
+    "videoComingSoon": "视频稍后添加",
+    "watchVideo": "观看视频"
+  },
+  "security": {
+    "title": "可靠性至上",
+    "subtitle": "我们通过经过验证的技术和透明流程确保您投资的最大安全性",
+    "features": {
+      "api": {
+        "title": "币安API",
+        "description": "我们直接与最大的加密货币交易所合作，无需中介",
+        "details": "与币安API的直接集成确保操作的最大速度和可靠性"
+      },
+      "noStorage": {
+        "title": "不存储资金",
+        "description": "您的资金保留在您的币安账户中",
+        "details": "我们无法访问您的资金，只能进行交易操作"
+      },
+      "transparency": {
+        "title": "透明度",
+        "description": "投资者实时看到所有操作",
+        "details": "所有交易操作和投资组合变化的完全可见性"
+      },
+      "protection": {
+        "title": "自动保护",
+        "description": "多元化降低资本损失风险",
+        "details": "分布到30多个资产，最小化个别币种波动性的影响"
+      }
+    },
+    "stats": {
+      "title": "我们的安全统计",
+      "uptime": "99.9%",
+      "uptimeLabel": "运行时间",
+      "assets": "30+",
+      "assetsLabel": "资产",
+      "protection": "100%",
+      "protectionLabel": "资本保护"
+    }
+  },
+  "investment": {
+    "title": "合作条件",
+    "subtitle": "对认真投资者的透明条件",
+    "minAmount": {
+      "title": "最低金额",
+      "value": "$2,000",
+      "description": "开始使用平台的初始金额"
+    },
+    "professional": {
+      "title": "专业方法",
+      "description": "我们只与认真的投资者合作"
+    },
+    "transparency": {
+      "title": "完全透明",
+      "description": "所有条件都会提前讨论"
+    },
+    "support": {
+      "title": "个人支持",
+      "description": "为每位客户提供个人支持"
+    }
+  },
+  "testimonials": {
+    "title": "客户评价",
+    "subtitle": "了解已经使用The SIM管理数字资产的投资者怎么说",
+    "cta": {
+      "title": "准备加入成功的投资者行列？",
+      "subtitle": "今天就与The SIM一起开始您的财务自由之路",
+      "button": "开始投资"
+    },
+    "items": {
+      "ivan": {
+        "name": "伊万·K.",
+        "role": "投资者",
+        "content": "The SIM帮助我在下跌市场中稳定盈利。系统确实如所述工作 — 保护资本并带来收入。",
+        "highlight": "稳定盈利"
+      },
+      "maria": {
+        "name": "玛丽亚·L.",
+        "role": "企业家",
+        "content": "完全信任系统 — 我的资本受到保护。操作透明度和实时查看一切的能力对我来说非常重要。",
+        "highlight": "资本受到保护"
+      },
+      "oleg": {
+        "name": "奥列格·T.",
+        "role": "交易员",
+        "content": "简单有效。支持始终在线，解释一切清楚。推荐给所有想要投资加密货币的人。",
+        "highlight": "简单有效"
+      }
+    }
+  },
+  "contact": {
+    "title": "获取演示和咨询",
+    "subtitle": "留下请求，我们将联系您进行The SIM工作的详细咨询",
+    "form": {
+      "name": "姓名",
+      "email": "邮箱",
+      "phone": "电话",
+      "telegram": "电报",
+      "submit": "发送请求",
+      "success": "谢谢！我们很快会联系您。",
+      "error": "发生错误。请再试一次。",
+      "loading": "发送中..."
+    },
+    "info": {
+      "title": "联系我们",
+      "description": "准备回答您的所有问题并帮助您开始使用The SIM投资",
+      "telegram": "电报",
+      "email": "邮箱",
+      "support": "24/7支持",
+      "supportHours": "全天候"
+    },
+    "trust": {
+      "title": "为什么选择我们",
+      "freeConsultation": "免费咨询",
+      "personalApproach": "个性化方法",
+      "quickStart": "快速启动"
+    }
+  },
+  "footer": {
+    "description": "您可靠的数字资产管理合作伙伴。通过资本保护和智能策略进行投资。",
+    "sections": {
+      "product": {
+        "title": "产品",
+        "about": "关于平台",
+        "benefits": "优势",
+        "security": "安全",
+        "video": "视频回顾"
+      },
+      "support": {
+        "title": "支持",
+        "contact": "联系",
+        "telegram": "电报",
+        "email": "邮箱",
+        "help": "帮助"
+      },
+      "legal": {
+        "title": "法律信息",
+        "privacy": "隐私政策",
+        "terms": "使用条款",
+        "termsOfService": "服务条款",
+        "cookies": "Cookie"
+      }
+    },
+    "copyright": "© 2024 The SIM. 保留所有权利。"
+  }
+}

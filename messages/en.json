@@ -1,0 +1,265 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "personalCabinet": "Personal Cabinet"
+  },
+  "common": {
+    "back": "Back"
+  },
+  "hero": {
+    "title": "The SIM — Your Reliable Partner in Digital Asset Management",
+    "subtitle": "Invest with capital protection, smart buying and selling, portfolio diversification",
+    "ctaButton": "Start Investing",
+    "learnMore": "Learn More",
+    "stats": {
+      "managedAssets": "Managed Assets",
+      "satisfiedClients": "Satisfied Clients",
+      "support": "Support"
+    }
+  },
+  "about": {
+    "title": "service for working with digital assets",
+    "description": "That earns from market volatility, not predictions.",
+    "features": {
+      "market": {
+        "title": "Works at any market stage",
+        "description": "Growth, decline or flat — our system adapts to any conditions"
+      },
+      "assets": {
+        "title": "Uses only verified assets",
+        "description": "Carefully selected cryptocurrencies with high liquidity"
+      },
+      "trends": {
+        "title": "Follows the market",
+        "description": "We don't try to 'guess' the direction, we work with current trends"
+      },
+      "api": {
+        "title": "Works through API with Binance",
+        "description": "Without storing funds on own accounts, direct integration"
+      }
+    },
+    "dashboard": {
+      "title": "Full control over your investments",
+      "description": "Powerful dashboard for tracking all your assets in real time",
+      "features": {
+        "realTime": "Real-time portfolio monitoring",
+        "analytics": "Detailed profitability analytics",
+        "security": "Bank-level security"
+      }
+    }
+  },
+  "benefits": {
+    "title": "Benefits",
+    "protection": "Capital Protection",
+    "smartTrading": "Smart Trading",
+    "why": {
+      "title": "Why",
+      "subtitle": "8 key benefits that make our platform unique"
+    },
+    "hedging": {
+      "title": "Hedging",
+      "description": "Automatic capital protection from sharp market fluctuations"
+    },
+    "smartBuying": {
+      "title": "Smart Buying",
+      "description": "Deposit distribution across a grid for optimal position entry"
+    },
+    "smartSelling": {
+      "title": "Smart Selling",
+      "description": "AI determines optimal markup for each position"
+    },
+    "analytics": {
+      "title": "Market Analytics",
+      "description": "Daily monitoring and analysis of market trends"
+    },
+    "liquidation": {
+      "title": "Liquidation",
+      "description": "Asset control and management to minimize risks"
+    },
+    "diversification": {
+      "title": "Diversification",
+      "description": "Distribution across 30+ assets to reduce risks"
+    },
+    "reinvestment": {
+      "title": "Reinvestment",
+      "description": "Automatic profit investment for capital growth"
+    },
+    "liquidity": {
+      "title": "Liquidity Control",
+      "description": "Ensuring stability through liquidity management"
+    }
+  },
+  "video": {
+    "title": "Video Review",
+    "subtitle": "Learn more about how our platform works and how it can help you invest",
+    "videoTitle": "The SIM - Complete Platform Overview",
+    "duration": "2:25",
+    "durationLabel": "Duration",
+    "quality": "HD",
+    "qualityLabel": "Quality",
+    "language": "EN",
+    "languageLabel": "Language",
+    "whatYouLearn": {
+      "title": "What you'll learn from the video",
+      "features": {
+        "overview": {
+          "title": "Platform principles",
+          "description": "How The SIM earns from market volatility and protects your capital"
+        },
+        "features": {
+          "title": "Interface demonstration",
+          "description": "Detailed overview of the personal account and all available functions"
+        },
+        "dashboard": {
+          "title": "Investment strategies",
+          "description": "How to set parameters for optimal work with your capital"
+        }
+      }
+    },
+    "videoComingSoon": "Video will be added later",
+    "watchVideo": "Watch video"
+  },
+  "security": {
+    "title": "Reliability above all",
+    "subtitle": "We ensure maximum security of your investments through proven technologies and transparent processes",
+    "features": {
+      "api": {
+        "title": "Binance API",
+        "description": "We work directly with the largest cryptocurrency exchange without intermediaries",
+        "details": "Direct integration with Binance API ensures maximum speed and reliability of operations"
+      },
+      "noStorage": {
+        "title": "No fund storage",
+        "description": "Your funds remain in your Binance account",
+        "details": "We don't have access to your funds, only to trading operations"
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "Investor sees all operations in real time",
+        "details": "Full visibility of all trading operations and portfolio changes"
+      },
+      "protection": {
+        "title": "Automatic protection",
+        "description": "Diversification reduces capital loss risks",
+        "details": "Distribution across 30+ assets minimizes the impact of volatility of individual coins"
+      }
+    },
+    "stats": {
+      "title": "Our security statistics",
+      "uptime": "99.9%",
+      "uptimeLabel": "Uptime",
+      "assets": "30+",
+      "assetsLabel": "Assets",
+      "protection": "100%",
+      "protectionLabel": "Capital protection"
+    }
+  },
+  "investment": {
+    "title": "Partnership Terms",
+    "subtitle": "Transparent conditions for serious investors",
+    "minAmount": {
+      "title": "Minimum Amount",
+      "value": "$2,000",
+      "description": "Initial amount to start working with the platform"
+    },
+    "professional": {
+      "title": "Professional Approach",
+      "description": "We work only with serious investors"
+    },
+    "transparency": {
+      "title": "Full Transparency",
+      "description": "All conditions are discussed in advance"
+    },
+    "support": {
+      "title": "Personal Support",
+      "description": "Individual support for each client"
+    }
+  },
+  "testimonials": {
+    "title": "Customer reviews",
+    "subtitle": "Learn what investors who already use The SIM to manage their digital assets say",
+    "cta": {
+      "title": "Ready to join successful investors?",
+      "subtitle": "Start your path to financial freedom with The SIM today",
+      "button": "Start investing"
+    },
+    "items": {
+      "ivan": {
+        "name": "Ivan K.",
+        "role": "Investor",
+        "content": "The SIM helped me earn steadily even in a falling market. The system really works as stated — protects capital and brings income.",
+        "highlight": "earn steadily"
+      },
+      "maria": {
+        "name": "Maria L.",
+        "role": "Entrepreneur",
+        "content": "I completely trust the system — my capital is protected. Transparency of operations and the ability to see everything in real time is very important to me.",
+        "highlight": "capital is protected"
+      },
+      "oleg": {
+        "name": "Oleg T.",
+        "role": "Trader",
+        "content": "Simple and effective. Support is always online, explains everything clearly. I recommend it to everyone who wants to invest in cryptocurrencies.",
+        "highlight": "simple and effective"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get presentation and consultation",
+    "subtitle": "Leave a request and we will contact you for detailed consultation on working with The SIM",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "telegram": "Telegram",
+      "submit": "Send Request",
+      "success": "Thank you! We will contact you soon.",
+      "error": "An error occurred. Please try again.",
+      "loading": "Sending..."
+    },
+    "info": {
+      "title": "Contact Us",
+      "description": "Ready to answer all your questions and help you start investing with The SIM",
+      "telegram": "Telegram",
+      "email": "Email",
+      "support": "24/7 Support",
+      "supportHours": "Around the clock"
+    },
+    "trust": {
+      "title": "Why choose us",
+      "freeConsultation": "Free consultation",
+      "personalApproach": "Personal approach",
+      "quickStart": "Quick start"
+    }
+  },
+  "footer": {
+    "description": "Your reliable partner in digital asset management. Invest with capital protection and smart strategies.",
+    "sections": {
+      "product": {
+        "title": "Product",
+        "about": "About Platform",
+        "benefits": "Benefits",
+        "security": "Security",
+        "video": "Video Review"
+      },
+      "support": {
+        "title": "Support",
+        "contact": "Contact",
+        "telegram": "Telegram",
+        "email": "Email",
+        "help": "Help"
+      },
+      "legal": {
+        "title": "Legal Information",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "termsOfService": "Terms of Service",
+        "cookies": "Cookies"
+      }
+    },
+    "copyright": "© 2024 The SIM. All rights reserved."
+  }
+}
