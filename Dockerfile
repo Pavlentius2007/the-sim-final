@@ -18,15 +18,8 @@ RUN npm ci
 # Копируем исходный код
 COPY . .
 
-# Устанавливаем переменные окружения для сборки
-ENV NODE_ENV=production
-ENV JWT_SECRET=yF83hS7WAaQtTqGHd6JuV3NMUEQ5m2cwbBmpVgGJ7cBbLHwZchtKyvGgYz3MkA7r
-ENV ENCRYPTION_KEY=Yh5BhFGfcpuR2NVa5ajqtWqgCczDqCtv
-ENV COOKIE_SECRET=j7dMx7xdvKkACjqV8uykN3tfPTNczZwm
-ENV CSRF_SECRET=jvjJ2CVgJhrEPSa6rGbL54ENRa6HdXnmLFcrUuwauFXuh8B5zgGa9MBVQDdxttzz
-
-# Собираем проект
-RUN npm run build
+# Собираем проект (ИСПРАВЛЕНО - используем npx)
+RUN npx next build
 
 # ========================================
 # ЭТАП 2: Продакшен
@@ -40,17 +33,15 @@ WORKDIR /app
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# Копируем package.json
-COPY package*.json ./
-
 # Устанавливаем только продакшен зависимости
+COPY package*.json ./
 RUN npm ci --only=production && npm cache clean --force
 
 # Копируем собранное приложение
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/next.config.js ./
-COPY --from=builder --chown=nextjs:nodejs /app/middleware.ts ./
+COPY --from=builder --chown=nextjs:nodejs /app/package.json ./
 
 # Переключаемся на пользователя nextjs
 USER nextjs
@@ -58,9 +49,5 @@ USER nextjs
 # Открываем порт
 EXPOSE 3000
 
-# Переменные окружения (будут переопределены в docker-compose)
-ENV NODE_ENV=production
-ENV PORT=3000
-
-# Команда запуска
+# Запускаем приложение
 CMD ["npm", "start"]
