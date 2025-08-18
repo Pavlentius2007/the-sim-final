@@ -1,0 +1,58 @@
+# 🐳 CosmicLanding - Docker Compose для продакшена
+# Полное развертывание с Nginx и SSL
+
+version: '3.8'
+
+services:
+  cosmiclanding:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cosmiclanding-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      # Обязательные переменные безопасности
+      - JWT_SECRET=rSA4hfVLhhwa3u2dfgH8bwzbj7Q5SG9zGwnqeFLfFvYQZTYYdPnXu9cH9zqkLpks
+      - ENCRYPTION_KEY=hQEhGj93DC4cQrnfbvmgYWG2WMKDqj93
+      - COOKIE_SECRET=KCTe6jLdwJs9ChaBZc8XMJLqF7v5D8uZ
+      - CSRF_SECRET=HmbmcNZ8g8sfhZGC8e6Vs3ESsx9Eh8ZpNAqUvjHWkT9ErcKwGr6HMkamMpdzBE4G
+      - ALLOWED_ORIGINS=https://thesim.in,https://www.thesim.in
+    volumes:
+      # Для персистентности данных
+      - ./data:/app/data
+    networks:
+      - cosmiclanding-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  nginx:
+    image: nginx:alpine
+    container_name: cosmiclanding-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - cosmiclanding
+    networks:
+      - cosmiclanding-network
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  cosmiclanding-network:
+    driver: bridge
+
+volumes:
+  data:
