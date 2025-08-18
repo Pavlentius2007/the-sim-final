@@ -1,47 +1,24 @@
-# 🚀 CosmicLanding - Docker Image
-# Многоэтапная сборка для оптимизации размера
+# 🚀 CosmicLanding - Docker Image (использует готовую сборку)
+# Простая версия без многоэтапной сборки
 
-# ========================================
-# ЭТАП 1: Сборка
-# ========================================
-FROM node:18-alpine AS builder
-
-# Устанавливаем рабочую директорию
-WORKDIR /app
-
-# Копируем файлы зависимостей
-COPY package*.json ./
-
-# Устанавливаем ВСЕ зависимости (включая dev для сборки)
-RUN npm ci
-
-# Копируем исходный код
-COPY . .
-
-# Собираем проект (ИСПРАВЛЕНО - используем npx)
-RUN npx next build
-
-# ========================================
-# ЭТАП 2: Продакшен
-# ========================================
-FROM node:18-alpine AS production
-
-# Устанавливаем рабочую директорию
-WORKDIR /app
+FROM node:18-alpine
 
 # Создаем пользователя для безопасности
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# Устанавливаем только продакшен зависимости
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем package.json и устанавливаем зависимости
 COPY package*.json ./
 RUN npm ci --only=production && npm cache clean --force
 
-# Копируем собранное приложение
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/next.config.js ./
-COPY --from=builder --chown=nextjs:nodejs /app/package.json ./
+# Копируем уже собранное приложение
+COPY --chown=nextjs:nodejs .next ./.next
+COPY --chown=nextjs:nodejs public ./public
+COPY --chown=nextjs:nodejs next.config.js ./
+COPY --chown=nextjs:nodejs package.json ./
 
 # Переключаемся на пользователя nextjs
 USER nextjs
