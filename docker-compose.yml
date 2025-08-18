@@ -1,13 +1,11 @@
-# 🐳 CosmicLanding - Docker Compose
-# Простое развертывание в продакшене
-
+# Создаем исправленный docker-compose.yml
+cat > docker-compose.yml << 'EOF'
+# 🐳 CosmicLanding - Docker Compose (использует готовую сборку)
 version: '3.8'
 
 services:
   cosmiclanding:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: node:18-alpine
     container_name: cosmiclanding-app
     restart: unless-stopped
     ports:
@@ -15,33 +13,21 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      # Обязательные переменные безопасности
       - JWT_SECRET=rSA4hfVLhhwa3u2dfgH8bwzbj7Q5SG9zGwnqeFLfFvYQZTYYdPnXu9cH9zqkLpks
       - ENCRYPTION_KEY=hQEhGj93DC4cQrnfbvmgYWG2WMKDqj93
       - COOKIE_SECRET=KCTe6jLdwJs9ChaBZc8XMJLqF7v5D8uZ
       - CSRF_SECRET=HmbmcNZ8g8sfhZGC8e6Vs3ESsx9Eh8ZpNAqUvjHWkT9ErcKwGr6HMkamMpdzBE4G
       - ALLOWED_ORIGINS=http://localhost:3000,https://thesim.in,https://www.thesim.in
     volumes:
-      # Для персистентности данных (опционально)
+      - ./.next:/app/.next
+      - ./public:/app/public
+      - ./package.json:/app/package.json
+      - ./next.config.js:/app/next.config.js
       - ./data:/app/data
+    working_dir: /app
+    command: sh -c "npm install --only=production && npm start"
     networks:
       - cosmiclanding-network
-
-  # Nginx отключен для локального тестирования
-  # nginx:
-  #   image: nginx:alpine
-  #   container_name: cosmiclanding-nginx
-  #   restart: unless-stopped
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
-  #     - ./ssl:/etc/nginx/ssl:ro
-  #   depends_on:
-  #     - cosmiclanding
-  #   networks:
-  #     - cosmiclanding-network
 
 networks:
   cosmiclanding-network:
@@ -49,3 +35,4 @@ networks:
 
 volumes:
   data:
+EOF
