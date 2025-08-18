@@ -5,6 +5,11 @@ import { applySecurityHeaders } from './lib/security'
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   
+  // Редирект с корня на русскую локаль по умолчанию
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL('/ru', request.url))
+  }
+  
   // Защищаем только админские страницы
   if (pathname.startsWith('/admin/') && !pathname.includes('/login')) {
     const token = request.cookies.get('auth-token')?.value
