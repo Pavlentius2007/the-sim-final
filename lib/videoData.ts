@@ -16,19 +16,19 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       id: '1',
       title: 'The SIM - Complete Platform Overview',
       description: 'Learn how our platform works and how it can help you invest safely',
-      youtubeUrl: 'https://youtu.be/ka0nK332FK0', // 720p как основное
-      thumbnail: 'https://img.youtube.com/vi/ka0nK332FK0/maxresdefault.jpg',
+      youtubeUrl: '/videos/en/sim-overview-720p.mp4', // 720p как основное
+      thumbnail: '/videos/en/sim-overview-720p.mp4',
       duration: '2:25',
       quality: 'HD',
       language: 'English',
       languageCode: 'en',
       createdAt: '2024-01-15T10:00:00Z',
       isActive: true,
-      videoType: 'youtube',
+      videoType: 'local',
       qualities: {
-        '480p': 'https://youtu.be/-_2d4MXUv6s',
-        '720p': 'https://youtu.be/ka0nK332FK0',
-        '1080p': 'https://youtu.be/fnfXCAAHoeI'
+        '480p': '/videos/en/sim-overview-480p.mp4',
+        '720p': '/videos/en/sim-overview-720p.mp4',
+        '1080p': '/videos/en/sim-overview-1080p.mp4'
       }
     }
   ],
@@ -37,19 +37,19 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       id: '2',
       title: 'The SIM - 完整平台概述',
       description: '了解我们平台如何工作以及如何帮助您安全投资',
-      youtubeUrl: 'https://youtu.be/xn8oJKSfkoI', // 720p как основное
-      thumbnail: 'https://img.youtube.com/vi/xn8oJKSfkoI/maxresdefault.jpg',
+      youtubeUrl: '/videos/zh/sim-overview-720p.mp4', // 720p как основное
+      thumbnail: '/videos/zh/sim-overview-720p.mp4',
       duration: '2:25',
       quality: '高清',
       language: '中文',
       languageCode: 'zh',
       createdAt: '2024-01-15T10:00:00Z',
       isActive: true,
-      videoType: 'youtube',
+      videoType: 'local',
       qualities: {
-        '480p': 'https://youtu.be/UC0BVkFw0jk',
-        '720p': 'https://youtu.be/xn8oJKSfkoI',
-        '1080p': 'https://youtu.be/DZ1JyVltuBk'
+        '480p': '/videos/zh/sim-overview-480p.mp4',
+        '720p': '/videos/zh/sim-overview-720p.mp4',
+        '1080p': '/videos/zh/sim-overview-1080p.mp4'
       }
     }
   ],
@@ -58,19 +58,19 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       id: '3',
       title: 'The SIM - Полный обзор платформы',
       description: 'Узнайте, как работает наша платформа и как она может помочь вам инвестировать',
-      youtubeUrl: 'https://youtu.be/i6aw3SWLuas', // 720p как основное
-      thumbnail: 'https://img.youtube.com/vi/i6aw3SWLuas/maxresdefault.jpg',
+      youtubeUrl: '/videos/ru/sim-overview-720p.mp4', // 720p как основное
+      thumbnail: '/videos/ru/sim-overview-720p.mp4',
       duration: '2:25',
       quality: 'HD',
       language: 'Русский',
       languageCode: 'ru',
       createdAt: '2024-01-15T10:00:00Z',
       isActive: true,
-      videoType: 'youtube',
+      videoType: 'local',
       qualities: {
-        '480p': 'https://youtu.be/xMGfh8DGFgo',
-        '720p': 'https://youtu.be/i6aw3SWLuas',
-        '1080p': 'https://youtu.be/3cmR6nTboHc'
+        '480p': '/videos/ru/sim-overview-480p.mp4',
+        '720p': '/videos/ru/sim-overview-720p.mp4',
+        '1080p': '/videos/ru/sim-overview-1080p.mp4'
       }
     }
   ],
@@ -79,19 +79,19 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       id: '4',
       title: 'The SIM - ภาพรวมแพลตฟอร์มที่สมบูรณ์',
       description: 'เรียนรู้ว่าแพลตฟอร์มของเราทำงานอย่างไรและช่วยให้คุณลงทุนได้อย่างปลอดภัย',
-      youtubeUrl: 'https://youtu.be/JfRbF5HBL_U', // 720p как основное
-      thumbnail: 'https://img.youtube.com/vi/JfRbF5HBL_U/maxresdefault.jpg',
+      youtubeUrl: '/videos/th/sim-overview-720p.mp4', // 720p как основное
+      thumbnail: '/videos/th/sim-overview-720p.mp4',
       duration: '2:25',
       quality: 'HD',
       language: 'ไทย',
       languageCode: 'th',
       createdAt: '2024-01-15T10:00:00Z',
       isActive: true,
-      videoType: 'youtube',
+      videoType: 'local',
       qualities: {
-        '480p': 'https://youtu.be/wOVEa4_84zo',
-        '720p': 'https://youtu.be/JfRbF5HBL_U',
-        '1080p': 'https://youtu.be/VU_X5qHBHa8'
+        '480p': '/videos/th/sim-overview-480p.mp4',
+        '720p': '/videos/th/sim-overview-720p.mp4',
+        '1080p': '/videos/th/sim-overview-1080p.mp4'
       }
     }
   ]

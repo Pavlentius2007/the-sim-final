@@ -7,10 +7,11 @@ import Video from '@/components/Video'
 import Security from '@/components/Security'
 import Investment from '@/components/Investment'
 import Testimonials from '@/components/Testimonials'
+import FAQ from '@/components/FAQ'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-
+import PersonalCabinetButton from '@/components/PersonalCabinetButton'
 
 import { useTranslations } from '@/hooks/useTranslations'
 
@@ -33,6 +34,7 @@ export default function LocalePage({
     <main className="min-h-screen relative overflow-x-hidden">
       {/* Navigation Controls */}
       <div className="fixed top-4 right-4 z-50 flex items-center gap-3">
+        <PersonalCabinetButton />
         <LanguageSwitcher currentLocale={locale} />
       </div>
       
@@ -45,7 +47,10 @@ export default function LocalePage({
         <Security />
         <Investment />
         <Testimonials />
-        <ContactForm />
+        <FAQ />
+        <div id="contact-form">
+          <ContactForm />
+        </div>
         
         <Footer currentLocale={locale} />
       </div>

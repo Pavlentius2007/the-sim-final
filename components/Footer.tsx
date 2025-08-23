@@ -81,19 +81,43 @@ export default function Footer({ currentLocale }: FooterProps) {
                     </a>
                   </li>
                   <li>
-                    <a href="#benefits" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <button 
+                      onClick={() => {
+                        document.getElementById('benefits')?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        })
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
+                    >
                       {t('footer.sections.product.benefits')}
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a href="#security" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <button 
+                      onClick={() => {
+                        document.getElementById('security')?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        })
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
+                    >
                       {t('footer.sections.product.security')}
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a href="#video" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <button 
+                      onClick={() => {
+                        document.getElementById('video')?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        })
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
+                    >
                       {t('footer.sections.product.video')}
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -103,9 +127,17 @@ export default function Footer({ currentLocale }: FooterProps) {
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.support.title')}</h4>
                 <ul className="space-y-1">
                   <li>
-                    <a href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <button 
+                      onClick={() => {
+                        document.getElementById('contact-form')?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        })
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
+                    >
                       {t('footer.sections.support.contact')}
-                    </a>
+                    </button>
                   </li>
                   <li>
                     <a href="https://t.me/Sergey_Loye" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">

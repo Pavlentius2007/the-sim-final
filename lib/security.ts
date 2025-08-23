@@ -14,19 +14,16 @@ export const securityHeaders = {
   // Политика реферера
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   
-  // Content Security Policy (базовая)
+  // Content Security Policy (минимальная)
   'Content-Security-Policy': [
     "default-src 'self'",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https:",
-    "font-src 'self'",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "img-src 'self' data: https: blob:",
+    "font-src 'self' https://fonts.gstatic.com",
     "connect-src 'self'",
     "media-src 'self'",
-    "object-src 'none'",
-    "base-uri 'self'",
-    "form-action 'self'",
-    "frame-ancestors 'none'"
+    "object-src 'none'"
   ].join('; '),
   
   // Защита от MIME type confusion

@@ -40,7 +40,7 @@ export default function Security() {
   ]
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="security" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       {/* Убираем градиентные фоны */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-800"></div> */}

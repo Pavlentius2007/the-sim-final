@@ -142,7 +142,23 @@ export default function Testimonials() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+              onClick={() => {
+                const contactForm = document.getElementById('contact-form')
+                if (contactForm) {
+                  contactForm.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                  })
+                  // Добавляем небольшой отступ сверху для лучшего вида
+                  setTimeout(() => {
+                    window.scrollBy({
+                      top: -100,
+                      behavior: 'smooth'
+                    })
+                  }, 500)
+                }
+              }}
+              className="bg-gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all cursor-pointer transform hover:-translate-y-1"
             >
               {t('testimonials.cta.button')}
             </motion.button>

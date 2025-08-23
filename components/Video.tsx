@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { useParams } from 'next/navigation'
 import { VideoData } from '@/lib/types'
+import Image from 'next/image'
 
 export default function Video() {
   const { t } = useTranslations()
@@ -20,7 +21,7 @@ export default function Video() {
   const [currentVideo, setCurrentVideo] = useState<VideoData | null>(null)
   const [_videos, setVideos] = useState<VideoData[]>([])
   const [loading, setLoading] = useState(true)
-  const [_selectedQuality, _setSelectedQuality] = useState<'480p' | '720p' | '1080p'>('720p')
+  const [selectedQuality, setSelectedQuality] = useState<'480p' | '720p' | '1080p'>('720p')
 
   // Получаем текущий язык
   const currentLanguage = params.locale as string || 'en'
@@ -43,8 +44,8 @@ export default function Video() {
             setCurrentVideo(null)
                         // console.log('No videos found for language:', currentLanguage)
           }
-      } catch (error) {
-        console.error('Failed to fetch videos:', error)
+      } catch {
+        // Ошибка загрузки видео
         setCurrentVideo(null)
       } finally {
         setLoading(false)
@@ -57,8 +58,6 @@ export default function Video() {
   // Получаем URL для YouTube видео (улучшенная версия)
   const getVideoUrl = (video: VideoData, _quality: string) => {
     if (video.videoType === 'youtube' && video.youtubeUrl) {
-      console.log('🔗 Original URL:', video.youtubeUrl)
-      
       let videoId = ''
       
       // Извлекаем video ID из разных форматов YouTube URL
@@ -72,25 +71,25 @@ export default function Video() {
       
       if (videoId) {
         const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`
-        console.log('🎥 Embed URL:', embedUrl)
         return embedUrl
       }
-      
-      console.warn('❌ Could not extract video ID from:', video.youtubeUrl)
     }
     return ''
   }
 
-  // Получаем доступные качества (для YouTube всегда доступно)
-  const _getAvailableQualities = (video: VideoData) => {
+  // Получаем доступные качества
+  const getAvailableQualities = (video: VideoData) => {
     if (video.videoType === 'youtube') {
       return ['720p'] // YouTube автоматически выбирает лучшее качество
+    }
+    if (video.qualities) {
+      return Object.keys(video.qualities) as ('480p' | '720p' | '1080p')[]
     }
     return ['720p']
   }
 
   // Получаем название качества
-  const _getQualityLabel = (quality: string) => {
+  const getQualityLabel = (quality: string) => {
     switch (quality) {
       case '480p': return '480p'
       case '720p': return '720p'
@@ -99,11 +98,21 @@ export default function Video() {
     }
   }
 
+  // Получаем URL для выбранного качества
+  const getVideoUrlForQuality = (video: VideoData, quality: string) => {
+    if (video.videoType === 'youtube' && video.youtubeUrl) {
+      return getVideoUrl(video, quality)
+    }
+    if (video.qualities && video.qualities[quality as keyof typeof video.qualities]) {
+      return video.qualities[quality as keyof typeof video.qualities]
+    }
+    return video.youtubeUrl || ''
+  }
+
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="video" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900"></div>
         
         {/* Floating Elements */}
         <motion.div
@@ -172,11 +181,12 @@ export default function Video() {
                   <div className="w-full h-full bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-indigo-600/20 relative">
                     {/* Реальное превью YouTube */}
                     {currentVideo.thumbnail && (
-                      <img 
+                      <Image 
                         src={currentVideo.thumbnail} 
                         alt={currentVideo.title}
-                        className="absolute inset-0 w-full h-full object-cover opacity-40"
-                        loading="lazy"
+                        fill
+                        className="object-cover opacity-40"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     )}
                     
@@ -270,7 +280,9 @@ export default function Video() {
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
                     <Settings className="w-6 h-6 text-purple-400" />
                   </div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent mb-1">{currentVideo.quality}</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent mb-1">
+                    {currentVideo.videoType === 'local' ? selectedQuality : currentVideo.quality}
+                  </div>
                   <div className="text-sm text-gray-400">{t('video.qualityLabel')}</div>
                 </motion.div>
                 
@@ -378,13 +390,34 @@ export default function Video() {
               ✕
             </button>
             
-            {/* Quality Selector - для YouTube не нужен */}
+            {/* Quality Selector */}
+            {currentVideo.videoType === 'local' && currentVideo.qualities && (
+              <div className="mb-4 flex justify-center">
+                <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-2 border border-gray-700/30">
+                  <div className="flex gap-2">
+                    {getAvailableQualities(currentVideo).map((quality) => (
+                      <button
+                        key={quality}
+                        onClick={() => setSelectedQuality(quality as '480p' | '720p' | '1080p')}
+                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                          selectedQuality === quality
+                            ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                            : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
+                        }`}
+                      >
+                        {getQualityLabel(quality)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
             
             <div className="aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
               {currentVideo.videoType === 'youtube' ? (
                 <>
                   <iframe
-                    src={getVideoUrl(currentVideo, _selectedQuality)}
+                    src={getVideoUrl(currentVideo, selectedQuality)}
                     className="w-full h-full"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -393,6 +426,16 @@ export default function Video() {
                     loading="lazy"
                   />
                 </>
+              ) : currentVideo.videoType === 'local' ? (
+                <video
+                  src={getVideoUrlForQuality(currentVideo, selectedQuality)}
+                  className="w-full h-full"
+                  controls
+                  autoPlay
+                  title={currentVideo.title}
+                >
+                  Your browser does not support the video tag.
+                </video>
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-white">
                   <div className="text-center">

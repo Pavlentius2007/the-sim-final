@@ -117,6 +117,7 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  autoComplete="name"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder={t('contact.form.name')}
                 />
@@ -133,6 +134,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  autoComplete="email"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder={t('contact.form.email')}
                 />
@@ -148,6 +150,7 @@ export default function ContactForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  autoComplete="tel"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder={t('contact.form.phone')}
                 />
@@ -163,6 +166,7 @@ export default function ContactForm() {
                   name="telegram"
                   value={formData.telegram}
                   onChange={handleInputChange}
+                  autoComplete="off"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder={t('contact.form.telegram')}
                 />

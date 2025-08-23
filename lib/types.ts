@@ -33,10 +33,10 @@ export interface TranslationRequest {
 
 // Поддерживаемые языки
 export const SUPPORTED_LANGUAGES: LanguageConfig[] = [
-  { code: 'ru', name: 'Русский', flag: '🇷🇺', autoTranslate: false },
-  { code: 'en', name: 'English', flag: '🇺🇸', autoTranslate: true },
-  { code: 'zh', name: '中文', flag: '🇨🇳', autoTranslate: true },
-  { code: 'th', name: 'ไทย', flag: '🇹🇭', autoTranslate: true },
+  { code: 'ru', name: 'Русский', flag: '', autoTranslate: false },
+  { code: 'en', name: 'English', flag: '', autoTranslate: true },
+  { code: 'zh', name: '中文', flag: '', autoTranslate: true },
+  { code: 'th', name: 'ไทย', flag: '', autoTranslate: true },
 ]
 
 export type Locale = typeof SUPPORTED_LANGUAGES[number]['code']
@@ -70,7 +70,12 @@ export interface VideoData {
   languageCode: string
   createdAt: string
   isActive: boolean
-  videoType: 'youtube' // Только YouTube тип
+  videoType: 'youtube' | 'local' // Поддерживаем оба типа
+  qualities?: {
+    '480p': string
+    '720p': string
+    '1080p': string
+  }
 }
 
 export interface VideoCollection {

@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию админки и API
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Разрешаем важные файлы
+Allow: /api/health
+Allow: /logo.svg
+Allow: /favicon.ico
+Allow: /sitemap.xml
+
+# Sitemap
+Sitemap: https://94.141.162.192/sitemap.xml
+
+# Настройки для поисковых ботов
+Crawl-delay: 1
+
+# Google Bot настройки
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Bing Bot настройки
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex Bot настройки
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1

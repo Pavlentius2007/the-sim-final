@@ -1,17 +1,42 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Оптимизация производительности
+  swcMinify: true,
+  compress: true,
+  
+  // Оптимизация изображений
   images: {
-    domains: ['img.youtube.com', 'i.ytimg.com'],
     dangerouslyAllowSVG: true,
-    unoptimized: true
+    unoptimized: true,
+    formats: ['image/webp', 'image/avif']
   },
   
-  // Добавляем security headers для продакшена
-  async headers() {
-    if (process.env.NODE_ENV !== 'production') {
-      return []
+  // Оптимизация webpack
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Оптимизация для продакшена
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      }
     }
     
+    return config
+  },
+  
+  // Экспериментальные функции для производительности
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion']
+  },
+  
+  // Security headers для всех режимов
+  async headers() {
     return [
       {
         source: '/(.*)',
@@ -21,7 +46,7 @@ const nextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { 
             key: 'Content-Security-Policy', 
-            value: "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https: blob:; font-src 'self'; connect-src 'self'; media-src 'self' https://www.youtube.com https://youtu.be; frame-src 'self' https://www.youtube.com https://youtu.be; object-src 'none';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none';"
           },
         ],
       },

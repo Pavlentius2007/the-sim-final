@@ -33,7 +33,7 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: str
       >
         <Globe className="w-4 h-4" />
         <span className="text-sm font-medium">
-          {currentLanguage?.flag} {currentLanguage?.label}
+          {currentLanguage?.label}
         </span>
         <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -58,7 +58,6 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: str
                       : 'text-gray-300 hover:bg-white/10 hover:text-white'
                   }`}
                 >
-                  <span className="text-lg">{language.flag}</span>
                   <span className="font-medium">{language.label}</span>
                 </button>
               ))}

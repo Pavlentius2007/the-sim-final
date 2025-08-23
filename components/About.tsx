@@ -97,7 +97,7 @@ export default function About() {
         >
                      {/* Live Dashboard */}
            <LiveDashboard 
-             videoSrc="https://youtu.be/i6aw3SWLuas"  // Ваше рабочее видео
+             videoSrc="/videos/dashboard/DEMO.mp4"  // Демо видео с сервера
              fallbackImage="/images/dashboard-preview.jpg"
            />
 

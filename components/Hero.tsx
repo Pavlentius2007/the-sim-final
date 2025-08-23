@@ -1,14 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronDown, Play, MessageCircle } from 'lucide-react'
-import { useState } from 'react'
+import { ChevronDown, MessageCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 
 
 export default function Hero() {
   const { t } = useTranslations()
-  const [showVideo, setShowVideo] = useState(false)
 
   const scrollToNext = () => {
     const nextSection = document.getElementById('about')
@@ -113,16 +111,25 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <button className="px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={() => {
+                document.getElementById('contact-form')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+              className="px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
+            >
               {t('hero.ctaButton')}
             </button>
-            <button 
-              onClick={() => setShowVideo(true)}
+            <a 
+              href="https://t.me/Sergey_Loye" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-4 bg-white/10 backdrop-blur-lg text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
-              <Play className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5" />
               {t('hero.learnMore')}
-            </button>
+            </a>
           </motion.div>
 
           {/* Stats */}
@@ -164,25 +171,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Video Modal */}
-      {showVideo && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-4xl">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 text-2xl"
-            >
-              ✕
-            </button>
-            <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
-              <div className="text-white text-center">
-                <MessageCircle className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                <p className="text-lg">{t('video.videoComingSoon')}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
     </section>
   )
 } 
