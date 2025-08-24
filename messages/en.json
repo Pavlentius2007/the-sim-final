@@ -214,7 +214,7 @@
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
-      "telegram": "Telegram",
+      "socialNetwork": "Social Network",
       "submit": "Send Request",
       "success": "Thank you! We will contact you soon.",
       "error": "An error occurred. Please try again.",
@@ -223,7 +223,7 @@
     "info": {
       "title": "Contact Us",
       "description": "Ready to answer all your questions and help you start investing with The SIM",
-      "telegram": "Telegram",
+      "socialNetwork": "Social Network",
       "email": "Email",
       "support": "24/7 Support",
       "supportHours": "Around the clock"
@@ -248,7 +248,7 @@
       "support": {
         "title": "Support",
         "contact": "Contact",
-        "telegram": "Telegram",
+        "socialNetwork": "Social Network",
         "email": "Email",
         "help": "Help"
       },

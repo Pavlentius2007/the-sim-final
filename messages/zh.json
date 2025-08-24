@@ -214,7 +214,7 @@
       "name": "姓名",
       "email": "邮箱",
       "phone": "电话",
-      "telegram": "电报",
+      "socialNetwork": "社交网络",
       "submit": "发送请求",
       "success": "谢谢！我们很快会联系您。",
       "error": "发生错误。请再试一次。",
@@ -223,7 +223,7 @@
     "info": {
       "title": "联系我们",
       "description": "准备回答您的所有问题并帮助您开始使用The SIM投资",
-      "telegram": "电报",
+      "socialNetwork": "社交网络",
       "email": "邮箱",
       "support": "24/7支持",
       "supportHours": "全天候"
@@ -248,7 +248,7 @@
       "support": {
         "title": "支持",
         "contact": "联系",
-        "telegram": "电报",
+        "socialNetwork": "社交网络",
         "email": "邮箱",
         "help": "帮助"
       },

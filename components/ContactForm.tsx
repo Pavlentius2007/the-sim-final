@@ -17,7 +17,7 @@ export default function ContactForm() {
     name: '',
     email: '',
     phone: '',
-    telegram: ''
+    socialNetwork: '' // Переименовываем с telegram на socialNetwork
   })
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -36,24 +36,54 @@ export default function ContactForm() {
     setStatus('loading')
 
     try {
-      // Здесь будет отправка данных на backend
-      // Пока что симулируем успешную отправку
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Отправляем заявку на API
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit lead')
+      }
+
+      const result = await response.json()
       
-      // Отправка в Telegram (заглушка)
-      const _telegramMessage = `
- Новая заявка с сайта The SIM
+      // Отправляем уведомление в Telegram
+      try {
+        const telegramMessage = `
+🚀 **Новая заявка с сайта The SIM**
 
-👤 ${t('contact.form.name')}: ${formData.name}
-📧 ${t('contact.form.email')}: ${formData.email}
- ${t('contact.form.phone')}: ${formData.phone}
- ${t('contact.form.telegram')}: ${formData.telegram}
+👤 **Имя:** ${formData.name}
+📧 **Email:** ${formData.email}
+📱 **Телефон:** ${formData.phone}
+🌐 **Соц. сеть:** ${formData.socialNetwork}
 
-⏰ Время: ${new Date().toLocaleString('ru-RU')}
-      `.trim()
+⏰ **Время:** ${new Date().toLocaleString('ru-RU')}
+🆔 **ID заявки:** ${result.lead.id}
 
-      // В реальном проекте здесь будет вызов API для отправки в Telegram
-      // console.log('Telegram message:', _telegramMessage)
+---
+💼 **Статус:** Новая заявка
+🔗 **Сайт:** ${window.location.origin}
+        `.trim()
+
+        // Отправляем в Telegram через API
+        await fetch('/api/telegram/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: telegramMessage,
+            chatId: '1262412157' // TODO: Обновить на правильный Chat ID
+          }),
+        })
+      } catch (telegramError) {
+        console.warn('Telegram notification failed:', telegramError)
+        // Не прерываем основной процесс, если Telegram не работает
+      }
       
       setStatus('success')
       setMessage(t('contact.form.success'))
@@ -63,10 +93,11 @@ export default function ContactForm() {
         name: '',
         email: '',
         phone: '',
-        telegram: ''
+        socialNetwork: '' // Обновляем здесь тоже
       })
       
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error)
       setStatus('error')
       setMessage(t('contact.form.error'))
     }
@@ -157,18 +188,18 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label htmlFor="telegram" className="block text-sm font-medium text-gray-300 mb-2">
-                  {t('contact.form.telegram')}
+                <label htmlFor="socialNetwork" className="block text-sm font-medium text-gray-300 mb-2">
+                  {t('contact.form.socialNetwork') || 'Социальная сеть / Мессенджер'}
                 </label>
                 <input
                   type="text"
-                  id="telegram"
-                  name="telegram"
-                  value={formData.telegram}
+                  id="socialNetwork"
+                  name="socialNetwork"
+                  value={formData.socialNetwork}
                   onChange={handleInputChange}
                   autoComplete="off"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder={t('contact.form.telegram')}
+                  placeholder={t('contact.form.socialNetwork') || 'Telegram, WeChat, Line, WhatsApp...'}
                 />
               </div>
 
@@ -226,7 +257,7 @@ export default function ContactForm() {
                   <Send className="w-6 h-6 text-primary-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{t('contact.info.telegram')}</div>
+                  <div className="font-semibold text-white">{t('contact.info.socialNetwork')}</div>
                   <div className="text-gray-400">@Sergey_Loye</div>
                 </div>
               </div>

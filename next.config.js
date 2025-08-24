@@ -35,6 +35,9 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion']
   },
   
+  // Standalone режим для Docker
+  output: 'standalone',
+  
   // Security headers для всех режимов
   async headers() {
     return [

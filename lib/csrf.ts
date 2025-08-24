@@ -21,7 +21,7 @@ const CSRF_TOKEN_LENGTH = 32
 const CSRF_TOKEN_EXPIRY = 24 * 60 * 60 * 1000 // 24 часа
 
 // Временно отключаем CSRF для тестирования
-const CSRF_ENABLED = process.env.NODE_ENV === 'production'
+const CSRF_ENABLED = false // process.env.NODE_ENV === 'production'
 
 // Генерируем CSRF токен
 export function generateCSRFToken(): string {

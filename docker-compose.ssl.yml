@@ -1,30 +1,21 @@
-# 🐳 TheSim - Production Docker Compose с Nginx + SSL
-version: '3.8'
-
+# 🐳 CosmicLanding - Docker Compose с SSL (HTTPS)
 services:
-  # Next.js приложение
-  app:
+  cosmiclanding:
     image: node:18-alpine
-    container_name: thesim-app
+    container_name: cosmiclanding-app-ssl
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:3002:3000"  # HTTP на порту 3002
+      - "127.0.0.1:3003:3001"  # HTTPS на порту 3003
     environment:
       - NODE_ENV=production
       - PORT=3000
       - HTTPS_PORT=3001
-      # 🔐 Security Secrets
       - JWT_SECRET=rSA4hfVLhhwa3u2dfgH8bwzbj7Q5SG9zGwnqeFLfFvYQZTYYdPnXu9cH9zqkLpks
       - ENCRYPTION_KEY=hQEhGj93DC4cQrnfbvmgYWG2WMKDqj93
       - COOKIE_SECRET=KCTe6jLdwJs9ChaBZc8XMJLqF7v5D8uZ
       - CSRF_SECRET=HmbmcNZ8g8sfhZGC8e6Vs3ESsx9Eh8ZpNAqUvjHWkT9ErcKwGr6HMkamMpdzBE4G
-      # 🌍 Allowed Origins
-      - ALLOWED_ORIGINS=http://localhost,https://localhost,https://thesim.in,https://www.thesim.in
-      # 📊 Database (если используется)
-      - DATABASE_URL=postgresql://user:password@localhost:5432/thesim
-      # 🔔 Telegram Bot для @Pavlentius2007
-      - TELEGRAM_BOT_TOKEN=7904005545:AAHizY8yva0Msd7GBBKwYak_sBD0zCQDIYk
-      - TELEGRAM_CHAT_ID=1262412157
-      # 🌐 Google Translate API (если используется)
-      - GOOGLE_TRANSLATE_API_KEY=your_google_translate_api_key
+      - ALLOWED_ORIGINS=http://localhost:3002,https://localhost:3003,https://thesim.in,https://www.thesim.in
     volumes:
       - ./app:/app/app
       - ./components:/app/components
@@ -46,29 +37,10 @@ services:
     working_dir: /app
     command: sh -c "npm install --include=dev && npm run build && npm start"
     networks:
-      - thesim-network
-    expose:
-      - "3000"
-
-  # Nginx с SSL
-  nginx:
-    image: nginx:alpine
-    container_name: thesim-nginx
-    restart: unless-stopped
-    ports:
-      - "80:80"      # HTTP
-      - "443:443"    # HTTPS
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl:/etc/nginx/ssl:ro
-      - ./public:/var/www/html:ro
-    depends_on:
-      - app
-    networks:
-      - thesim-network
+      - cosmiclanding-network
 
 networks:
-  thesim-network:
+  cosmiclanding-network:
     driver: bridge
 
 volumes:

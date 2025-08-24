@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Telegram</title>
+</head>
+<body>
+    <h1>Тест Telegram API</h1>
+    <button onclick="testTelegram()">Отправить тест в Telegram</button>
+    <div id="result"></div>
+
+    <script>
+        async function testTelegram() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Отправляем...';
+            
+            try {
+                const response = await fetch('/api/telegram/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: '🧪 **Тестовое сообщение**\n\nЭто тест Telegram API от TheSim!',
+                        chatId: '1262412157'
+                    }),
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<p style="color: green;">✅ Успешно! ${data.message}</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p style="color: red;">❌ Ошибка: ${data.error}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">❌ Ошибка: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

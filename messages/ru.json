@@ -214,7 +214,7 @@
       "name": "Имя",
       "email": "Email",
       "phone": "Телефон",
-      "telegram": "Telegram",
+      "socialNetwork": "Социальная сеть",
       "submit": "Отправить заявку",
       "success": "Спасибо! Мы свяжемся с вами в ближайшее время.",
       "error": "Произошла ошибка. Попробуйте еще раз.",
@@ -223,7 +223,7 @@
     "info": {
       "title": "Свяжитесь с нами",
       "description": "Готовы ответить на все ваши вопросы и помочь начать инвестировать с The SIM",
-      "telegram": "Telegram",
+      "socialNetwork": "Социальная сеть",
       "email": "Email",
       "support": "Поддержка 24/7",
       "supportHours": "Круглосуточно"
@@ -248,7 +248,7 @@
       "support": {
         "title": "Поддержка",
         "contact": "Контакты",
-        "telegram": "Telegram",
+        "socialNetwork": "Социальная сеть",
         "email": "Email",
         "help": "Помощь"
       },
