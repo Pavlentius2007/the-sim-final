@@ -104,7 +104,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" suppressHydrationWarning>
       {/* Background Elements */}
       {/* Убираем градиентные фоны */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-dark-800 to-dark-900"></div> */}

@@ -7,24 +7,12 @@ services:
     image: node:18-alpine
     container_name: thesim-app
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - PORT=3000
       - HTTPS_PORT=3001
-      # 🔐 Security Secrets
-      - JWT_SECRET=rSA4hfVLhhwa3u2dfgH8bwzbj7Q5SG9zGwnqeFLfFvYQZTYYdPnXu9cH9zqkLpks
-      - ENCRYPTION_KEY=hQEhGj93DC4cQrnfbvmgYWG2WMKDqj93
-      - COOKIE_SECRET=KCTe6jLdwJs9ChaBZc8XMJLqF7v5D8uZ
-      - CSRF_SECRET=HmbmcNZ8g8sfhZGC8e6Vs3ESsx9Eh8ZpNAqUvjHWkT9ErcKwGr6HMkamMpdzBE4G
-      # 🌍 Allowed Origins
-      - ALLOWED_ORIGINS=http://localhost,https://localhost,https://thesim.in,https://www.thesim.in
-      # 📊 Database (если используется)
-      - DATABASE_URL=postgresql://user:password@localhost:5432/thesim
-      # 🔔 Telegram Bot для @Pavlentius2007
-      - TELEGRAM_BOT_TOKEN=7904005545:AAHizY8yva0Msd7GBBKwYak_sBD0zCQDIYk
-      - TELEGRAM_CHAT_ID=1262412157
-      # 🌐 Google Translate API (если используется)
-      - GOOGLE_TRANSLATE_API_KEY=your_google_translate_api_key
     volumes:
       - ./app:/app/app
       - ./components:/app/components

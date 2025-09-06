@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Shield, TrendingUp, Zap, BarChart3 } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
-import LiveDashboard from './LiveDashboard'
+import DashboardVideo from './DashboardVideo'
 
 export default function About() {
   const { t } = useTranslations()
@@ -37,7 +37,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden" suppressHydrationWarning>
       {/* Убираем градиентные фоны */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-800"></div> */}
       {/* <div className="absolute top-0 left-0 w-full h-full opacity-30">
@@ -96,10 +96,15 @@ export default function About() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
                      {/* Live Dashboard */}
-           <LiveDashboard 
-             videoSrc="/videos/dashboard/DEMO.mp4"  // Демо видео с сервера
-             fallbackImage="/images/dashboard-preview.jpg"
-           />
+           <div className="space-y-4">
+             <h4 className="text-lg font-semibold text-blue-400 text-center">
+               Демоверсия личного кабинета
+             </h4>
+             <DashboardVideo 
+               videoSrc="/videos/dashboard/DEMO.mp4"
+               fallbackImage="/images/dashboard-preview.jpg"
+             />
+           </div>
 
           {/* Content */}
           <div>

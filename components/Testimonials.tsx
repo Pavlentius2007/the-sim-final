@@ -74,7 +74,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" suppressHydrationWarning>
       {/* Background Elements */}
       {/* Убираем градиентные фоны */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-800"></div> */}

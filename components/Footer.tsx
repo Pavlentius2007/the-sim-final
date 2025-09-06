@@ -14,7 +14,7 @@ export default function Footer({ currentLocale }: FooterProps) {
   const { t } = useTranslations()
 
   return (
-    <footer className="relative overflow-hidden">
+    <footer className="relative overflow-hidden" suppressHydrationWarning>
       {/* Убираем градиентные фоны */}
       {/* <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-dark-800"></div> */}
       {/* <div className="absolute top-0 left-0 w-full h-full opacity-30">

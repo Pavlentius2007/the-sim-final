@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Play, Video as VideoIcon, Settings, Clock, Globe } from 'lucide-react'
-import { useState, useEffect, useRef } from 'react'
+import { Play, Video as VideoIcon } from 'lucide-react'
+import React, { useState, useRef } from 'react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { useParams } from 'next/navigation'
-import Image from 'next/image'
 
 export default function Video() {
   const { t } = useTranslations()
@@ -18,10 +17,15 @@ export default function Video() {
 
   const [showVideo, setShowVideo] = useState(false)
   const [selectedQuality, setSelectedQuality] = useState<'480p' | '720p' | '1080p'>('720p')
+  const [currentLanguage, setCurrentLanguage] = useState('en')
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  // Получаем текущий язык
-  const currentLanguage = params.locale as string || 'en'
+  // Получаем текущий язык с проверкой на клиенте
+  React.useEffect(() => {
+    if (params.locale) {
+      setCurrentLanguage(params.locale as string)
+    }
+  }, [params.locale])
 
   // Прямые пути к видео файлам для каждого языка
   const getVideoPaths = (language: string) => {
@@ -37,17 +41,13 @@ export default function Video() {
   const currentVideoPath = videoPaths[selectedQuality]
   
   // Отладочная информация
-  console.log('🎬 Video component loaded:', {
-    currentLanguage,
-    videoPaths,
-    currentVideoPath
-  })
+  // Video component loaded
   
 
   // Логика установки первого кадра теперь в onLoadedMetadata
 
   return (
-    <section ref={ref} className="relative py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="relative py-20 px-4 sm:px-6 lg:px-8" suppressHydrationWarning>
       
       {/* Content */}
       <div className="relative max-w-7xl mx-auto">
@@ -91,19 +91,17 @@ export default function Video() {
                     loop
                     playsInline
                     poster="/images/dashboard-preview.jpg"
-                    onLoadStart={() => console.log('🎬 Video load started:', videoPaths[selectedQuality])}
-                    onLoadedData={() => console.log('🎬 Video loaded:', videoPaths[selectedQuality])}
+                    onLoadStart={() => {}}
+                    onLoadedData={() => {}}
                     onLoadedMetadata={() => {
-                      console.log('🎬 Video metadata loaded');
                       if (videoRef.current) {
                         videoRef.current.play().catch(() => {
-                          console.log('🎬 Autoplay prevented');
+                          // Autoplay prevented
                         });
                       }
                     }}
-                    onError={(e) => {
-                      console.error('🎬 Video error:', e);
-                      console.error('🎬 Video src:', videoPaths[selectedQuality]);
+                    onError={(_e) => {
+                      // Video error handled
                     }}
                   >
                     <source src={videoPaths[selectedQuality]} type="video/mp4" />
@@ -125,7 +123,7 @@ export default function Video() {
                             video.addEventListener('loadedmetadata', () => {
                               video.currentTime = currentTime;
                               video.play().catch(() => {
-                                console.log('🎬 Autoplay prevented after quality change');
+                                // Autoplay prevented after quality change
                               });
                             }, { once: true });
                           }

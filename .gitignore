@@ -1,4 +1,3 @@
-@"
 # Dependencies
 node_modules/
 .pnp
@@ -16,7 +15,6 @@ node_modules/
 
 # Misc
 .DS_Store
-*.pem
 
 # Debug
 npm-debug.log*
@@ -37,7 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Videos (НЕ добавляем в git)
+# Видео файлы (загружаются отдельно на сервер)
 public/videos/
 *.mp4
 *.avi
@@ -46,9 +44,10 @@ public/videos/
 *.mkv
 
 # SSL certificates
-ssl/
-*.pem
-*.key
+ssl/cert.pem
+ssl/key.pem
+ssl/*.crt
+ssl/*.key
 
 # Logs
 *.log
@@ -59,4 +58,3 @@ ssl/
 
 # Duplicate project folder
 the-sim-final/
-"@ | Out-File -FilePath ".gitignore" -Encoding UTF8

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 🚀 CosmicLanding - Скрипт развертывания для продакшена
+# 🚀 TheSim - Скрипт развертывания для продакшена
 # Автоматическое развертывание с Nginx и SSL
 
 set -e
 
-echo "🚀 Запуск развертывания CosmicLanding в продакшене..."
+echo "🚀 Запуск развертывания TheSim в продакшене..."
 
 # Цвета для вывода
 RED='\033[0;31m'
@@ -81,7 +81,7 @@ docker system prune -f
 print_status "Собираем Docker образ..."
 docker-compose -f docker-compose.prod.yml build --no-cache
 
-print_status "Запускаем CosmicLanding в продакшене..."
+print_status "Запускаем TheSim в продакшене..."
 docker-compose -f docker-compose.prod.yml up -d
 
 # Ждем запуска
@@ -94,20 +94,20 @@ docker-compose -f docker-compose.prod.yml ps
 
 # Проверяем здоровье сервисов
 print_status "Проверяем здоровье сервисов..."
-if docker-compose -f docker-compose.prod.yml exec -T cosmiclanding-app curl -f http://localhost:3000/api/health >/dev/null 2>&1; then
+if docker-compose -f docker-compose.prod.yml exec -T thesim-app curl -f http://localhost:3000/api/health >/dev/null 2>&1; then
     print_success "Приложение запущено и отвечает!"
 else
     print_warning "Приложение может еще запускаться. Проверьте логи: docker-compose -f docker-compose.prod.yml logs -f"
 fi
 
 # Проверяем nginx
-if docker-compose -f docker-compose.prod.yml exec -T cosmiclanding-nginx nginx -t >/dev/null 2>&1; then
+if docker-compose -f docker-compose.prod.yml exec -T thesim-nginx nginx -t >/dev/null 2>&1; then
     print_success "Nginx настроен корректно!"
 else
     print_error "Проблема с конфигурацией Nginx!"
 fi
 
-print_success "CosmicLanding успешно развернут в продакшене!"
+print_success "TheSim успешно развернут в продакшене!"
 echo ""
 echo "🌐 Приложение доступно по адресам:"
 echo "  HTTP:  http://localhost"
@@ -115,7 +115,7 @@ echo "  HTTPS: https://localhost"
 echo ""
 echo "📋 Полезные команды:"
 echo "  Просмотр логов: docker-compose -f docker-compose.prod.yml logs -f"
-echo "  Логи приложения: docker-compose -f docker-compose.prod.yml logs -f cosmiclanding"
+echo "  Логи приложения: docker-compose -f docker-compose.prod.yml logs -f app"
 echo "  Логи nginx: docker-compose -f docker-compose.prod.yml logs -f nginx"
 echo "  Остановка: docker-compose -f docker-compose.prod.yml down"
 echo "  Перезапуск: docker-compose -f docker-compose.prod.yml restart"

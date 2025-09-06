@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+// import Hero from '@/components/Hero'
 import HeroServer from '@/components/HeroServer'
 import About from '@/components/About'
 import Benefits from '@/components/Benefits'
@@ -34,9 +34,9 @@ export default function LocalePage({
   const currentMessages = messages[locale as keyof typeof messages] || messages.ru
   
   return (
-    <main className="min-h-screen relative overflow-x-hidden">
+    <main className="min-h-screen relative overflow-x-hidden" suppressHydrationWarning>
       {/* Navigation Controls */}
-      <div className="fixed top-4 right-4 z-50 flex items-center gap-3">
+      <div className="fixed top-4 right-4 z-50 flex items-center gap-3" suppressHydrationWarning>
         <ClientOnly>
           <PersonalCabinetButton />
         </ClientOnly>

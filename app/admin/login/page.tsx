@@ -93,7 +93,7 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4" suppressHydrationWarning>
       <div className="w-full max-w-md">
         {/* Логотип и заголовок */}
         <div className="text-center mb-8">
