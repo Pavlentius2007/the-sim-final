@@ -58,3 +58,8 @@ ssl/*.key
 
 # Duplicate project folder
 the-sim-final/
+# Video archives
+*.tar.gz
+*.zip
+videos.tar*
+videos.zip
