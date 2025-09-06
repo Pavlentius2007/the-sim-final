@@ -1,6 +1,5 @@
-'use client'
-
 import Hero from '@/components/Hero'
+import HeroServer from '@/components/HeroServer'
 import About from '@/components/About'
 import Benefits from '@/components/Benefits'
 import Video from '@/components/Video'
@@ -12,47 +11,81 @@ import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import PersonalCabinetButton from '@/components/PersonalCabinetButton'
+import ClientOnly from '@/components/ClientOnly'
 
-import { useTranslations } from '@/hooks/useTranslations'
+// Импортируем переводы напрямую
+import ruMessages from '@/messages/ru.json'
+import enMessages from '@/messages/en.json'
+import zhMessages from '@/messages/zh.json'
+import thMessages from '@/messages/th.json'
+
+const messages = {
+  ru: ruMessages,
+  en: enMessages,
+  zh: zhMessages,
+  th: thMessages
+}
 
 export default function LocalePage({ 
   params: { locale } 
 }: { 
   params: { locale: string } 
 }) {
-  const { t: _t, isLoading } = useTranslations(locale as 'ru' | 'en' | 'zh' | 'th')
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <div className="text-white">Загрузка...</div>
-      </div>
-    )
-  }
-
+  const currentMessages = messages[locale as keyof typeof messages] || messages.ru
+  
   return (
     <main className="min-h-screen relative overflow-x-hidden">
       {/* Navigation Controls */}
       <div className="fixed top-4 right-4 z-50 flex items-center gap-3">
-        <PersonalCabinetButton />
-        <LanguageSwitcher currentLocale={locale} />
+        <ClientOnly>
+          <PersonalCabinetButton />
+        </ClientOnly>
+        <ClientOnly>
+          <LanguageSwitcher currentLocale={locale} />
+        </ClientOnly>
       </div>
       
       {/* Контент страницы с космическими эффектами */}
       <div className="relative z-10">
-                 <Hero />
-         <About />
-        <Benefits />
-        <Video />
-        <Security />
-        <Investment />
-        <Testimonials />
-        <FAQ />
+        <HeroServer
+          title={currentMessages.hero?.title || 'Управление цифровыми активами'}
+          subtitle={currentMessages.hero?.subtitle || 'Защита капитала и умные инвестиции'}
+          ctaButton={currentMessages.hero?.ctaButton || 'Начать инвестировать'}
+          learnMore={currentMessages.hero?.learnMore || 'Узнать больше'}
+          managedAssets={currentMessages.hero?.stats?.managedAssets || 'Управляемых активов'}
+          satisfiedClients={currentMessages.hero?.stats?.satisfiedClients || 'Довольных клиентов'}
+          support={currentMessages.hero?.stats?.support || 'Поддержка'}
+        />
+        <ClientOnly>
+          <About />
+        </ClientOnly>
+        <ClientOnly>
+          <Benefits />
+        </ClientOnly>
+        <ClientOnly>
+          <Video />
+        </ClientOnly>
+        <ClientOnly>
+          <Security />
+        </ClientOnly>
+        <ClientOnly>
+          <Investment />
+        </ClientOnly>
+        <ClientOnly>
+          <Testimonials />
+        </ClientOnly>
+        <ClientOnly>
+          <FAQ />
+        </ClientOnly>
         <div id="contact-form">
-          <ContactForm />
+          <ClientOnly>
+            <ContactForm />
+          </ClientOnly>
         </div>
         
-        <Footer currentLocale={locale} />
+        <ClientOnly>
+          <Footer currentLocale={locale} />
+        </ClientOnly>
       </div>
     </main>
   )

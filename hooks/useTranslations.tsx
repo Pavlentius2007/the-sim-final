@@ -30,7 +30,22 @@ export function useLocale() {
   return useContext(LocaleContext)
 }
 
-// Загрузка переводов
+// Загрузка переводов синхронно для серверного рендеринга
+function loadMessagesSync(locale: Locale): Messages {
+  try {
+    // Для серверного рендеринга используем require
+    if (typeof window === 'undefined') {
+      const messages = require(`../messages/${locale}.json`)
+      return messages
+    }
+    return {}
+  } catch (error) {
+    console.error(`Failed to load messages for locale: ${locale}`, error)
+    return {}
+  }
+}
+
+// Асинхронная загрузка переводов для клиента
 async function loadMessages(locale: Locale): Promise<Messages> {
   try {
     const messages = await import(`../messages/${locale}.json`)
@@ -46,18 +61,27 @@ export function useTranslations(locale?: Locale) {
   const contextLocale = useLocale()
   const currentLocale = locale || contextLocale
   
-  const [messages, setMessages] = useState<Messages>({})
-  const [isLoading, setIsLoading] = useState(true)
+  const [messages, setMessages] = useState<Messages>(() => {
+    // Инициализируем с синхронно загруженными переводами для сервера
+    if (typeof window === 'undefined') {
+      return loadMessagesSync(currentLocale)
+    }
+    return {}
+  })
+  const [isLoading, setIsLoading] = useState(typeof window !== 'undefined')
 
   useEffect(() => {
-    const loadMessagesForLocale = async () => {
-      setIsLoading(true)
-      const loadedMessages = await loadMessages(currentLocale)
-      setMessages(loadedMessages)
-      setIsLoading(false)
-    }
+    // Загружаем переводы асинхронно только на клиенте
+    if (typeof window !== 'undefined') {
+      const loadMessagesForLocale = async () => {
+        setIsLoading(true)
+        const loadedMessages = await loadMessages(currentLocale)
+        setMessages(loadedMessages)
+        setIsLoading(false)
+      }
 
-    loadMessagesForLocale()
+      loadMessagesForLocale()
+    }
   }, [currentLocale])
 
   const t = (key: string, fallback?: string): string => {

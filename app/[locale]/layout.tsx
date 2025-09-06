@@ -3,7 +3,7 @@ import { Inter, Manrope } from 'next/font/google'
 import '../globals.css'
 import { LocaleProvider } from '@/hooks/useTranslations'
 import GlobalStarryBackground from '@/components/GlobalStarryBackground'
-import StructuredData from '@/components/StructuredData'
+import ClientOnly from '@/components/ClientOnly'
 
 
 const inter = Inter({
@@ -130,15 +130,29 @@ export default async function LocaleLayout({
         {/* Content Security Policy */}
         <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none';" />
         
-        {/* Структурированные данные для SEO */}
-        <StructuredData locale={locale} baseUrl="https://94.141.162.192" />
+        {/* Структурированные данные для SEO - встроенные */}
+        <script 
+          type="application/ld+json"
+          suppressHydrationWarning={true}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization", 
+              "name": "TheSim",
+              "url": "https://94.141.162.192",
+              "logo": "https://94.141.162.192/logo.svg",
+              "description": locale === 'ru' 
+                ? "Ведущая платформа управления цифровыми активами с защитой капитала"
+                : "Leading digital asset management platform with capital protection"
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} antialiased`}>
         <LocaleProvider locale={locale as 'ru' | 'en' | 'zh' | 'th'}>
-          {/* Космический фон - позади всего */}
-          <GlobalStarryBackground intensity="high" className="z-0" />
-
-          {/* Контент - поверх звезд */}
+          <ClientOnly>
+            <GlobalStarryBackground intensity="high" className="z-0" />
+          </ClientOnly>
           <div className="relative z-20">
             {children}
           </div>

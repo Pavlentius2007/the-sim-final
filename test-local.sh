@@ -46,3 +46,4 @@ echo ""
 echo "📝 Для просмотра логов: docker-compose -f docker-compose.prod.yml logs -f"
 echo "🛑 Для остановки: docker-compose -f docker-compose.prod.yml down"
 
+

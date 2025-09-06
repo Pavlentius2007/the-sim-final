@@ -48,6 +48,8 @@ export default function GlobalStarryBackground({
 
   // Инициализация размера окна с throttling
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     let resizeTimeout: NodeJS.Timeout
     
     const updateWindowSize = () => {
@@ -100,6 +102,8 @@ export default function GlobalStarryBackground({
 
   // Обработчик скролла с throttling
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     let scrollTimeout: NodeJS.Timeout
 
     const handleScroll = () => {
@@ -214,6 +218,11 @@ export default function GlobalStarryBackground({
       }
     }
   }, [animateStars, windowSize.width, windowSize.height])
+
+  // Не рендерим на сервере
+  if (typeof window === 'undefined') {
+    return null
+  }
 
   return (
     <canvas

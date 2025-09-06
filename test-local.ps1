@@ -59,3 +59,4 @@ Write-Host ""
 Write-Host "📝 Для просмотра логов: docker-compose -f docker-compose.prod.yml logs -f" -ForegroundColor Gray
 Write-Host "🛑 Для остановки: docker-compose -f docker-compose.prod.yml down" -ForegroundColor Gray
 
+
