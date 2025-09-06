@@ -17,7 +17,7 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       title: 'The SIM - Complete Platform Overview',
       description: 'Learn how our platform works and how it can help you invest safely',
       youtubeUrl: '/videos/en/sim-overview-720p.mp4', // 720p как основное
-      thumbnail: '/videos/en/sim-overview-720p.mp4',
+      thumbnail: '/videos/en/sim-overview-480p.mp4', // Используем 480p для превью
       duration: '2:25',
       quality: 'HD',
       language: 'English',
@@ -38,7 +38,7 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       title: 'The SIM - 完整平台概述',
       description: '了解我们平台如何工作以及如何帮助您安全投资',
       youtubeUrl: '/videos/zh/sim-overview-720p.mp4', // 720p как основное
-      thumbnail: '/videos/zh/sim-overview-720p.mp4',
+      thumbnail: '/videos/zh/sim-overview-480p.mp4', // Используем 480p для превью
       duration: '2:25',
       quality: '高清',
       language: '中文',
@@ -59,7 +59,7 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       title: 'The SIM - Полный обзор платформы',
       description: 'Узнайте, как работает наша платформа и как она может помочь вам инвестировать',
       youtubeUrl: '/videos/ru/sim-overview-720p.mp4', // 720p как основное
-      thumbnail: '/videos/ru/sim-overview-720p.mp4',
+      thumbnail: '/videos/ru/sim-overview-480p.mp4', // Используем 480p для превью
       duration: '2:25',
       quality: 'HD',
       language: 'Русский',
@@ -80,7 +80,7 @@ export const videoData: { [languageCode: string]: ExtendedVideoData[] } = {
       title: 'The SIM - ภาพรวมแพลตฟอร์มที่สมบูรณ์',
       description: 'เรียนรู้ว่าแพลตฟอร์มของเราทำงานอย่างไรและช่วยให้คุณลงทุนได้อย่างปลอดภัย',
       youtubeUrl: '/videos/th/sim-overview-720p.mp4', // 720p как основное
-      thumbnail: '/videos/th/sim-overview-720p.mp4',
+      thumbnail: '/videos/th/sim-overview-480p.mp4', // Используем 480p для превью
       duration: '2:25',
       quality: 'HD',
       language: 'ไทย',

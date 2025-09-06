@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react'
 interface FAQItem {
   question: string
   answer: string
+  supportedAssets?: string[]
 }
 
 export default function FAQ() {
@@ -26,7 +27,13 @@ export default function FAQ() {
     },
     {
       question: t('faq.cryptocurrencies.question') || 'Какие криптовалюты поддерживаются?',
-      answer: t('faq.cryptocurrencies.answer') || 'Поддерживаются все топовые криптовалюты: Bitcoin, Ethereum, BNB, Solana, Cardano, а также популярные DeFi токены. Мы постоянно анализируем рынок и добавляем перспективные активы с высокой ликвидностью.'
+      answer: t('faq.cryptocurrencies.answer') || 'Поддерживаются все топовые криптовалюты: Bitcoin, Ethereum, BNB, Solana, Cardano, а также популярные DeFi токены. Мы постоянно анализируем рынок и добавляем перспективные активы с высокой ликвидностью.',
+      supportedAssets: [
+        "BTC", "ETH", "BNB", "SOL", "ADA", "XRP", "DOGE", "AVAX", "MATIC", "DOT",
+        "LINK", "UNI", "AAVE", "COMP", "CRV", "LDO", "PENDLE", "RENDER", "SUI", "TAO",
+        "1INCH", "BONK", "ENA", "ENS", "ETHFI", "JTO", "JUP", "PEPE", "RAY", "RED",
+        "RESOLV", "REZ", "SPK", "ZRO"
+      ]
     },
     {
       question: t('faq.investmentStart.question') || 'Как начать инвестировать с TheSim?',
@@ -119,9 +126,29 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="mt-4 pt-4 border-t border-white/10"
                   >
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-gray-300 leading-relaxed mb-4">
                       {item.answer}
                     </p>
+                    
+                    {item.supportedAssets && Array.isArray(item.supportedAssets) && (
+                      <div className="mt-4">
+                        <h4 className="text-sm font-semibold text-white mb-3">
+                          Поддерживаемые активы:
+                        </h4>
+                        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                          {item.supportedAssets.map((asset, assetIndex) => (
+                            <div
+                              key={assetIndex}
+                              className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-lg px-3 py-2 text-center border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300"
+                            >
+                              <span className="text-xs font-medium text-blue-300">
+                                {asset}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </motion.div>
                 )}
               </button>

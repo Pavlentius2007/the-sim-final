@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Star, Quote } from 'lucide-react'
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
+import { useState } from 'react'
 
 export default function Testimonials() {
   const { t } = useTranslations()
@@ -11,33 +12,66 @@ export default function Testimonials() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const testimonials = [
     {
-      name: t('testimonials.items.ivan.name'),
-      role: t('testimonials.items.ivan.role'),
+      name: t('testimonials.items.anton.name'),
+      role: t('testimonials.items.anton.role'),
       avatar: '/api/placeholder/60/60',
-      content: t('testimonials.items.ivan.content'),
+      content: t('testimonials.items.anton.content'),
       rating: 5,
-      highlight: t('testimonials.items.ivan.highlight')
+      highlight: t('testimonials.items.anton.highlight')
     },
     {
-      name: t('testimonials.items.maria.name'),
-      role: t('testimonials.items.maria.role'),
+      name: t('testimonials.items.lyudmila.name'),
+      role: t('testimonials.items.lyudmila.role'),
       avatar: '/api/placeholder/60/60',
-      content: t('testimonials.items.maria.content'),
+      content: t('testimonials.items.lyudmila.content'),
       rating: 5,
-      highlight: t('testimonials.items.maria.highlight')
+      highlight: t('testimonials.items.lyudmila.highlight')
     },
     {
-      name: t('testimonials.items.oleg.name'),
-      role: t('testimonials.items.oleg.role'),
+      name: t('testimonials.items.nattapong.name'),
+      role: t('testimonials.items.nattapong.role'),
       avatar: '/api/placeholder/60/60',
-      content: t('testimonials.items.oleg.content'),
+      content: t('testimonials.items.nattapong.content'),
       rating: 5,
-      highlight: t('testimonials.items.oleg.highlight')
+      highlight: t('testimonials.items.nattapong.highlight')
+    },
+    {
+      name: t('testimonials.items.david.name'),
+      role: t('testimonials.items.david.role'),
+      avatar: '/api/placeholder/60/60',
+      content: t('testimonials.items.david.content'),
+      rating: 5,
+      highlight: t('testimonials.items.david.highlight')
+    },
+    {
+      name: t('testimonials.items.zhanna.name'),
+      role: t('testimonials.items.zhanna.role'),
+      avatar: '/api/placeholder/60/60',
+      content: t('testimonials.items.zhanna.content'),
+      rating: 5,
+      highlight: t('testimonials.items.zhanna.highlight')
+    },
+    {
+      name: t('testimonials.items.olivier.name'),
+      role: t('testimonials.items.olivier.role'),
+      avatar: '/api/placeholder/60/60',
+      content: t('testimonials.items.olivier.content'),
+      rating: 5,
+      highlight: t('testimonials.items.olivier.highlight')
     }
   ]
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % (testimonials.length - 2))
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + (testimonials.length - 2)) % (testimonials.length - 2))
+  }
 
   return (
     <section className="py-20 relative overflow-hidden">
@@ -64,65 +98,103 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          className="relative mb-16"
         >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className="group"
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
+          >
+            <ChevronLeft className="w-6 h-6 text-white group-hover:text-primary-400" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
+          >
+            <ChevronRight className="w-6 h-6 text-white group-hover:text-primary-400" />
+          </button>
+
+          {/* Carousel Container */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
             >
-              <div className="glass rounded-2xl p-8 h-full hover-lift relative">
-                {/* Quote Icon */}
-                <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <Quote className="w-8 h-8 text-primary-500" />
-                </div>
-                
-                {/* Rating */}
-                <div className="flex items-center mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                {/* Content */}
-                <div className="mb-6">
-                  <p className="text-gray-300 leading-relaxed">
-                    {testimonial.content.split(testimonial.highlight).map((part, i, arr) => (
-                      <span key={i}>
-                        {part}
-                        {i < arr.length - 1 && (
-                          <span className="text-primary-400 font-semibold">
-                            {testimonial.highlight}
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  className="w-1/3 px-4 flex-shrink-0"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                >
+                  <div className="glass rounded-2xl p-8 h-full hover-lift relative group">
+                    {/* Quote Icon */}
+                    <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <Quote className="w-8 h-8 text-primary-500" />
+                    </div>
+                    
+                    {/* Rating */}
+                    <div className="flex items-center mb-6">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="mb-6">
+                      <p className="text-gray-300 leading-relaxed">
+                        {testimonial.content.split(testimonial.highlight).map((part, i, arr) => (
+                          <span key={i}>
+                            {part}
+                            {i < arr.length - 1 && (
+                              <span className="text-primary-400 font-semibold">
+                                {testimonial.highlight}
+                              </span>
+                            )}
                           </span>
-                        )}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-                
-                {/* Author */}
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-semibold text-sm">
-                      {testimonial.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                        ))}
+                      </p>
+                    </div>
+                    
+                    {/* Author */}
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
+                        <span className="text-white font-semibold text-sm">
+                          {testimonial.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-white">{testimonial.name}</div>
+                        <div className="text-sm text-gray-400">{testimonial.role}</div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-white">{testimonial.name}</div>
-                    <div className="text-sm text-gray-400">{testimonial.role}</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: testimonials.length - 2 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-primary-500 scale-125' 
+                    : 'bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
         </motion.div>
 
         {/* CTA Section */}
