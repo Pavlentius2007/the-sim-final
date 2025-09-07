@@ -228,7 +228,7 @@ export default function PrivacyPage({
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-primary-900/20">
+      <section className="relative py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div

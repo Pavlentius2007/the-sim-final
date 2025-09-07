@@ -273,6 +273,7 @@
       "support": {
         "title": "Support",
         "contact": "Contact",
+        "telegram": "Telegram",
         "socialNetwork": "Social Network",
         "email": "Email",
         "help": "Help"
@@ -334,5 +335,24 @@
     },
     "contactText": "Didn't find an answer to your question?",
     "contactButton": "Contact Us"
+  },
+  "cookies": {
+    "title": "Cookie Files",
+    "subtitle": "We use cookies",
+    "description": "We use cookies to improve your experience on our site, personalize content and analyze traffic. Your privacy is important to us.",
+    "acceptAll": "Accept All",
+    "reject": "Reject",
+    "showDetails": "Learn More",
+    "hideDetails": "Hide",
+    "learnMore": "Learn more about cookies",
+    "necessary": {
+      "title": "Necessary cookies",
+      "description": "These files are necessary for the site to work and cannot be disabled.",
+      "only": "Necessary Only"
+    },
+    "analytics": {
+      "title": "Analytics cookies", 
+      "description": "Help us understand how visitors interact with the site."
+    }
   }
 }

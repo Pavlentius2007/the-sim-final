@@ -28,8 +28,8 @@ export default function Footer({ currentLocale }: FooterProps) {
           transition={{ duration: 0.8 }}
           className="py-8 lg:py-12"
         >
-          {/* Company Info and Links Grid - Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-6">
+          {/* Company Info and Links Grid - Mobile First Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
             {/* Left Column - Company Info */}
             <div>
               <div className="mb-4">

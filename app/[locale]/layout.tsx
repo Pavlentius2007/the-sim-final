@@ -4,6 +4,7 @@ import '../globals.css'
 import { LocaleProvider } from '@/hooks/useTranslations'
 import GlobalStarryBackground from '@/components/GlobalStarryBackground'
 import ClientOnly from '@/components/ClientOnly'
+import CookieConsent from '@/components/CookieConsent'
 
 
 const inter = Inter({
@@ -160,6 +161,9 @@ export default async function LocaleLayout({
           <div className="relative z-20">
             {children}
           </div>
+          <ClientOnly>
+            <CookieConsent currentLocale={locale} />
+          </ClientOnly>
         </LocaleProvider>
       </body>
     </html>

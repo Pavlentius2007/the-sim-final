@@ -334,5 +334,24 @@
     },
     "contactText": "没有找到您问题的答案？",
     "contactButton": "联系我们"
+  },
+  "cookies": {
+    "title": "Cookie文件",
+    "subtitle": "我们使用cookies",
+    "description": "我们使用cookies来改善您在我们网站上的体验，个性化内容和分析流量。您的隐私对我们很重要。",
+    "acceptAll": "接受全部",
+    "reject": "拒绝",
+    "showDetails": "了解更多",
+    "hideDetails": "隐藏",
+    "learnMore": "了解更多关于cookies",
+    "necessary": {
+      "title": "必要的cookies",
+      "description": "这些文件是网站工作所必需的，不能被禁用。",
+      "only": "仅必要"
+    },
+    "analytics": {
+      "title": "分析cookies",
+      "description": "帮助我们了解访问者如何与网站互动。"
+    }
   }
 }
