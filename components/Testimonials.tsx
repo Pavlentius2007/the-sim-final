@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Testimonials() {
   const { t } = useTranslations()
@@ -13,6 +13,18 @@ export default function Testimonials() {
     threshold: 0.1,
   })
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Проверяем размер экрана
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
 
   const testimonials = [
     {
@@ -66,11 +78,15 @@ export default function Testimonials() {
   ]
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % (testimonials.length - 2))
+    // На мобильном показываем по 1 отзыву, на десктопе по 3
+    const maxIndex = isMobile ? testimonials.length - 1 : testimonials.length - 3
+    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1))
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + (testimonials.length - 2)) % (testimonials.length - 2))
+    // На мобильном показываем по 1 отзыву, на десктопе по 3  
+    const maxIndex = isMobile ? testimonials.length - 1 : testimonials.length - 3
+    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1))
   }
 
   return (
@@ -108,33 +124,37 @@ export default function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
+            className="absolute left-0 md:left-0 md:-translate-x-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
           >
-            <ChevronLeft className="w-6 h-6 text-white group-hover:text-primary-400" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-primary-400" />
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
+            className="absolute right-0 md:right-0 md:translate-x-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
           >
-            <ChevronRight className="w-6 h-6 text-white group-hover:text-primary-400" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-primary-400" />
           </button>
 
           {/* Carousel Container */}
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+              style={{ 
+                transform: isMobile 
+                  ? `translateX(-${currentIndex * 100}%)` 
+                  : `translateX(-${currentIndex * 33.333}%)`
+              }}
             >
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={index}
-                  className="w-1/3 px-4 flex-shrink-0"
+                  className="w-full md:w-1/3 px-2 md:px-4 flex-shrink-0"
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 >
-                  <div className="glass rounded-2xl p-8 h-full hover-lift relative group">
+                  <div className="glass rounded-2xl p-6 md:p-8 h-full hover-lift relative group">
                     {/* Quote Icon */}
                     <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
                       <Quote className="w-8 h-8 text-primary-500" />
@@ -149,7 +169,7 @@ export default function Testimonials() {
                     
                     {/* Content */}
                     <div className="mb-6">
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-gray-300 leading-relaxed text-sm md:text-base line-clamp-4 md:line-clamp-none">
                         {testimonial.content.split(testimonial.highlight).map((part, i, arr) => (
                           <span key={i}>
                             {part}
@@ -183,7 +203,9 @@ export default function Testimonials() {
 
           {/* Dots Indicator */}
           <div className="flex justify-center mt-8 space-x-2">
-            {Array.from({ length: testimonials.length - 2 }).map((_, index) => (
+            {Array.from({ 
+              length: isMobile ? testimonials.length : testimonials.length - 2 
+            }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}

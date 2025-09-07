@@ -378,3 +378,20 @@ input, button, select, textarea {
 .shine-effect:hover::before {
   left: 100%;
 }
+
+/* Line clamp utilities for mobile testimonials */
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .md\:line-clamp-none {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+  }
+}
