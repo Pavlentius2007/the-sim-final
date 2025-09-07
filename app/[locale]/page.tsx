@@ -36,7 +36,7 @@ export default function LocalePage({
   return (
     <main className="min-h-screen relative overflow-x-hidden" suppressHydrationWarning>
       {/* Navigation Controls */}
-      <div className="fixed top-4 right-4 z-50 flex items-center gap-3" suppressHydrationWarning>
+      <div className="fixed top-2 right-2 md:top-4 md:right-4 z-50 flex items-center gap-2 md:gap-3" suppressHydrationWarning>
         <ClientOnly>
           <PersonalCabinetButton />
         </ClientOnly>

@@ -202,9 +202,12 @@ export default function Footer({ currentLocale }: FooterProps) {
 
           {/* Bottom Bar */}
           <div className="border-t border-gray-800 pt-6">
-            <div className="text-center">
+            <div className="text-center space-y-2">
               <p className="text-gray-400 text-sm">
                 {t('footer.copyright')}
+              </p>
+              <p className="text-gray-500 text-xs">
+                {t('footer.creator')}
               </p>
             </div>
           </div>
