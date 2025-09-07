@@ -51,50 +51,19 @@ export default function ContactForm() {
 
       const result = await response.json()
       
-      // Отправляем уведомление в Telegram
-      try {
-        const telegramMessage = `
-🚀 **Новая заявка с сайта The SIM**
-
-👤 **Имя:** ${formData.name}
-📧 **Email:** ${formData.email}
-📱 **Телефон:** ${formData.phone}
-🌐 **Соц. сеть:** ${formData.socialNetwork}
-
-⏰ **Время:** ${new Date().toLocaleString('ru-RU')}
-🆔 **ID заявки:** ${result.lead.id}
-
----
-💼 **Статус:** Новая заявка
-🔗 **Сайт:** ${window.location.origin}
-        `.trim()
-
-        // Отправляем в Telegram через API
-        await fetch('/api/telegram/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            message: telegramMessage,
-            chatId: '1262412157' // TODO: Обновить на правильный Chat ID
-          }),
+      if (result.success) {
+        setStatus('success')
+        setMessage(result.message)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          socialNetwork: ''
         })
-      } catch (telegramError) {
-        console.warn('Telegram notification failed:', telegramError)
-        // Не прерываем основной процесс, если Telegram не работает
+      } else {
+        setStatus('error')
+        setMessage(result.message || 'Произошла ошибка при отправке заявки')
       }
-      
-      setStatus('success')
-      setMessage(t('contact.form.success'))
-      
-      // Очистка формы
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        socialNetwork: '' // Обновляем здесь тоже
-      })
       
     } catch (error) {
       console.error('Form submission error:', error)
@@ -258,7 +227,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">{t('contact.info.socialNetwork')}</div>
-                  <div className="text-gray-400">@Sergey_Loye</div>
+                  <div className="text-gray-400">@Sergey_Loye, @Pavlentius2007 </div>
                 </div>
               </div>
 
