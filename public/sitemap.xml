@@ -4,125 +4,125 @@
   
   <!-- Главные страницы - максимальный приоритет -->
   <url>
-    <loc>https://94.141.162.192/ru</loc>
+    <loc>https://thesim.site/ru</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://94.141.162.192/en"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://94.141.162.192/zh"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://94.141.162.192/th"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesim.site/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://thesim.site/zh"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://thesim.site/th"/>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/en</loc>
+    <loc>https://thesim.site/en</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://94.141.162.192/ru"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://94.141.162.192/zh"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://94.141.162.192/th"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://thesim.site/ru"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://thesim.site/zh"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://thesim.site/th"/>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/zh</loc>
+    <loc>https://thesim.site/zh</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://94.141.162.192/ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://94.141.162.192/en"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://94.141.162.192/th"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://thesim.site/ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesim.site/en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://thesim.site/th"/>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/th</loc>
+    <loc>https://thesim.site/th</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://94.141.162.192/ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://94.141.162.192/en"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://94.141.162.192/zh"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://thesim.site/ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesim.site/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://thesim.site/zh"/>
   </url>
 
   <!-- Правовые страницы - высокий приоритет -->
   <url>
-    <loc>https://94.141.162.192/ru/privacy</loc>
+    <loc>https://thesim.site/ru/privacy</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/en/privacy</loc>
+    <loc>https://thesim.site/en/privacy</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/zh/privacy</loc>
+    <loc>https://thesim.site/zh/privacy</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/th/privacy</loc>
+    <loc>https://thesim.site/th/privacy</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/ru/terms</loc>
+    <loc>https://thesim.site/ru/terms</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/en/terms</loc>
+    <loc>https://thesim.site/en/terms</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/zh/terms</loc>
+    <loc>https://thesim.site/zh/terms</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/th/terms</loc>
+    <loc>https://thesim.site/th/terms</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/ru/cookies</loc>
+    <loc>https://thesim.site/ru/cookies</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/en/cookies</loc>
+    <loc>https://thesim.site/en/cookies</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/zh/cookies</loc>
+    <loc>https://thesim.site/zh/cookies</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/th/cookies</loc>
+    <loc>https://thesim.site/th/cookies</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -130,28 +130,28 @@
 
   <!-- Terms of Service - высокий приоритет -->
   <url>
-    <loc>https://94.141.162.192/ru/terms-of-service</loc>
+    <loc>https://thesim.site/ru/terms-of-service</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/en/terms-of-service</loc>
+    <loc>https://thesim.site/en/terms-of-service</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/zh/terms-of-service</loc>
+    <loc>https://thesim.site/zh/terms-of-service</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/th/terms-of-service</loc>
+    <loc>https://thesim.site/th/terms-of-service</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -159,28 +159,28 @@
 
   <!-- FAQ секция - высокий приоритет для SEO -->
   <url>
-    <loc>https://94.141.162.192/ru#faq</loc>
+    <loc>https://thesim.site/ru#faq</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/en#faq</loc>
+    <loc>https://thesim.site/en#faq</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/zh#faq</loc>
+    <loc>https://thesim.site/zh#faq</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://94.141.162.192/th#faq</loc>
+    <loc>https://thesim.site/th#faq</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

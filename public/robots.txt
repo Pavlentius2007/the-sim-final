@@ -1,35 +1,34 @@
 User-agent: *
 Allow: /
 
-# Запрещаем индексацию админки и API
+# Sitemap
+Sitemap: https://thesim.site/sitemap.xml
+
+# Блокируем админку и API
 Disallow: /admin/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
 
-# Разрешаем важные файлы
-Allow: /api/health
-Allow: /logo.svg
-Allow: /favicon.ico
-Allow: /sitemap.xml
+# Разрешаем важные страницы
+Allow: /ru
+Allow: /en
+Allow: /zh
+Allow: /th
+Allow: /ru/privacy
+Allow: /en/privacy
+Allow: /zh/privacy
+Allow: /th/privacy
+Allow: /ru/terms
+Allow: /en/terms
+Allow: /zh/terms
+Allow: /th/terms
+Allow: /ru/cookies
+Allow: /en/cookies
+Allow: /zh/cookies
+Allow: /th/cookies
+Allow: /ru/terms-of-service
+Allow: /en/terms-of-service
+Allow: /zh/terms-of-service
+Allow: /th/terms-of-service
 
-# Sitemap
-Sitemap: https://94.141.162.192/sitemap.xml
-
-# Настройки для поисковых ботов
-Crawl-delay: 1
-
-# Google Bot настройки
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0.5
-
-# Bing Bot настройки
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Yandex Bot настройки
-User-agent: Yandex
-Allow: /
+# Crawl-delay для бережной нагрузки
 Crawl-delay: 1

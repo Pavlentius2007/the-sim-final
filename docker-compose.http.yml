@@ -1,4 +1,4 @@
-# 🐳 TheSim - Production Docker Compose с Nginx + SSL
+# 🐳 TheSim - HTTP Docker Compose (без SSL)
 version: '3.8'
 
 services:
@@ -12,9 +12,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      - HTTPS_PORT=3001
-      - HOSTNAME=0.0.0.0
-      - ALLOWED_ORIGINS=http://localhost:3000,https://thesim.site,https://www.thesim.site
+      - ALLOWED_ORIGINS=http://thesim.site,http://www.thesim.site,http://localhost:3000
     volumes:
       - ./app:/app/app
       - ./components:/app/components
@@ -32,7 +30,6 @@ services:
       - ./postcss.config.js:/app/postcss.config.js
       - ./app/globals.css:/app/app/globals.css
       - ./data:/app/data
-      - ./ssl:/app/ssl  # Добавляем SSL сертификаты
     working_dir: /app
     command: sh -c "npm install --include=dev && npm run build && npm start"
     networks:
@@ -40,17 +37,15 @@ services:
     expose:
       - "3000"
 
-  # Nginx с SSL
+  # Nginx без SSL
   nginx:
     image: nginx:alpine
     container_name: thesim-nginx
     restart: unless-stopped
     ports:
       - "80:80"      # HTTP
-      - "443:443"    # HTTPS
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl:/etc/nginx/ssl:ro
+      - ./nginx-http.conf:/etc/nginx/nginx.conf:ro
       - ./public:/var/www/html:ro
     depends_on:
       - app

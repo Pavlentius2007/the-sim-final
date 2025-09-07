@@ -13,6 +13,7 @@ services:
       - ENCRYPTION_KEY=hQEhGj93DC4cQrnfbvmgYWG2WMKDqj93
       - COOKIE_SECRET=KCTe6jLdwJs9ChaBZc8XMJLqF7v5D8uZ
       - CSRF_SECRET=HmbmcNZ8g8sfhZGC8e6Vs3ESsx9Eh8ZpNAqUvjHWkT9ErcKwGr6HMkamMpdzBE4G
+      - HOSTNAME=0.0.0.0
       - ALLOWED_ORIGINS=http://localhost:3000,https://thesim.site,https://www.thesim.site
     volumes:
       - ./app:/app/app
