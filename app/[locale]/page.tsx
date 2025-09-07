@@ -62,9 +62,12 @@ export default function LocalePage({
         <ClientOnly>
           <Benefits />
         </ClientOnly>
-        <ClientOnly>
-          <Video />
-        </ClientOnly>
+        {/* Видео скрыто на мобильных устройствах из-за наложения */}
+        <div className="hidden md:block">
+          <ClientOnly>
+            <Video />
+          </ClientOnly>
+        </div>
         <ClientOnly>
           <Security />
         </ClientOnly>
