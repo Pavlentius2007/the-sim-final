@@ -30,26 +30,12 @@ export function useLocale() {
   return useContext(LocaleContext)
 }
 
-// Загрузка переводов синхронно для серверного рендеринга
-function loadMessagesSync(locale: Locale): Messages {
+// Унифицированная загрузка переводов
+function getMessages(locale: Locale): Messages {
   try {
-    // Для серверного рендеринга используем require
-    if (typeof window === 'undefined') {
-      const messages = require(`../messages/${locale}.json`)
-      return messages
-    }
-    return {}
-  } catch (error) {
-    console.error(`Failed to load messages for locale: ${locale}`, error)
-    return {}
-  }
-}
-
-// Асинхронная загрузка переводов для клиента
-async function loadMessages(locale: Locale): Promise<Messages> {
-  try {
-    const messages = await import(`../messages/${locale}.json`)
-    return messages.default
+    // Используем динамический import для обеих сред
+    const messages = require(`../messages/${locale}.json`)
+    return messages
   } catch (error) {
     console.error(`Failed to load messages for locale: ${locale}`, error)
     return {}
@@ -62,26 +48,17 @@ export function useTranslations(locale?: Locale) {
   const currentLocale = locale || contextLocale
   
   const [messages, setMessages] = useState<Messages>(() => {
-    // Инициализируем с синхронно загруженными переводами для сервера
-    if (typeof window === 'undefined') {
-      return loadMessagesSync(currentLocale)
-    }
-    return {}
+    // Загружаем переводы синхронно для обеих сред
+    return getMessages(currentLocale)
   })
-  const [isLoading, setIsLoading] = useState(typeof window !== 'undefined')
+  
+  // Не показываем состояние загрузки - переводы загружаются синхронно
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    // Загружаем переводы асинхронно только на клиенте
-    if (typeof window !== 'undefined') {
-      const loadMessagesForLocale = async () => {
-        setIsLoading(true)
-        const loadedMessages = await loadMessages(currentLocale)
-        setMessages(loadedMessages)
-        setIsLoading(false)
-      }
-
-      loadMessagesForLocale()
-    }
+    // Обновляем переводы при изменении локали
+    const newMessages = getMessages(currentLocale)
+    setMessages(newMessages)
   }, [currentLocale])
 
   const t = (key: string, fallback?: string): string => {

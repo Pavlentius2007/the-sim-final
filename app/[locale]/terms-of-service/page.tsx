@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { ArrowLeft, CheckCircle as _CheckCircle, AlertTriangle as _AlertTriangle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import Link from 'next/link'
@@ -280,7 +280,7 @@ export default function TermsOfServicePage({
       <section className="relative py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -301,7 +301,7 @@ export default function TermsOfServicePage({
               <div className="text-gray-400 mb-8">
                 📅 {locale === 'ru' ? 'Дата последнего обновления' : 'Last Updated'}: {content.lastUpdated}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function TermsOfServicePage({
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -320,7 +320,7 @@ export default function TermsOfServicePage({
                 className="legal-content text-gray-300"
                 dangerouslySetInnerHTML={{ __html: content.content }}
               />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>

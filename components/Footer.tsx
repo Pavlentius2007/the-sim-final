@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { MessageCircle, Youtube } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import Link from 'next/link'
@@ -22,7 +22,7 @@ export default function Footer({ currentLocale }: FooterProps) {
       </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -45,7 +45,7 @@ export default function Footer({ currentLocale }: FooterProps) {
               
               {/* Social Links */}
               <div className="flex space-x-4">
-                <motion.a
+                <m.a
                   href="https://t.me/Sergey_Loye"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -54,9 +54,9 @@ export default function Footer({ currentLocale }: FooterProps) {
                   className="w-10 h-10 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-400 hover:text-primary-300 hover:bg-primary-500/30 transition-all"
                 >
                   <MessageCircle className="w-5 h-5" />
-                </motion.a>
+                </m.a>
                 
-                <motion.a
+                <m.a
                   href="https://www.youtube.com/watch?v=gHkWXzRLNno"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default function Footer({ currentLocale }: FooterProps) {
                   className="w-10 h-10 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-400 hover:text-primary-300 hover:bg-primary-500/30 transition-all"
                 >
                   <Youtube className="w-5 h-5" />
-                </motion.a>
+                </m.a>
               </div>
             </div>
 
@@ -211,7 +211,7 @@ export default function Footer({ currentLocale }: FooterProps) {
               </p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
 
     </footer>

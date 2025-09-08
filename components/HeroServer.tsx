@@ -20,7 +20,7 @@ export default function HeroServer({
   support
 }: HeroServerProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" suppressHydrationWarning>
       {/* Космический overlay */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-900/5 to-purple-900/10"></div>
@@ -77,11 +77,11 @@ export default function HeroServer({
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">$50M+</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">$10M+</div>
               <div className="text-gray-400">{managedAssets}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">1000+</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">540+</div>
               <div className="text-gray-400">{satisfiedClients}</div>
             </div>
             <div className="text-center">

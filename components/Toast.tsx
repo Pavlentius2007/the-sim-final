@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
+import { AnimatePresence } from 'framer-motion'
 import { CheckCircle, AlertCircle, Info, X, AlertTriangle } from 'lucide-react'
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info'
@@ -69,7 +70,7 @@ const ToastComponent = ({ toast, onRemove }: ToastProps) => {
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
       animate={{ 
         opacity: isRemoving ? 0 : 1, 
@@ -121,14 +122,14 @@ const ToastComponent = ({ toast, onRemove }: ToastProps) => {
       
       {/* Progress bar for duration */}
       {toast.duration !== 0 && (
-        <motion.div
+        <m.div
           className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-bl-xl"
           initial={{ width: '100%' }}
           animate={{ width: '0%' }}
           transition={{ duration: (toast.duration || 5000) / 1000, ease: 'linear' }}
         />
       )}
-    </motion.div>
+    </m.div>
   )
 }
 

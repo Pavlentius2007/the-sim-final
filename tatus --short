@@ -1,0 +1,40 @@
+warning: in the working copy of 'app/[locale]/layout.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/[locale]/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/[locale]/terms-of-service/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/globals.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/About.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Benefits.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Hero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Investment.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/LanguageSwitcher.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/PersonalCabinetButton.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Security.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'messages/th.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'messages/zh.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'next.config.js', LF will be replaced by CRLF the next time Git touches it
+app/[locale]/cookies/page.tsx
+app/[locale]/layout.tsx
+app/[locale]/page.tsx
+app/[locale]/privacy/page.tsx
+app/[locale]/terms-of-service/page.tsx
+app/[locale]/terms/page.tsx
+app/globals.css
+components/About.tsx
+components/Benefits.tsx
+components/ContactForm.tsx
+components/CookieConsent.tsx
+components/ErrorSuppressor.tsx
+components/FAQ.tsx
+components/Footer.tsx
+components/Hero.tsx
+components/HeroServer.tsx
+components/Investment.tsx
+components/LanguageSwitcher.tsx
+components/PersonalCabinetButton.tsx
+components/Security.tsx
+components/Testimonials.tsx
+components/Toast.tsx
+components/Video.tsx
+hooks/useTranslations.tsx
+messages/th.json
+next.config.js

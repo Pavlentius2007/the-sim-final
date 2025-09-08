@@ -54,329 +54,228 @@ a {
   background: #182848;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Градиенты */
+.gradient-text {
+  background: linear-gradient(135deg, #4B6CB7 0%, #182848 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Custom animations */
+.gradient-primary {
+  background: linear-gradient(135deg, #4B6CB7 0%, #182848 100%);
+}
+
+.gradient-primary-reverse {
+  background: linear-gradient(135deg, #182848 0%, #4B6CB7 100%);
+}
+
+/* Тёмная тема */
+.bg-dark-900 {
+  background-color: #0D1117;
+}
+
+.bg-dark-800 {
+  background-color: #161B22;
+}
+
+.bg-dark-700 {
+  background-color: #21262D;
+}
+
+.bg-dark-600 {
+  background-color: #30363D;
+}
+
+/* Стеклянный эффект */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Эффекты свечения */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(75, 108, 183, 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(24, 40, 72, 0.3);
+}
+
+/* Анимация свечения */
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow: 0 0 20px rgba(75, 108, 183, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(75, 108, 183, 0.6);
+    box-shadow: 0 0 30px rgba(75, 108, 183, 0.6);
   }
 }
 
-.pulse-glow {
+.animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #4B6CB7 0%, #8B5CF6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+/* Кастомные цвета */
+.text-primary-300 { color: #8FA8D3; }
+.text-primary-400 { color: #7B9ACD; }
+.text-primary-500 { color: #4B6CB7; }
+.text-primary-600 { color: #3B5A9B; }
+
+.bg-primary-500 { background-color: #4B6CB7; }
+.bg-primary-600 { background-color: #3B5A9B; }
+
+.text-accent-purple { color: #9D4EDD; }
+.text-accent-cyan { color: #00F5FF; }
+
+.bg-accent-purple { background-color: #9D4EDD; }
+.bg-accent-cyan { background-color: #00F5FF; }
+
+/* Эффекты при наведении */
+.hover-glow:hover {
+  box-shadow: 0 4px 20px rgba(75, 108, 183, 0.4);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
-/* Glass effect - улучшенный для космического фона */
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(75, 108, 183, 0.1);
-}
-
-/* Усиленный glass эффект для важных блоков */
-.glass-strong {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px rgba(75, 108, 183, 0.2);
-}
-
-/* Космические контейнеры */
-.cosmic-container {
-  background: rgba(10, 15, 31, 0.4);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(75, 108, 183, 0.2);
-  border-radius: 16px;
-  position: relative;
-  z-index: 10;
-}
-
-/* Радиальный градиент для космического эффекта */
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
-
-/* Космический фон для звезд */
-.cosmic-background {
-  background: radial-gradient(ellipse at center, rgba(10, 15, 31, 0.8) 0%, rgba(0, 0, 0, 0.95) 70%);
-}
-
-/* Neon border */
-.neon-border {
-  border: 1px solid transparent;
-  background: linear-gradient(135deg, #4B6CB7, #182848) padding-box,
-              linear-gradient(135deg, #4B6CB7, #8B5CF6) border-box;
-}
-
-/* Disable autocomplete styles */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #1f2937 inset !important;
-  -webkit-text-fill-color: white !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Hide autocomplete dropdown */
-input::-webkit-calendar-picker-indicator {
-  display: none !important;
-}
-
-/* Ensure form is always visible */
-.admin-login-form {
-  position: relative !important;
-  z-index: 9999 !important;
-  pointer-events: auto !important;
-}
-
-/* Force form to be on top */
-.admin-login-form * {
-  z-index: 9999 !important;
-}
-
-/* Disable all autocomplete popups */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #1f2937 inset !important;
-  -webkit-text-fill-color: white !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Hide password manager popups */
-input[type="password"]::-ms-reveal,
-input[type="password"]::-ms-clear {
-  display: none !important;
-}
-
-/* Ensure form elements are always visible */
-.admin-login-form input,
-.admin-login-form button,
-.admin-login-form form {
-  position: relative !important;
-  z-index: 10000 !important;
-}
-
-/* Disable browser password manager popups */
-input[data-form-type="other"] {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-}
-
-/* Hide all browser-generated popups */
-input::-webkit-calendar-picker-indicator,
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-  display: none !important;
-}
-
-/* Force form to be visible */
-.admin-login-form {
-  transform: translateZ(0) !important;
-  will-change: transform !important;
-}
-
-/* Ensure form elements are visible */
-input, button, select, textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* Hover effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(75, 108, 183, 0.3);
-}
-
-/* Legal documents styles */
-.legal-content {
-  color: #e5e7eb;
-  line-height: 1.7;
-}
-
-.legal-content h2 {
-  color: #ffffff;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 1.5rem 0 1rem 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #374151;
-}
-
-.legal-content h2:first-child {
-  margin-top: 0;
-}
-
-.legal-content p {
-  margin: 1rem 0;
-  color: #d1d5db;
-}
-
-.legal-content ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.legal-content li {
-  margin: 0.5rem 0;
-  color: #d1d5db;
-}
-
-.legal-content strong {
-  color: #ffffff;
-  font-weight: 600;
-} 
-
-/* Video visibility fixes */
-.dashboard-video-container {
-  position: relative !important;
-  z-index: 10 !important;
-  min-height: 256px !important;
-  overflow: visible !important;
-}
-
-.dashboard-video-container video {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: relative !important;
-  z-index: 1 !important;
-  min-height: 256px !important;
-}
-
-/* Force video to be visible on all screen sizes */
-@media (max-width: 640px) {
-  .dashboard-video-container {
-    min-height: 256px !important;
-    height: 256px !important;
-  }
-  
-  .dashboard-video-container video {
-    min-height: 256px !important;
-    height: 256px !important;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 768px) {
-  .dashboard-video-container {
-    min-height: 320px !important;
-    height: 320px !important;
-  }
-  
-  .dashboard-video-container video {
-    min-height: 320px !important;
-    height: 320px !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .dashboard-video-container {
-    min-height: 384px !important;
-    height: 384px !important;
-  }
-  
-  .dashboard-video-container video {
-    min-height: 384px !important;
-    height: 384px !important;
-  }
-}
-
-/* Enhanced video preview styles */
-.video-preview-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.video-preview-container::before {
+/* Размытие и эффекты */
+.blur-background::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: -1;
 }
 
-.video-preview-container:hover::before {
-  left: 100%;
+/* Цвета космической темы */
+.text-cosmic-blue { color: #4A90E2; }
+.text-cosmic-purple { color: #8E44AD; }
+.text-cosmic-cyan { color: #16A085; }
+
+.bg-cosmic-blue { background-color: #4A90E2; }
+.bg-cosmic-purple { background-color: #8E44AD; }
+.bg-cosmic-cyan { background-color: #16A085; }
+
+/* Анимация звёзд */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* Floating animation for video preview elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+.star {
+  animation: twinkle 2s infinite;
 }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
+.star:nth-child(2n) {
+  animation-delay: 0.5s;
 }
 
-.float-animation-delay-1 {
+.star:nth-child(3n) {
   animation-delay: 1s;
 }
 
-.float-animation-delay-2 {
-  animation-delay: 2s;
+.star:nth-child(4n) {
+  animation-delay: 1.5s;
 }
 
-/* Enhanced glow effects */
-.glow-blue {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+/* Responsive адаптация */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-padding {
+    padding: 1rem;
+  }
 }
 
-.glow-purple {
-  box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.glow-indigo {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+/* Focus states для доступности */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #4B6CB7;
+  outline-offset: 2px;
 }
 
-/* Shine effect for buttons */
-.shine-effect {
-  position: relative;
-  overflow: hidden;
+/* Загрузочные состояния */
+.loading-skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
 }
 
-.shine-effect::before {
-  content: '';
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Анимации hover для кнопок */
+.btn-hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.btn-hover-glow:hover {
+  box-shadow: 0 8px 32px rgba(75, 108, 183, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Утилиты для flex и grid */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+/* Скрытие элементов но сохранение для скрин-ридеров */
+.sr-only {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.shine-effect:hover::before {
-  left: 100%;
+/* Стили для print */
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }
 
 /* Line clamp utilities for mobile testimonials */
@@ -393,5 +292,225 @@ input, button, select, textarea {
     -webkit-line-clamp: unset;
     -webkit-box-orient: unset;
     overflow: visible;
+  }
+}
+
+/* ========================================== */
+/* 🚀 ОПТИМИЗИРОВАННЫЕ CSS АНИМАЦИИ */
+/* Заменяют framer-motion для простых случаев */
+/* ========================================== */
+
+/* Основные анимации появления */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating анимации для космических элементов */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  33% { 
+    transform: translateY(-20px) translateX(10px); 
+  }
+  66% { 
+    transform: translateY(10px) translateX(-5px); 
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  50% { 
+    transform: translateY(-30px) translateX(-15px); 
+  }
+}
+
+@keyframes floatMedium {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  50% { 
+    transform: translateY(20px) translateX(15px); 
+  }
+}
+
+/* Утилитарные классы анимаций */
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-floatSlow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-floatMedium {
+  animation: floatMedium 10s ease-in-out infinite;
+}
+
+/* Задержки анимаций */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* Hover эффекты без JS */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(75, 108, 183, 0.2);
+}
+
+.hover-glow-strong {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow-strong:hover {
+  box-shadow: 0 0 30px rgba(75, 108, 183, 0.4);
+}
+
+/* Infinite анимации для космических элементов */
+.cosmic-float-1 {
+  animation: float 6s ease-in-out infinite;
+}
+
+.cosmic-float-2 {
+  animation: floatSlow 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.cosmic-float-3 {
+  animation: floatMedium 10s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* Респонсивные анимации */
+@media (max-width: 768px) {
+  .mobile-no-animate {
+    animation: none !important;
+  }
+  
+  /* Упрощенные анимации для мобильных */
+  .mobile-simple-fade {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}
+
+/* Performance hint for animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Уменьшение анимаций для пользователей с настройками accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn,
+  .animate-fadeInUp,
+  .animate-fadeInDown,
+  .animate-fadeInLeft,
+  .animate-fadeInRight,
+  .animate-scaleIn,
+  .animate-float,
+  .animate-floatSlow,
+  .animate-floatMedium,
+  .cosmic-float-1,
+  .cosmic-float-2,
+  .cosmic-float-3 {
+    animation: fadeIn 0.1s ease-out forwards;
+  }
+  
+  .hover-lift:hover {
+    transform: none;
   }
 }

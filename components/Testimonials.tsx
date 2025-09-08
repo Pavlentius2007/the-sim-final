@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -99,7 +99,7 @@ export default function Testimonials() {
       </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -112,10 +112,10 @@ export default function Testimonials() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('testimonials.subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Testimonials Carousel */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -147,7 +147,7 @@ export default function Testimonials() {
               }}
             >
               {testimonials.map((testimonial, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   className="w-full md:w-1/3 px-2 md:px-4 flex-shrink-0"
                   initial={{ opacity: 0, y: 30 }}
@@ -196,7 +196,7 @@ export default function Testimonials() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -217,10 +217,10 @@ export default function Testimonials() {
               />
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* CTA Section */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -233,7 +233,7 @@ export default function Testimonials() {
             <p className="text-gray-300 mb-6">
               {t('testimonials.cta.subtitle')}
             </p>
-            <motion.button
+            <m.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -255,9 +255,9 @@ export default function Testimonials() {
               className="bg-gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all cursor-pointer transform hover:-translate-y-1"
             >
               {t('testimonials.cta.button')}
-            </motion.button>
+            </m.button>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

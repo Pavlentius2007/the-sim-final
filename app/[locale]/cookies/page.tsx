@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { ArrowLeft } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import Link from 'next/link'
@@ -296,7 +296,7 @@ export default function CookiesPage({
       <section className="relative py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-primary-900/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -312,7 +312,7 @@ export default function CookiesPage({
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="gradient-text">{content.title}</span>
               </h1>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -321,7 +321,7 @@ export default function CookiesPage({
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -331,7 +331,7 @@ export default function CookiesPage({
                 className="legal-content text-gray-300"
                 dangerouslySetInnerHTML={{ __html: content.content }}
               />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>

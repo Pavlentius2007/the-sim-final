@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
+import { AnimatePresence } from 'framer-motion'
 import { Cookie, X, Shield, Eye } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import Link from 'next/link'
@@ -45,7 +46,7 @@ export default function CookieConsent({ currentLocale }: CookieConsentProps) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <m.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
@@ -84,7 +85,7 @@ export default function CookieConsent({ currentLocale }: CookieConsentProps) {
           {/* Cookie Details */}
           <AnimatePresence>
             {showDetails && (
-              <motion.div
+              <m.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
@@ -118,7 +119,7 @@ export default function CookieConsent({ currentLocale }: CookieConsentProps) {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
 
@@ -169,7 +170,7 @@ export default function CookieConsent({ currentLocale }: CookieConsentProps) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </AnimatePresence>
   )
 }

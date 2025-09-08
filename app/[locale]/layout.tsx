@@ -5,6 +5,9 @@ import { LocaleProvider } from '@/hooks/useTranslations'
 import GlobalStarryBackground from '@/components/GlobalStarryBackground'
 import ClientOnly from '@/components/ClientOnly'
 import CookieConsent from '@/components/CookieConsent'
+import SEOStructuredData from '@/components/SEOStructuredData'
+import LazyMotionProvider from '@/components/LazyMotionProvider'
+import ErrorSuppressor from '@/components/ErrorSuppressor'
 
 
 const inter = Inter({
@@ -31,7 +34,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string }
 }): Promise<Metadata> {
-  const baseUrl = 'https://94.141.162.192'
+  const baseUrl = 'https://thesim.site'
   
   const titles = {
     ru: 'TheSim - Управление цифровыми активами | Инвестиции в криптовалюту | Защита капитала',
@@ -83,10 +86,10 @@ export async function generateMetadata({
       siteName: 'TheSim',
       images: [
         {
-          url: `${baseUrl}/logo.svg`,
+          url: `${baseUrl}/images/dashboard-preview.jpg`,
           width: 1200,
           height: 630,
-          alt: 'TheSim - Digital Asset Management',
+          alt: locale === 'ru' ? 'TheSim - Управление цифровыми активами' : 'TheSim - Digital Asset Management',
         },
       ],
       locale: locale,
@@ -96,7 +99,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: titles[locale as keyof typeof titles],
       description: descriptions[locale as keyof typeof descriptions],
-      images: [`${baseUrl}/logo.svg`],
+      images: [`${baseUrl}/images/dashboard-preview.jpg`],
     },
     robots: {
       index: true,
@@ -122,48 +125,50 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
       <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="msapplication-TileColor" content="#000000" />
+        {/* Viewport и базовые meta теги */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="theme-color" content="#4B6CB7" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
+        {/* Preload критичных ресурсов */}
+        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href="/images/dashboard-preview.jpg" as="image" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Content Security Policy - разная для dev и prod */}
-        <meta httpEquiv="Content-Security-Policy" content={
-          process.env.NODE_ENV === 'development' 
-            ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' ws: wss:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
-            : "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
-        } />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo.svg" />
         
-        {/* Структурированные данные для SEO - встроенные */}
-        <script 
-          type="application/ld+json"
-          suppressHydrationWarning={true}
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization", 
-              "name": "TheSim",
-              "url": "https://94.141.162.192",
-              "logo": "https://94.141.162.192/logo.svg",
-              "description": locale === 'ru' 
-                ? "Ведущая платформа управления цифровыми активами с защитой капитала"
-                : "Leading digital asset management platform with capital protection"
-            })
-          }}
-        />
+        {/* Безопасность - Content Security Policy (только для продакшена) */}
+        {process.env.NODE_ENV === 'production' && (
+          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+        )}
+        
+        {/* Структурированные данные для SEO */}
+        <SEOStructuredData locale={locale} />
       </head>
       <body className={`${inter.className} antialiased`}>
         <LocaleProvider locale={locale as 'ru' | 'en' | 'zh' | 'th'}>
-          <ClientOnly>
-            <GlobalStarryBackground intensity="high" className="z-0" />
-          </ClientOnly>
-          <div className="relative z-20">
-            {children}
-          </div>
-          <ClientOnly>
-            <CookieConsent currentLocale={locale} />
-          </ClientOnly>
+          {/* Глобальный LazyMotion Provider для оптимизации */}
+          <LazyMotionProvider>
+            <ClientOnly>
+              <ErrorSuppressor />
+            </ClientOnly>
+            <div className="relative z-20" suppressHydrationWarning>
+              {children}
+            </div>
+            <ClientOnly>
+              <GlobalStarryBackground intensity="high" className="fixed inset-0 z-0" />
+            </ClientOnly>
+            <ClientOnly>
+              <CookieConsent currentLocale={locale} />
+            </ClientOnly>
+          </LazyMotionProvider>
         </LocaleProvider>
       </body>
     </html>

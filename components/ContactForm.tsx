@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
 import { useState } from 'react'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
@@ -82,7 +82,7 @@ export default function ContactForm() {
       </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -95,9 +95,9 @@ export default function ContactForm() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('contact.subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -196,7 +196,7 @@ export default function ContactForm() {
                 </div>
               )}
 
-              <motion.button
+              <m.button
                 type="submit"
                 disabled={status === 'loading'}
                 whileHover={{ scale: 1.02 }}
@@ -205,7 +205,7 @@ export default function ContactForm() {
               >
                 <Send className="w-5 h-5" />
                 <span>{status === 'loading' ? t('contact.form.loading') : t('contact.form.submit')}</span>
-              </motion.button>
+              </m.button>
             </form>
           </div>
 
@@ -271,7 +271,7 @@ export default function ContactForm() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

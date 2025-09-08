@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
 import { Shield, Lock, Eye, CheckCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -49,7 +49,7 @@ export default function Security() {
       </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -62,17 +62,17 @@ export default function Security() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('security.subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Security Features Grid */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
         >
           {securityFeatures.map((feature, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -95,12 +95,12 @@ export default function Security() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Security Stats */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -135,7 +135,7 @@ export default function Security() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

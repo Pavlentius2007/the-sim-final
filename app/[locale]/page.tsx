@@ -1,42 +1,35 @@
-// import Hero from '@/components/Hero'
-import HeroServer from '@/components/HeroServer'
-import About from '@/components/About'
-import Benefits from '@/components/Benefits'
-import Video from '@/components/Video'
+// Статические импорты для критичных компонентов
 import Security from '@/components/Security'
-import Investment from '@/components/Investment'
-import Testimonials from '@/components/Testimonials'
-import FAQ from '@/components/FAQ'
-import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import PersonalCabinetButton from '@/components/PersonalCabinetButton'
 import ClientOnly from '@/components/ClientOnly'
+import LazyMotionProvider from '@/components/LazyMotionProvider'
+import HydrationSafeWrapper from '@/components/HydrationSafeWrapper'
 
-// Импортируем переводы напрямую
-import ruMessages from '@/messages/ru.json'
-import enMessages from '@/messages/en.json'
-import zhMessages from '@/messages/zh.json'
-import thMessages from '@/messages/th.json'
+// Динамические импорты для оптимизации производительности
+import {
+  DynamicAbout,
+  DynamicBenefits,
+  DynamicVideo,
+  DynamicInvestment,
+  DynamicTestimonials,
+  DynamicFAQ,
+  DynamicContactForm,
+  DynamicHero
+} from '@/components/DynamicComponents'
 
-const messages = {
-  ru: ruMessages,
-  en: enMessages,
-  zh: zhMessages,
-  th: thMessages
-}
+// Убираем статические импорты переводов - используем только хук
 
 export default function LocalePage({ 
   params: { locale } 
 }: { 
   params: { locale: string } 
 }) {
-  const currentMessages = messages[locale as keyof typeof messages] || messages.ru
-  
   return (
     <main className="min-h-screen relative overflow-x-hidden" suppressHydrationWarning>
-      {/* Navigation Controls */}
-      <div className="fixed top-2 right-2 md:top-4 md:right-4 z-50 flex items-center gap-2 md:gap-3" suppressHydrationWarning>
+      {/* Navigation Controls - критичные компоненты загружаются сразу */}
+      <div className="fixed top-1 right-1 md:top-4 md:right-4 z-50 flex items-center gap-1 md:gap-3" suppressHydrationWarning>
         <ClientOnly>
           <PersonalCabinetButton />
         </ClientOnly>
@@ -45,50 +38,43 @@ export default function LocalePage({
         </ClientOnly>
       </div>
       
-      {/* Контент страницы с космическими эффектами */}
-      <div className="relative z-10">
-        <HeroServer
-          title={currentMessages.hero?.title || 'Управление цифровыми активами'}
-          subtitle={currentMessages.hero?.subtitle || 'Защита капитала и умные инвестиции'}
-          ctaButton={currentMessages.hero?.ctaButton || 'Начать инвестировать'}
-          learnMore={currentMessages.hero?.learnMore || 'Узнать больше'}
-          managedAssets={currentMessages.hero?.stats?.managedAssets || 'Управляемых активов'}
-          satisfiedClients={currentMessages.hero?.stats?.satisfiedClients || 'Довольных клиентов'}
-          support={currentMessages.hero?.stats?.support || 'Поддержка'}
-        />
-        <ClientOnly>
-          <About />
-        </ClientOnly>
-        <ClientOnly>
-          <Benefits />
-        </ClientOnly>
-        {/* Видео скрыто на мобильных устройствах из-за наложения */}
-        <div className="hidden md:block">
-          <ClientOnly>
-            <Video />
-          </ClientOnly>
-        </div>
-        <ClientOnly>
-          <Security />
-        </ClientOnly>
-        <ClientOnly>
-          <Investment />
-        </ClientOnly>
-        <ClientOnly>
-          <Testimonials />
-        </ClientOnly>
-        <ClientOnly>
-          <FAQ />
-        </ClientOnly>
-        <div id="contact-form">
-          <ClientOnly>
-            <ContactForm />
-          </ClientOnly>
-        </div>
+      {/* Контент страницы с LazyMotion для оптимизации framer-motion */}
+      <div className="relative z-10" suppressHydrationWarning>
+        <LazyMotionProvider>
+          <HydrationSafeWrapper fallback={
+            <div className="min-h-screen bg-gradient-to-br from-dark-900 to-dark-800 flex items-center justify-center">
+              <div className="text-center">
+                <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">TheSim</h1>
+                <p className="text-xl text-gray-300">SMART INVESTMENTS</p>
+              </div>
+            </div>
+          }>
+            {/* Hero секция - загружается динамически */}
+            <DynamicHero />
+            
+            {/* Остальной контент загружается динамически */}
+            <DynamicAbout />
+            <DynamicBenefits />
+            
+            {/* Видео скрыто на мобильных устройствах из-за наложения */}
+            <div className="hidden md:block">
+              <DynamicVideo />
+            </div>
+            
+            {/* Security - статический для SEO */}
+            <Security />
+            <DynamicInvestment />
+            <DynamicTestimonials />
+            <DynamicFAQ />
+            
+            <div id="contact-form">
+              <DynamicContactForm />
+            </div>
+          </HydrationSafeWrapper>
+        </LazyMotionProvider>
         
-        <ClientOnly>
-          <Footer currentLocale={locale} />
-        </ClientOnly>
+        {/* Footer - статический для SEO */}
+        <Footer />
       </div>
     </main>
   )

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Оптимизация производительности
-  swcMinify: true,
-  compress: true,
+  // Временно отключаем агрессивные оптимизации для отладки
+  swcMinify: process.env.NODE_ENV === 'production',
+  compress: process.env.NODE_ENV === 'production',
   
   // Оптимизация изображений
   images: {
@@ -11,10 +11,10 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif']
   },
   
-  // Оптимизация webpack
+  // Упрощаем webpack в development
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Оптимизация для продакшена
+      // Оптимизация только для продакшена
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
@@ -30,10 +30,10 @@ const nextConfig = {
     return config
   },
   
-  // Экспериментальные функции для производительности
-  experimental: {
+  // Отключаем экспериментальные оптимизации в development
+  experimental: process.env.NODE_ENV === 'production' ? {
     optimizePackageImports: ['lucide-react', 'framer-motion']
-  },
+  } : {},
   
   // Standalone режим для Docker
   output: 'standalone',
@@ -49,11 +49,17 @@ const nextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          // CSP отключен для разработки чтобы избежать ошибок от расширений
-          ...(isDev ? [] : [{
-            key: 'Content-Security-Policy', 
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.telegram.org; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';"
-          }]),
+          // Дополнительные заголовки для development
+          ...(isDev ? [
+            { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+            { key: 'Pragma', value: 'no-cache' },
+            { key: 'Expires', value: '0' }
+          ] : [
+            {
+              key: 'Content-Security-Policy', 
+              value: "default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.telegram.org; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';"
+            }
+          ]),
         ],
       },
     ]

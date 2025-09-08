@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
 import { Play, Video as VideoIcon } from 'lucide-react'
 import React, { useState, useRef } from 'react'
@@ -61,7 +61,7 @@ export default function Video() {
       {/* Content */}
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -73,10 +73,10 @@ export default function Video() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t('video.subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Video Section */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -170,7 +170,7 @@ export default function Video() {
                 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
+                  <m.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="relative w-24 h-24 bg-gradient-to-r from-blue-500/90 to-purple-600/90 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/40 shadow-2xl"
@@ -180,7 +180,7 @@ export default function Video() {
                     <div className="absolute inset-0 w-24 h-24 bg-blue-500/30 rounded-full blur-xl animate-pulse"></div>
                     {/* Inner Glow */}
                     <div className="absolute inset-2 w-20 h-20 bg-white/20 rounded-full"></div>
-                  </motion.div>
+                  </m.div>
                 </div>
                 
                 {/* Video Info */}
@@ -293,7 +293,7 @@ export default function Video() {
             </div>
             
             {/* CTA Button */}
-            <motion.button
+            <m.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="relative bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-600 text-white px-10 py-5 rounded-2xl font-semibold shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:shadow-blue-500/40 transition-all duration-300 flex items-center gap-4 overflow-hidden group"
@@ -302,9 +302,9 @@ export default function Video() {
               <Play className="w-6 h-6" />
               {t('video.watchVideo')}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-            </motion.button>
+            </m.button>
           </div>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Video Modal */}

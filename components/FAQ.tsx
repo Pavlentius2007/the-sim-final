@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { useTranslations } from '@/hooks/useTranslations'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
@@ -81,7 +81,7 @@ export default function FAQ() {
       className="py-20 relative overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -93,11 +93,11 @@ export default function FAQ() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t('faq.subtitle') || 'Ответы на самые популярные вопросы о нашей платформе управления цифровыми активами'}
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="max-w-4xl mx-auto">
           {faqItems.map((item, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -120,7 +120,7 @@ export default function FAQ() {
                 </div>
                 
                 {openItems.includes(index) && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
@@ -150,14 +150,14 @@ export default function FAQ() {
                         </div>
                       </div>
                     )}
-                  </motion.div>
+                  </m.div>
                 )}
               </button>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -172,7 +172,7 @@ export default function FAQ() {
           >
             {t('faq.contactButton') || 'Связаться с нами'}
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

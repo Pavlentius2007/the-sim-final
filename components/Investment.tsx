@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
 import { 
   DollarSign, 
@@ -56,7 +56,7 @@ export default function Investment() {
       </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -69,11 +69,11 @@ export default function Investment() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('investment.subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {terms.map((term, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -99,7 +99,7 @@ export default function Investment() {
               <p className="text-gray-300 text-sm leading-relaxed">
                 {term.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
