@@ -23,7 +23,11 @@ export default function Video() {
   // Получаем текущий язык с проверкой на клиенте
   React.useEffect(() => {
     if (params.locale) {
-      setCurrentLanguage(params.locale as string)
+      const locale = params.locale as string
+      console.log('Setting current language from params:', locale)
+      setCurrentLanguage(locale)
+    } else {
+      console.log('No locale in params, using default: en')
     }
   }, [params.locale])
 
@@ -41,7 +45,12 @@ export default function Video() {
   const currentVideoPath = videoPaths[selectedQuality]
   
   // Отладочная информация
-  // Video component loaded
+  console.log('Video Debug:', {
+    currentLanguage,
+    selectedQuality,
+    currentVideoPath,
+    videoPaths
+  })
   
 
   // Логика установки первого кадра теперь в onLoadedMetadata
@@ -313,8 +322,29 @@ export default function Video() {
               controls
               autoPlay
               src={currentVideoPath}
+              onError={(e) => {
+                console.error('Video error:', e)
+                console.error('Failed to load video:', currentVideoPath)
+              }}
+              onLoadStart={() => {
+                console.log('Video load started:', currentVideoPath)
+              }}
+              onCanPlay={() => {
+                console.log('Video can play:', currentVideoPath)
+              }}
             >
-              Your browser does not support the video tag.
+              <p className="text-white p-4">
+                Ваш браузер не поддерживает воспроизведение видео.
+                <br />
+                <a 
+                  href={currentVideoPath} 
+                  className="text-blue-400 hover:text-blue-300"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Скачать видео напрямую
+                </a>
+              </p>
             </video>
           </div>
         </div>

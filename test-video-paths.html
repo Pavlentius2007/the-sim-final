@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест русских видео</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #000; 
+            color: #fff; 
+        }
+        video { 
+            width: 100%; 
+            max-width: 800px; 
+            margin: 10px 0; 
+        }
+        .video-section {
+            margin: 20px 0;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Тест русских видеофайлов</h1>
+    
+    <div class="video-section">
+        <h2>480p - Русский</h2>
+        <video controls>
+            <source src="/videos/ru/sim-overview-480p.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <p>Путь: <code>/videos/ru/sim-overview-480p.mp4</code></p>
+    </div>
+
+    <div class="video-section">
+        <h2>720p - Русский</h2>
+        <video controls>
+            <source src="/videos/ru/sim-overview-720p.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <p>Путь: <code>/videos/ru/sim-overview-720p.mp4</code></p>
+    </div>
+
+    <div class="video-section">
+        <h2>1080p - Русский</h2>
+        <video controls>
+            <source src="/videos/ru/sim-overview-1080p.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <p>Путь: <code>/videos/ru/sim-overview-1080p.mp4</code></p>
+    </div>
+
+    <div class="video-section">
+        <h2>Для сравнения - Английский 720p</h2>
+        <video controls>
+            <source src="/videos/en/sim-overview-720p.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <p>Путь: <code>/videos/en/sim-overview-720p.mp4</code></p>
+    </div>
+
+    <script>
+        // Проверяем все видео на возможность загрузки
+        const videos = document.querySelectorAll('video');
+        videos.forEach((video, index) => {
+            const source = video.querySelector('source');
+            if (source) {
+                const url = source.src;
+                
+                video.addEventListener('loadstart', () => {
+                    console.log(`✅ Video ${index + 1} (${url}) - load started`);
+                });
+                
+                video.addEventListener('canplay', () => {
+                    console.log(`✅ Video ${index + 1} (${url}) - can play`);
+                });
+                
+                video.addEventListener('error', (e) => {
+                    console.error(`❌ Video ${index + 1} (${url}) - error:`, e);
+                });
+                
+                // Проверяем существование файла
+                fetch(url, { method: 'HEAD' })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log(`✅ File exists: ${url} (${response.status})`);
+                        } else {
+                            console.error(`❌ File not found: ${url} (${response.status})`);
+                        }
+                    })
+                    .catch(err => {
+                        console.error(`❌ Failed to check file: ${url}`, err);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>
