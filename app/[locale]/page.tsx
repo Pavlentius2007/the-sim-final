@@ -74,7 +74,7 @@ export default function LocalePage({
         </LazyMotionProvider>
         
         {/* Footer - статический для SEO */}
-        <Footer />
+        <Footer currentLocale={locale} />
       </div>
     </main>
   )
