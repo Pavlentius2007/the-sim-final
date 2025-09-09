@@ -29,7 +29,7 @@ export default function LocalePage({
   return (
     <main className="min-h-screen relative overflow-x-hidden" suppressHydrationWarning>
       {/* Navigation Controls - критичные компоненты загружаются сразу */}
-      <div className="fixed top-1 right-1 md:top-4 md:right-4 z-50 flex items-center gap-1 md:gap-3" suppressHydrationWarning>
+      <div className="fixed top-1 left-1 right-1 md:top-4 md:right-4 z-50 flex items-center justify-between gap-1 md:gap-3 flex-row md:flex-row-reverse" suppressHydrationWarning>
         <ClientOnly>
           <PersonalCabinetButton />
         </ClientOnly>
