@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
 import '../globals.css'
 import { LocaleProvider } from '@/hooks/useTranslations'
-import GlobalStarryBackground from '@/components/GlobalStarryBackground'
+import StaticStarryBackground from '@/components/StaticStarryBackground'
 import ClientOnly from '@/components/ClientOnly'
 import CookieConsent from '@/components/CookieConsent'
 import SEOStructuredData from '@/components/SEOStructuredData'
@@ -163,7 +163,7 @@ export default async function LocaleLayout({
               {children}
             </div>
             <ClientOnly>
-              <GlobalStarryBackground intensity="high" className="fixed inset-0 z-0" />
+              <StaticStarryBackground />
             </ClientOnly>
             <ClientOnly>
               <CookieConsent currentLocale={locale} />

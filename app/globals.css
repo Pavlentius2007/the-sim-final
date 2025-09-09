@@ -25,7 +25,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #000000;
+  background: transparent;
   min-height: 100vh;
   position: relative;
 }
@@ -42,7 +42,7 @@ a {
 
 /* Убираем темно-синий из scrollbar */
 ::-webkit-scrollbar-track {
-  background: #000000; /* Вместо #0A0F1F */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {

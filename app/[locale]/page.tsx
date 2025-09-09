@@ -42,7 +42,7 @@ export default function LocalePage({
       <div className="relative z-10" suppressHydrationWarning>
         <LazyMotionProvider>
           <HydrationSafeWrapper fallback={
-            <div className="min-h-screen bg-gradient-to-br from-dark-900 to-dark-800 flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center">
               <div className="text-center">
                 <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">TheSim</h1>
                 <p className="text-xl text-gray-300">SMART INVESTMENTS</p>
