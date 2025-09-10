@@ -71,6 +71,42 @@
   },
   "benefits": {
     "title": "Why choose us",
+    "why": {
+      "title": "Why The SIM?",
+      "subtitle": "Our advantages"
+    },
+    "hedging": {
+      "title": "Risk Hedging",
+      "description": "Protection from market volatility"
+    },
+    "smartBuying": {
+      "title": "Smart Buying",
+      "description": "Automatic analysis of best entry points"
+    },
+    "smartSelling": {
+      "title": "Smart Selling",
+      "description": "Optimal moments for profit taking"
+    },
+    "analytics": {
+      "title": "Advanced Analytics",
+      "description": "Detailed market and trend analysis"
+    },
+    "liquidation": {
+      "title": "Quick Liquidation",
+      "description": "Instant position closing when needed"
+    },
+    "diversification": {
+      "title": "Portfolio Diversification",
+      "description": "Risk distribution across various assets"
+    },
+    "reinvestment": {
+      "title": "Profit Reinvestment",
+      "description": "Automatic capital growth"
+    },
+    "liquidity": {
+      "title": "High Liquidity",
+      "description": "Fast trade execution"
+    },
     "items": {
       "protection": {
         "title": "Capital Protection",
@@ -90,8 +126,61 @@
       }
     }
   },
+  "security": {
+    "title": "Security",
+    "subtitle": "Your funds under reliable protection",
+    "features": {
+      "api": {
+        "title": "API Integration",
+        "description": "Direct connection to exchanges",
+        "details": "Secure API connection to leading crypto exchanges"
+      },
+      "noStorage": {
+        "title": "No Fund Storage",
+        "description": "Your funds remain in your accounts",
+        "details": "We don't store your funds, only manage them"
+      },
+      "transparency": {
+        "title": "Full Transparency",
+        "description": "All operations visible in real time",
+        "details": "Complete control over all operations"
+      },
+      "protection": {
+        "title": "Risk Protection",
+        "description": "Multi-level security system",
+        "details": "Modern methods of loss protection"
+      }
+    },
+    "stats": {
+      "title": "Our Reliability",
+      "uptime": "99.9%",
+      "uptimeLabel": "Uptime",
+      "assets": "$10M+",
+      "assetsLabel": "Under Management",
+      "protection": "100%",
+      "protectionLabel": "Fund Protection"
+    }
+  },
   "investment": {
     "title": "Investment Plans",
+    "subtitle": "Choose the right plan for your goals",
+    "minAmount": {
+      "title": "Minimum Amount",
+      "value": "$1,000",
+      "description": "Start with a small amount"
+    },
+    "professional": {
+      "title": "Professional Approach",
+      "description": "Individual strategies for each client"
+    },
+    "transparency": {
+      "title": "Full Transparency",
+      "description": "Real-time reports on all operations"
+    },
+    "support": {
+      "title": "Expert Support",
+      "description": "Personal manager for each client"
+    },
     "description": "Choose the right investment plan",
     "plans": {
       "basic": {
@@ -113,11 +202,87 @@
     "button": "Start Investing"
   },
   "testimonials": {
-    "title": "Client Reviews",
-    "subtitle": "What our users say"
+    "title": "Client Reviews The SIM",
+    "subtitle": "What our users say",
+    "items": {
+      "anton": {
+        "content": "Excellent platform! Increased capital by 40% in 6 months. I recommend it to everyone!",
+        "name": "Anton K.",
+        "role": "Investor"
+      },
+      "lyudmila": {
+        "content": "Professional approach and excellent support. Very satisfied with the results.",
+        "name": "Lyudmila S.",
+        "role": "Entrepreneur"
+      },
+      "nattapong": {
+        "content": "The SIM helped me understand crypto investments. Very grateful!",
+        "name": "Nattapong T.",
+        "role": "Trader"
+      },
+      "david": {
+        "content": "Transparency and reliability are the main advantages of this platform.",
+        "name": "David M.",
+        "role": "Financial Advisor"
+      },
+      "zhanna": {
+        "content": "Convenient interface and excellent results. I continue to invest!",
+        "name": "Zhanna L.",
+        "role": "Investor"
+      },
+      "olivier": {
+        "content": "The best platform for managing digital assets. I recommend it!",
+        "name": "Olivier D.",
+        "role": "Crypto Enthusiast"
+      }
+    },
+    "cta": {
+      "title": "Ready to start?",
+      "subtitle": "Join thousands of satisfied clients",
+      "button": "Start Investing"
+    }
   },
   "faq": {
     "title": "Frequently Asked Questions",
+    "subtitle": "Answers to popular questions",
+    "capitalProtection": {
+      "question": "How is capital protection ensured?",
+      "answer": "We use a multi-level protection system, including stop-losses and portfolio diversification."
+    },
+    "cryptocurrencies": {
+      "question": "Which cryptocurrencies do you work with?",
+      "answer": "We work with top cryptocurrencies: Bitcoin, Ethereum, Binance Coin and other liquid assets."
+    },
+    "investmentStart": {
+      "question": "How to start investing?",
+      "answer": "Simply register, choose an investment plan and follow the instructions."
+    },
+    "risks": {
+      "question": "What are the investment risks?",
+      "answer": "All investments involve risks. We minimize them through diversification and professional management."
+    },
+    "returns": {
+      "question": "What returns can I expect?",
+      "answer": "Returns depend on market conditions and chosen strategy. We aim for stable profits."
+    },
+    "security": {
+      "question": "How safe are my investments?",
+      "answer": "Your funds are fully protected by modern encryption technologies."
+    },
+    "minimumInvestment": {
+      "question": "What is the minimum amount for investing?",
+      "answer": "The minimum amount is $1,000."
+    },
+    "withdrawal": {
+      "question": "How quickly can I withdraw funds?",
+      "answer": "Withdrawal takes from 24 to 48 hours."
+    },
+    "support": {
+      "question": "How to get support?",
+      "answer": "Our support team is available 24/7 via Telegram and email."
+    },
+    "contactText": "Didn't find an answer to your question?",
+    "contactButton": "Contact Us",
     "items": {
       "safety": {
         "question": "How safe are my investments?",
@@ -134,21 +299,37 @@
     }
   },
   "contact": {
-    "title": "Contact Us",
+    "title": "Contact Us The SIM",
     "subtitle": "Ready to start your journey to financial independence?",
     "form": {
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
-      "message": "Message",
+      "socialNetwork": "Social Network",
       "submit": "Submit",
       "sending": "Sending...",
       "success": "Message sent!",
       "error": "Sending error"
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "We are always ready to help you",
+      "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
+      "email": "info@thesim.com",
+      "support": "Technical Support",
+      "supportHours": "24/7"
+    },
+    "trust": {
+      "title": "Why Trust Us",
+      "freeConsultation": "Free Consultation",
+      "personalApproach": "Personal Approach",
+      "quickStart": "Quick Start"
     }
   },
   "footer": {
+    "description": "Reliable partner in digital asset management",
     "copyright": "© 2025 TheSim. All rights reserved.",
+    "disclaimer": "Investments involve risks. Past results do not guarantee future returns.",
     "sections": {
       "product": {
         "title": "Product",
@@ -161,7 +342,8 @@
         "title": "Support",
         "contact": "Contact",
         "telegram": "Telegram",
-        "socialNetwork": "Social Networks"
+        "socialNetwork": "Social Networks",
+        "email": "info@thesim.com"
       },
       "legal": {
         "title": "Legal Information",

@@ -71,6 +71,42 @@
   },
   "benefits": {
     "title": "为什么选择我们",
+    "why": {
+      "title": "为什么选择The SIM？",
+      "subtitle": "我们的优势"
+    },
+    "hedging": {
+      "title": "风险对冲",
+      "description": "保护免受市场波动影响"
+    },
+    "smartBuying": {
+      "title": "智能买入",
+      "description": "自动分析最佳入场点"
+    },
+    "smartSelling": {
+      "title": "智能卖出",
+      "description": "获利了结的最佳时机"
+    },
+    "analytics": {
+      "title": "高级分析",
+      "description": "详细的市场和趋势分析"
+    },
+    "liquidation": {
+      "title": "快速清算",
+      "description": "需要时即时平仓"
+    },
+    "diversification": {
+      "title": "投资组合多元化",
+      "description": "风险分散到各种资产"
+    },
+    "reinvestment": {
+      "title": "利润再投资",
+      "description": "自动资本增长"
+    },
+    "liquidity": {
+      "title": "高流动性",
+      "description": "快速交易执行"
+    },
     "items": {
       "protection": {
         "title": "资本保护",
@@ -90,8 +126,61 @@
       }
     }
   },
+  "security": {
+    "title": "安全性",
+    "subtitle": "您的资金受到可靠保护",
+    "features": {
+      "api": {
+        "title": "API集成",
+        "description": "直接连接交易所",
+        "details": "与主要加密货币交易所的安全API连接"
+      },
+      "noStorage": {
+        "title": "不存储资金",
+        "description": "您的资金保留在您的账户中",
+        "details": "我们不存储您的资金，只管理它们"
+      },
+      "transparency": {
+        "title": "完全透明",
+        "description": "所有操作实时可见",
+        "details": "对所有操作的完全控制"
+      },
+      "protection": {
+        "title": "风险保护",
+        "description": "多层安全系统",
+        "details": "现代损失保护方法"
+      }
+    },
+    "stats": {
+      "title": "我们的可靠性",
+      "uptime": "99.9%",
+      "uptimeLabel": "运行时间",
+      "assets": "$10M+",
+      "assetsLabel": "管理资产",
+      "protection": "100%",
+      "protectionLabel": "资金保护"
+    }
+  },
   "investment": {
     "title": "投资计划",
+    "subtitle": "为您的目标选择合适的计划",
+    "minAmount": {
+      "title": "最低金额",
+      "value": "$1,000",
+      "description": "从小额开始"
+    },
+    "professional": {
+      "title": "专业方法",
+      "description": "为每个客户制定个人策略"
+    },
+    "transparency": {
+      "title": "完全透明",
+      "description": "所有操作的实时报告"
+    },
+    "support": {
+      "title": "专家支持",
+      "description": "每个客户都有个人经理"
+    },
     "description": "选择合适的投资计划",
     "plans": {
       "basic": {
@@ -113,11 +202,87 @@
     "button": "开始投资"
   },
   "testimonials": {
-    "title": "客户评价",
-    "subtitle": "我们用户的反馈"
+    "title": "客户评价 The SIM",
+    "subtitle": "我们用户的反馈",
+    "items": {
+      "anton": {
+        "content": "优秀的平台！6个月内资本增长了40%。我推荐给所有人！",
+        "name": "安东 K.",
+        "role": "投资者"
+      },
+      "lyudmila": {
+        "content": "专业的方法和优秀的支持。对结果非常满意。",
+        "name": "柳德米拉 S.",
+        "role": "企业家"
+      },
+      "nattapong": {
+        "content": "The SIM帮助我了解加密货币投资。非常感激！",
+        "name": "纳塔蓬 T.",
+        "role": "交易员"
+      },
+      "david": {
+        "content": "透明度和可靠性是这个平台的主要优势。",
+        "name": "大卫 M.",
+        "role": "财务顾问"
+      },
+      "zhanna": {
+        "content": "便捷的界面和优秀的结果。我继续投资！",
+        "name": "詹娜 L.",
+        "role": "投资者"
+      },
+      "olivier": {
+        "content": "管理数字资产的最佳平台。我推荐！",
+        "name": "奥利维尔 D.",
+        "role": "加密货币爱好者"
+      }
+    },
+    "cta": {
+      "title": "准备开始？",
+      "subtitle": "加入数千名满意的客户",
+      "button": "开始投资"
+    }
   },
   "faq": {
     "title": "常见问题",
+    "subtitle": "热门问题解答",
+    "capitalProtection": {
+      "question": "如何确保资本保护？",
+      "answer": "我们使用多层保护系统，包括止损和投资组合多元化。"
+    },
+    "cryptocurrencies": {
+      "question": "您们与哪些加密货币合作？",
+      "answer": "我们与顶级加密货币合作：比特币、以太坊、币安币和其他流动性资产。"
+    },
+    "investmentStart": {
+      "question": "如何开始投资？",
+      "answer": "只需注册，选择投资计划并按照说明操作。"
+    },
+    "risks": {
+      "question": "投资有什么风险？",
+      "answer": "所有投资都涉及风险。我们通过多元化和专业管理来最小化风险。"
+    },
+    "returns": {
+      "question": "我可以期待什么回报？",
+      "answer": "回报取决于市场条件和选择的策略。我们追求稳定利润。"
+    },
+    "security": {
+      "question": "我的投资有多安全？",
+      "answer": "您的资金完全受到现代加密技术的保护。"
+    },
+    "minimumInvestment": {
+      "question": "投资的最低金额是多少？",
+      "answer": "最低金额是$1,000。"
+    },
+    "withdrawal": {
+      "question": "我多快可以提取资金？",
+      "answer": "提取需要24到48小时。"
+    },
+    "support": {
+      "question": "如何获得支持？",
+      "answer": "我们的支持团队通过Telegram和电子邮件24/7提供服务。"
+    },
+    "contactText": "没有找到您问题的答案？",
+    "contactButton": "联系我们",
     "items": {
       "safety": {
         "question": "我的投资有多安全？",
@@ -134,21 +299,37 @@
     }
   },
   "contact": {
-    "title": "联系我们",
+    "title": "联系我们 The SIM",
     "subtitle": "准备开始您的财务独立之旅了吗？",
     "form": {
       "name": "姓名",
       "email": "邮箱",
       "phone": "电话",
-      "message": "消息",
+      "socialNetwork": "社交网络",
       "submit": "提交",
       "sending": "发送中...",
       "success": "消息已发送！",
       "error": "发送错误"
+    },
+    "info": {
+      "title": "联系信息",
+      "description": "我们随时准备帮助您",
+      "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
+      "email": "info@thesim.com",
+      "support": "技术支持",
+      "supportHours": "24/7"
+    },
+    "trust": {
+      "title": "为什么信任我们",
+      "freeConsultation": "免费咨询",
+      "personalApproach": "个人方法",
+      "quickStart": "快速开始"
     }
   },
   "footer": {
+    "description": "数字资产管理领域的可靠合作伙伴",
     "copyright": "© 2025 TheSim. 版权所有。",
+    "disclaimer": "投资涉及风险。过去的结果不保证未来的回报。",
     "sections": {
       "product": {
         "title": "产品",
@@ -161,7 +342,8 @@
         "title": "支持",
         "contact": "联系",
         "telegram": "Telegram",
-        "socialNetwork": "社交网络"
+        "socialNetwork": "社交网络",
+        "email": "info@thesim.com"
       },
       "legal": {
         "title": "法律信息",
