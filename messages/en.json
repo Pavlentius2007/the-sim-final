@@ -10,27 +10,27 @@
     "back": "Back"
   },
   "hero": {
-    "title": "The SIM — Your Reliable Partner in Digital Asset Management",
+    "title": "The SIM — Your reliable partner in digital asset management",
     "subtitle": "Invest with capital protection, smart buying and selling, portfolio diversification",
     "ctaButton": "Start Investing",
     "learnMore": "Learn More",
     "stats": {
-      "managedAssets": "Managed Assets",
+      "managedAssets": "Assets Under Management",
       "satisfiedClients": "Satisfied Clients",
-      "support": "Support"
+      "support": "24/7 Support"
     }
   },
   "about": {
-    "title": "service for working with digital assets",
-    "description": "That earns from market volatility, not predictions.",
+    "title": "digital asset management service",
+    "description": "That earns from market volatility, not from predictions.",
     "demoTitle": "Personal Cabinet Demo",
     "playDemo": "Play Demo",
     "pauseDemo": "Pause",
     "loadingDemo": "Loading demo...",
     "features": {
       "market": {
-        "title": "Works at any market stage",
-        "description": "Growth, decline or flat — our system adapts to any conditions"
+        "title": "Works at any stage of the market",
+        "description": "Growth, decline or sideways — our system adapts to any conditions"
       },
       "assets": {
         "title": "Uses only verified assets",
@@ -47,225 +47,108 @@
     },
     "dashboard": {
       "title": "Full control over your investments",
-      "description": "Powerful dashboard for tracking all your assets in real time",
+      "description": "Powerful control panel for tracking all your assets in real time",
       "features": {
-        "realTime": "Real-time portfolio monitoring",
-        "analytics": "Detailed profitability analytics",
-        "security": "Bank-level security"
+        "realtime": "Real-time data",
+        "analytics": "Detailed analytics",
+        "portfolio": "Portfolio management",
+        "alerts": "Smart notifications"
       }
-    }
-  },
-  "benefits": {
-    "title": "Benefits",
-    "protection": "Capital Protection",
-    "smartTrading": "Smart Trading",
-    "why": {
-      "title": "Why",
-      "subtitle": "8 key benefits that make our platform unique"
-    },
-    "hedging": {
-      "title": "Hedging",
-      "description": "Automatic capital protection from sharp market fluctuations"
-    },
-    "smartBuying": {
-      "title": "Smart Buying",
-      "description": "Deposit distribution across a grid for optimal position entry"
-    },
-    "smartSelling": {
-      "title": "Smart Selling",
-      "description": "AI determines optimal markup for each position"
-    },
-    "analytics": {
-      "title": "Market Analytics",
-      "description": "Daily monitoring and analysis of market trends"
-    },
-    "liquidation": {
-      "title": "Liquidation",
-      "description": "Asset control and management to minimize risks"
-    },
-    "diversification": {
-      "title": "Diversification",
-      "description": "Distribution across 30+ assets to reduce risks"
-    },
-    "reinvestment": {
-      "title": "Reinvestment",
-      "description": "Automatic profit investment for capital growth"
-    },
-    "liquidity": {
-      "title": "Liquidity Control",
-      "description": "Ensuring stability through liquidity management"
     }
   },
   "video": {
     "title": "Video Review",
-    "subtitle": "Learn more about how our platform works and how it can help you invest",
-    "videoTitle": "The SIM - Complete Platform Overview",
-    "duration": "2:25",
-    "durationLabel": "Duration",
-    "quality": "HD",
-    "qualityLabel": "Quality",
-            "language": "English",
-    "languageLabel": "Language",
-    "whatYouLearn": {
-      "title": "What you'll learn from the video",
-      "features": {
-        "overview": {
-          "title": "What is an innovative digital asset management service?"
-        },
-        "features": {
-          "title": "Why does the system generate profit even when the market drops by 99%?"
-        },
-        "dashboard": {
-          "title": "How do AI algorithms work and what 8 subsystems form the foundation?"
-        },
-        "diversification": {
-          "title": "How is diversification, hedging and reinvestment achieved?"
-        },
-        "api": {
-          "title": "Why doesn't The SIM store funds but works through API with Binance wallet?"
-        },
-        "income": {
-          "title": "How to get stable income in any market phase: growth, decline or flat?"
-        }
-      }
-    },
-    "videoComingSoon": "Video will be added later",
-    "watchVideo": "Watch video",
-    "clickToView": "Click to view"
+    "subtitle": "See how our platform works for managing digital assets",
+    "contentTitle": "Full Platform Review",
+    "contentDescription": "Learn how our platform helps investors manage digital assets with maximum efficiency and security.",
+    "whatYouWillSee": "What you will see:",
+    "feature1": "Personal cabinet interface",
+    "feature2": "Investment process",
+    "feature3": "Analytical tools",
+    "feature4": "Security system",
+    "watchButton": "Watch Video",
+    "close": "Close"
   },
-  "security": {
-    "title": "Reliability above all",
-    "subtitle": "We ensure maximum security of your investments through proven technologies and transparent processes",
-    "features": {
-      "api": {
-        "title": "Binance API",
-        "description": "We work directly with the largest cryptocurrency exchange without intermediaries",
-        "details": "Direct integration with Binance API ensures maximum speed and reliability of operations"
-      },
-      "noStorage": {
-        "title": "No fund storage",
-        "description": "Your funds remain in your Binance account",
-        "details": "We don't have access to your funds, only to trading operations"
-      },
-      "transparency": {
-        "title": "Transparency",
-        "description": "Investor sees all operations in real time",
-        "details": "Full visibility of all trading operations and portfolio changes"
-      },
+  "benefits": {
+    "title": "Why choose us",
+    "items": {
       "protection": {
-        "title": "Automatic protection",
-        "description": "Diversification reduces capital loss risks",
-        "details": "Distribution across 30+ assets minimizes the impact of volatility of individual coins"
+        "title": "Capital Protection",
+        "description": "Proven risk minimization strategies"
+      },
+      "profit": {
+        "title": "Stable Profit",
+        "description": "Profitability in any market conditions"
+      },
+      "technology": {
+        "title": "Advanced Technologies",
+        "description": "Automated trading algorithms"
+      },
+      "support": {
+        "title": "Expert Support",
+        "description": "Professional assistance 24/7"
       }
-    },
-    "stats": {
-      "title": "Our security statistics",
-      "uptime": "99.9%",
-      "uptimeLabel": "Uptime",
-      "assets": "30+",
-      "assetsLabel": "Assets",
-      "protection": "100%",
-      "protectionLabel": "Capital protection"
     }
   },
   "investment": {
-    "title": "Partnership Terms",
-    "subtitle": "Transparent conditions for serious investors",
-    "minAmount": {
-      "title": "Minimum Amount",
-      "value": "$2,000",
-      "description": "Initial amount to start working with the platform"
+    "title": "Investment Plans",
+    "description": "Choose the right investment plan",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "amount": "$1,000",
+        "features": "Basic features"
+      },
+      "advanced": {
+        "name": "Advanced",
+        "amount": "$2,000",
+        "features": "Extended capabilities"
+      },
+      "premium": {
+        "name": "Premium",
+        "amount": "$5,000",
+        "features": "All features"
+      }
     },
-    "professional": {
-      "title": "Professional Approach",
-      "description": "We work only with serious investors"
-    },
-    "transparency": {
-      "title": "Full Transparency",
-      "description": "All conditions are discussed in advance"
-    },
-    "support": {
-      "title": "Personal Support",
-      "description": "Individual support for each client"
-    }
+    "button": "Start Investing"
   },
   "testimonials": {
-    "title": "Customer reviews",
-    "subtitle": "Learn what investors who already use The SIM to manage their digital assets say",
-    "cta": {
-      "title": "Ready to join successful investors?",
-      "subtitle": "Start your path to financial freedom with The SIM today",
-      "button": "Start investing"
-    },
+    "title": "Client Reviews",
+    "subtitle": "What our users say"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
     "items": {
-      "anton": {
-        "name": "Anton S.",
-        "role": "Kaluga, Russia",
-        "content": "I'm used to analyzing everything down to the smallest detail, so I'm cautious about new services. I started with a small amount in The SIM, just to check how the system behaves in different periods. For a year, not a single failure, and the results turned out to be above my expectations. Now I've connected another account for my daughter to build long-term capital.",
-        "highlight": "results turned out to be above expectations"
+      "safety": {
+        "question": "How safe are my investments?",
+        "answer": "Your funds are fully protected by modern encryption technologies."
       },
-      "lyudmila": {
-        "name": "Lyudmila V.",
-        "role": "Bremen, Germany",
-        "content": "I work in consulting and often deal with clients looking for clear and transparent investment solutions. I first tested The SIM for myself, then started recommending it to colleagues. I really like the detailed reporting and the ability to see the strategy in numbers, not just beautiful promises.",
-        "highlight": "detailed reporting"
+      "minimum": {
+        "question": "What is the minimum amount for investing?",
+        "answer": "The minimum amount is $1,000."
       },
-      "nattapong": {
-        "name": "Nattapong R.",
-        "role": "Chiang Mai, Thailand",
-        "content": "I live in Chiang Mai, previously tried different crypto services, but was constantly disappointed: either huge risks or everything works intermittently. In The SIM, I was pleasantly surprised that the algorithms really adapt to the market. Even when Bitcoin was falling, the system maintained balance and didn't let the portfolio drop too much.",
-        "highlight": "algorithms really adapt to the market"
-      },
-      "david": {
-        "name": "David P.",
-        "role": "Wellington, New Zealand",
-        "content": "I'm from a small company in New Zealand, we're used to checking everything several times. At the start, I was afraid of complex interfaces and hidden fees, but here everything is transparent and convenient. I liked that support responds quickly and in detail. It feels like there are people behind this product, not a soulless bot.",
-        "highlight": "support responds quickly and in detail"
-      },
-      "zhanna": {
-        "name": "Zhanna M.",
-        "role": "Almaty, Kazakhstan",
-        "content": "The system doesn't work miracles, but that's exactly what I liked: everything is honest, without promises of 'X2 in a month'. The portfolio is gradually growing, and I sleep peacefully because I know — the risks are calculated. For me, stability is important, not instant profit.",
-        "highlight": "risks are calculated"
-      },
-      "olivier": {
-        "name": "Olivier G.",
-        "role": "Lyon, France",
-        "content": "I've been following fintech for a long time, but rarely see services where strategy is really confirmed by practice. I've been in The SIM for the second year and I'm pleasantly surprised: profitability doesn't jump, algorithms adjust to trends. I even tested it in parallel with another service — the difference in results is obvious.",
-        "highlight": "strategy is really confirmed by practice"
+      "withdrawal": {
+        "question": "How quickly can I withdraw funds?",
+        "answer": "Withdrawal takes from 24 to 48 hours."
       }
     }
   },
   "contact": {
-    "title": "Get presentation and consultation",
-    "subtitle": "Leave a request and we will contact you for detailed consultation on working with The SIM",
+    "title": "Contact Us",
+    "subtitle": "Ready to start your journey to financial independence?",
     "form": {
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
-      "socialNetwork": "Social Network",
-      "submit": "Send Request",
-      "success": "Thank you! We will contact you soon.",
-      "error": "An error occurred. Please try again.",
-      "loading": "Sending..."
-    },
-    "info": {
-      "title": "Contact Us",
-      "description": "Ready to answer all your questions and help you start investing with The SIM",
-      "socialNetwork": "Social Network",
-      "email": "Email",
-      "support": "24/7 Support",
-      "supportHours": "Around the clock"
-    },
-    "trust": {
-      "title": "Why choose us",
-      "freeConsultation": "Free consultation",
-      "personalApproach": "Personal approach",
-      "quickStart": "Quick start"
+      "message": "Message",
+      "submit": "Submit",
+      "sending": "Sending...",
+      "success": "Message sent!",
+      "error": "Sending error"
     }
   },
   "footer": {
-    "description": "Your reliable partner in digital asset management. Invest with capital protection and smart strategies.",
+    "copyright": "© 2025 TheSim. All rights reserved.",
     "sections": {
       "product": {
         "title": "Product",
@@ -278,93 +161,14 @@
         "title": "Support",
         "contact": "Contact",
         "telegram": "Telegram",
-        "socialNetwork": "Social Network",
-        "email": "Email",
-        "help": "Help"
+        "socialNetwork": "Social Networks"
       },
       "legal": {
         "title": "Legal Information",
         "privacy": "Privacy Policy",
         "terms": "Terms of Use",
-        "termsOfService": "Terms of Service",
-        "cookies": "Cookies"
-      },
-      "contact": {
-        "title": "Contact Information",
-        "address": "Address: หมู่ที่ 12 163 Phra Tamnak, Bang Lamung District, Chon Buri 20150",
-        "phone": "Phone: +66 614 68 0860",
-        "email": "Email: info@thesim.com"
+        "cookies": "Cookie Policy"
       }
-    },
-    "copyright": "© 2025 The SIM. All rights reserved.",
-    "creator": "Website creator - Sianoro",
-    "disclaimer": "Investments carry risks, make informed decisions"
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Answers to the most common questions about our digital asset management platform",
-    "capitalProtection": {
-      "question": "How does capital protection work in TheSIM?",
-      "answer": "TheSIM uses a grid trading strategy without leverage, which eliminates the risk of losing all capital. The system automatically distributes orders in a grid, adapts to market volatility and works only with verified high-liquidity assets. All funds remain in your Binance account."
-    },
-    "cryptocurrencies": {
-      "question": "What cryptocurrencies are supported?",
-      "answer": "We support all top cryptocurrencies: Bitcoin, Ethereum, BNB, Solana, Cardano, as well as popular DeFi tokens. We constantly analyze the market and add promising assets with high liquidity.",
-      "supportedAssets": [
-        "BTC", "ETH", "BNB", "SOL", "ADA", "XRP", "DOGE", "AVAX", "MATIC", "DOT",
-        "LINK", "UNI", "AAVE", "COMP", "CRV", "LDO", "PENDLE", "RENDER", "SUI", "TAO",
-        "1INCH", "BONK", "ENA", "ENS", "ETHFI", "JTO", "JUP", "PEPE", "RAY", "RED",
-        "RESOLV", "REZ", "SPK", "ZRO"
-      ]
-    },
-    "investmentStart": {
-      "question": "How to start investing with TheSim?",
-      "answer": "The process is simple: submit a request on the website, our manager will contact you for consultation, select the optimal strategy for your budget and goals, after which you can start investing within 24 hours."
-    },
-    "risks": {
-      "question": "What risks are associated with TheSIM trading system?",
-      "answer": "Main risks: market fluctuations and reduced liquidity of individual assets. However, TheSIM trading system minimizes these threats through order distribution in a grid, working without leverage, automatic risk control and dynamic pricing that adapts to current market conditions."
-    },
-    "returns": {
-      "question": "What returns can be expected?",
-      "answer": "According to TheSIM system statistics, returns are 12-60% annually depending on the market. With reinvestment enabled, profit grows exponentially. The specific result may vary, but the strategy is focused on stable income with controlled risks."
-    },
-    "security": {
-      "question": "How secure is TheSIM trading system?",
-      "answer": "TheSIM system works directly through Binance API and does not store money on its own accounts — all funds remain in the user's personal wallet and are not blocked by the system. We trade only verified assets, a list of which is published on the official website. This approach guarantees transparency and full user control over their finances."
-    },
-    "minimumInvestment": {
-      "question": "What is the minimum investment amount?",
-      "answer": "The minimum amount for trading on one pair of assets we use is $2,000. This is sufficient for correct order distribution in the grid and effective risk management."
-    },
-    "withdrawal": {
-      "question": "How quickly can funds be withdrawn?",
-      "answer": "The TheSIM system does not store your money — all funds are in your personal wallet on Binance. You can withdraw them at any time directly through the exchange, using standard Binance mechanisms. The speed and commission depend only on the exchange itself and the chosen withdrawal method."
-    },
-    "support": {
-      "question": "What support is provided to investors?",
-      "answer": "We provide support exclusively for the operation of the TheSIM algorithm and are always ready to answer your questions within the system. We do not provide consultations on markets or other strategies — the focus is entirely on the correct operation of the algorithm and the convenience of its use."
-    },
-    "contactText": "Didn't find an answer to your question?",
-    "contactButton": "Contact Us"
-  },
-  "cookies": {
-    "title": "Cookie Files",
-    "subtitle": "We use cookies",
-    "description": "We use cookies to improve your experience on our site, personalize content and analyze traffic. Your privacy is important to us.",
-    "acceptAll": "Accept All",
-    "reject": "Reject",
-    "showDetails": "Learn More",
-    "hideDetails": "Hide",
-    "learnMore": "Learn more about cookies",
-    "necessary": {
-      "title": "Necessary cookies",
-      "description": "These files are necessary for the site to work and cannot be disabled.",
-      "only": "Necessary Only"
-    },
-    "analytics": {
-      "title": "Analytics cookies", 
-      "description": "Help us understand how visitors interact with the site."
     }
   }
 }

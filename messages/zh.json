@@ -1,27 +1,27 @@
 {
   "navigation": {
     "home": "首页",
-    "about": "关于",
+    "about": "关于我们",
     "services": "服务",
-    "contact": "联系",
+    "contact": "联系我们",
     "personalCabinet": "个人中心"
   },
   "common": {
     "back": "返回"
   },
   "hero": {
-    "title": "The SIM — 您可靠的数字资产管理合作伙伴",
+    "title": "The SIM — 您在数字资产管理方面的可靠合作伙伴",
     "subtitle": "通过资本保护、智能买卖和投资组合多元化进行投资",
     "ctaButton": "开始投资",
     "learnMore": "了解更多",
     "stats": {
       "managedAssets": "管理资产",
       "satisfiedClients": "满意客户",
-      "support": "支持"
+      "support": "全天候支持"
     }
   },
   "about": {
-    "title": "数字资产服务",
+    "title": "数字资产管理服务",
     "description": "从市场波动中获利，而非预测。",
     "demoTitle": "个人中心演示",
     "playDemo": "播放演示",
@@ -29,243 +29,126 @@
     "loadingDemo": "加载演示中...",
     "features": {
       "market": {
-        "title": "适用于任何市场阶段",
+        "title": "适用于市场的任何阶段",
         "description": "增长、下跌或横盘 — 我们的系统适应任何条件"
       },
       "assets": {
-        "title": "仅使用验证资产",
+        "title": "仅使用经过验证的资产",
         "description": "精心挑选的高流动性加密货币"
       },
       "trends": {
         "title": "跟随市场",
-        "description": "我们不试图\"猜测\"方向，而是与当前趋势合作"
+        "description": "我们不试图'猜测'方向，而是与当前趋势合作"
       },
       "api": {
         "title": "通过API与币安合作",
-        "description": "不在自有账户存储资金，直接集成"
+        "description": "无需在自有账户存储资金，直接集成"
       }
     },
     "dashboard": {
-      "title": "对投资的完全控制",
-      "description": "强大的仪表板，实时跟踪所有资产",
+      "title": "完全控制您的投资",
+      "description": "强大的控制面板，实时跟踪您的所有资产",
       "features": {
-        "realTime": "实时投资组合监控",
-        "analytics": "详细的盈利能力分析",
-        "security": "银行级安全"
+        "realtime": "实时数据",
+        "analytics": "详细分析",
+        "portfolio": "投资组合管理",
+        "alerts": "智能通知"
       }
-    }
-  },
-  "benefits": {
-    "title": "优势",
-    "protection": "资本保护",
-    "smartTrading": "智能交易",
-    "why": {
-      "title": "为什么",
-      "subtitle": "8个关键优势，使我们的平台独一无二"
-    },
-    "hedging": {
-      "title": "对冲",
-      "description": "自动保护资本免受剧烈市场波动"
-    },
-    "smartBuying": {
-      "title": "智能购买",
-      "description": "存款分布网格，实现最佳仓位进入"
-    },
-    "smartSelling": {
-      "title": "智能销售",
-      "description": "AI为每个仓位确定最佳加价"
-    },
-    "analytics": {
-      "title": "市场分析",
-      "description": "每日监控和分析市场趋势"
-    },
-    "liquidation": {
-      "title": "清算",
-      "description": "资产控制和管理，最小化风险"
-    },
-    "diversification": {
-      "title": "多元化",
-      "description": "分布到30多个资产，降低风险"
-    },
-    "reinvestment": {
-      "title": "再投资",
-      "description": "自动利润投资，实现资本增长"
-    },
-    "liquidity": {
-      "title": "流动性控制",
-      "description": "通过流动性管理确保稳定性"
     }
   },
   "video": {
     "title": "视频回顾",
-    "subtitle": "了解更多关于我们平台如何工作以及如何帮助您投资",
-    "videoTitle": "The SIM - 完整平台概述",
-    "duration": "2:25",
-    "durationLabel": "时长",
-    "quality": "高清",
-    "qualityLabel": "质量",
-    "language": "中文",
-    "languageLabel": "语言",
-    "whatYouLearn": {
-      "title": "您将从视频中学到什么",
-      "features": {
-        "overview": {
-          "title": "什么是创新的数字资产管理服务？"
-        },
-        "features": {
-          "title": "为什么系统即使在市场下跌99%时也能带来利润？"
-        },
-        "dashboard": {
-          "title": "AI算法如何工作，哪8个子系统构成基础？"
-        },
-        "diversification": {
-          "title": "如何实现多元化、对冲和再投资？"
-        },
-        "api": {
-          "title": "为什么The SIM不存储资金，而是通过API与币安钱包合作？"
-        },
-        "income": {
-          "title": "如何在任何市场阶段获得稳定收入：上涨、下跌或横盘？"
-        }
-      }
-    },
-    "videoComingSoon": "视频稍后添加",
-    "watchVideo": "观看视频",
-    "clickToView": "点击查看"
+    "subtitle": "了解我们的数字资产管理平台如何运作",
+    "contentTitle": "完整平台回顾",
+    "contentDescription": "了解我们的平台如何帮助投资者以最高效率和安全性管理数字资产。",
+    "whatYouWillSee": "您将看到：",
+    "feature1": "个人中心界面",
+    "feature2": "投资流程",
+    "feature3": "分析工具",
+    "feature4": "安全系统",
+    "watchButton": "观看视频",
+    "close": "关闭"
   },
-  "security": {
-    "title": "可靠性至上",
-    "subtitle": "我们通过经过验证的技术和透明流程确保您投资的最大安全性",
-    "features": {
-      "api": {
-        "title": "币安API",
-        "description": "我们直接与最大的加密货币交易所合作，无需中介",
-        "details": "与币安API的直接集成确保操作的最大速度和可靠性"
-      },
-      "noStorage": {
-        "title": "不存储资金",
-        "description": "您的资金保留在您的币安账户中",
-        "details": "我们无法访问您的资金，只能进行交易操作"
-      },
-      "transparency": {
-        "title": "透明度",
-        "description": "投资者实时看到所有操作",
-        "details": "所有交易操作和投资组合变化的完全可见性"
-      },
+  "benefits": {
+    "title": "为什么选择我们",
+    "items": {
       "protection": {
-        "title": "自动保护",
-        "description": "多元化降低资本损失风险",
-        "details": "分布到30多个资产，最小化个别币种波动性的影响"
+        "title": "资本保护",
+        "description": "经过验证的风险最小化策略"
+      },
+      "profit": {
+        "title": "稳定利润",
+        "description": "在任何市场条件下的盈利能力"
+      },
+      "technology": {
+        "title": "先进技术",
+        "description": "自动化交易算法"
+      },
+      "support": {
+        "title": "专家支持",
+        "description": "24/7专业协助"
       }
-    },
-    "stats": {
-      "title": "我们的安全统计",
-      "uptime": "99.9%",
-      "uptimeLabel": "运行时间",
-      "assets": "30+",
-      "assetsLabel": "资产",
-      "protection": "100%",
-      "protectionLabel": "资本保护"
     }
   },
   "investment": {
-    "title": "合作条件",
-    "subtitle": "对认真投资者的透明条件",
-    "minAmount": {
-      "title": "最低金额",
-      "value": "$2,000",
-      "description": "开始使用平台的初始金额"
+    "title": "投资计划",
+    "description": "选择合适的投资计划",
+    "plans": {
+      "basic": {
+        "name": "基础",
+        "amount": "$1,000",
+        "features": "基础功能"
+      },
+      "advanced": {
+        "name": "进阶",
+        "amount": "$2,000",
+        "features": "扩展功能"
+      },
+      "premium": {
+        "name": "高级",
+        "amount": "$5,000",
+        "features": "所有功能"
+      }
     },
-    "professional": {
-      "title": "专业方法",
-      "description": "我们只与认真的投资者合作"
-    },
-    "transparency": {
-      "title": "完全透明",
-      "description": "所有条件都会提前讨论"
-    },
-    "support": {
-      "title": "个人支持",
-      "description": "为每位客户提供个人支持"
-    }
+    "button": "开始投资"
   },
   "testimonials": {
     "title": "客户评价",
-    "subtitle": "了解已经使用The SIM管理数字资产的投资者怎么说",
-    "cta": {
-      "title": "准备加入成功的投资者行列？",
-      "subtitle": "今天就与The SIM一起开始您的财务自由之路",
-      "button": "开始投资"
-    },
+    "subtitle": "我们用户的反馈"
+  },
+  "faq": {
+    "title": "常见问题",
     "items": {
-      "anton": {
-        "name": "安东·S.",
-        "role": "卡卢加，俄罗斯",
-        "content": "我习惯分析一切细节，所以对新服务持谨慎态度。我在The SIM开始用小额资金，只是想检查系统在不同时期的表现。一年来没有任何故障，结果超出了我的期望。现在我为女儿连接了另一个账户来建立长期资本。",
-        "highlight": "结果超出了期望"
+      "safety": {
+        "question": "我的投资有多安全？",
+        "answer": "您的资金完全受到现代加密技术的保护。"
       },
-      "lyudmila": {
-        "name": "柳德米拉·V.",
-        "role": "不来梅，德国",
-        "content": "我在咨询公司工作，经常遇到寻找清晰透明投资解决方案的客户。我先为自己测试了The SIM，然后开始推荐给同事。我非常喜欢详细的报告和能够看到策略的数字，而不仅仅是美丽的承诺。",
-        "highlight": "详细的报告"
+      "minimum": {
+        "question": "投资的最低金额是多少？",
+        "answer": "最低金额是$1,000。"
       },
-      "nattapong": {
-        "name": "Nattapong R.",
-        "role": "清迈，泰国",
-        "content": "我住在清迈，以前尝试过不同的加密货币服务，但不断失望：要么风险巨大，要么一切断断续续工作。在The SIM中，我惊喜地发现算法真的能适应市场。即使比特币下跌时，系统也保持了平衡，没有让投资组合下跌太多。",
-        "highlight": "算法真的能适应市场"
-      },
-      "david": {
-        "name": "David P.",
-        "role": "惠灵顿，新西兰",
-        "content": "我来自新西兰的一家小公司，我们习惯多次检查一切。开始时我害怕复杂的界面和隐藏费用，但这里一切都很透明和方便。我喜欢支持快速详细地回应。感觉这个产品背后是人，而不是无情的机器人。",
-        "highlight": "支持快速详细地回应"
-      },
-      "zhanna": {
-        "name": "让娜·M.",
-        "role": "阿拉木图，哈萨克斯坦",
-        "content": "系统不创造奇迹，但这正是我喜欢的：一切都很诚实，没有'一个月翻倍'的承诺。投资组合逐渐增长，我睡得很安稳，因为我知道 — 风险已经计算过了。对我来说，稳定性比即时利润更重要。",
-        "highlight": "风险已经计算过了"
-      },
-      "olivier": {
-        "name": "Olivier G.",
-        "role": "里昂，法国",
-        "content": "我长期关注金融科技，但很少看到策略真正被实践证实的服务。在The SIM已经第二年，我很惊喜：盈利能力不跳跃，算法适应趋势。我甚至与另一个服务并行测试 — 结果差异很明显。",
-        "highlight": "策略真正被实践证实"
+      "withdrawal": {
+        "question": "我多快可以提取资金？",
+        "answer": "提取需要24到48小时。"
       }
     }
   },
   "contact": {
-    "title": "获取演示和咨询",
-    "subtitle": "留下请求，我们将联系您进行The SIM工作的详细咨询",
+    "title": "联系我们",
+    "subtitle": "准备开始您的财务独立之旅了吗？",
     "form": {
       "name": "姓名",
       "email": "邮箱",
       "phone": "电话",
-      "socialNetwork": "社交网络",
-      "submit": "发送请求",
-      "success": "谢谢！我们很快会联系您。",
-      "error": "发生错误。请再试一次。",
-      "loading": "发送中..."
-    },
-    "info": {
-      "title": "联系我们",
-      "description": "准备回答您的所有问题并帮助您开始使用The SIM投资",
-      "socialNetwork": "社交网络",
-      "email": "邮箱",
-      "support": "24/7支持",
-      "supportHours": "全天候"
-    },
-    "trust": {
-      "title": "为什么选择我们",
-      "freeConsultation": "免费咨询",
-      "personalApproach": "个性化方法",
-      "quickStart": "快速启动"
+      "message": "消息",
+      "submit": "提交",
+      "sending": "发送中...",
+      "success": "消息已发送！",
+      "error": "发送错误"
     }
   },
   "footer": {
-    "description": "您可靠的数字资产管理合作伙伴。通过资本保护和智能策略进行投资。",
+    "copyright": "© 2025 TheSim. 版权所有。",
     "sections": {
       "product": {
         "title": "产品",
@@ -277,93 +160,15 @@
       "support": {
         "title": "支持",
         "contact": "联系",
-        "socialNetwork": "社交网络",
-        "email": "邮箱",
-        "help": "帮助"
+        "telegram": "Telegram",
+        "socialNetwork": "社交网络"
       },
       "legal": {
         "title": "法律信息",
         "privacy": "隐私政策",
         "terms": "使用条款",
-        "termsOfService": "服务条款",
-        "cookies": "Cookie"
-      },
-      "contact": {
-        "title": "联系信息",
-        "address": "地址：หมู่ที่ 12 163 Phra Tamnak, Bang Lamung District, Chon Buri 20150",
-        "phone": "电话：+66 614 68 0860",
-        "email": "邮箱：info@thesim.com"
+        "cookies": "Cookie政策"
       }
-    },
-    "copyright": "© 2025 The SIM. 保留所有权利。",
-    "creator": "网站创建者 - Sianoro",
-    "disclaimer": "投资有风险，请谨慎决策"
-  },
-  "faq": {
-    "title": "常见问题",
-    "subtitle": "关于我们数字资产管理平台最常见问题的答案",
-    "capitalProtection": {
-      "question": "TheSIM的资本保护是如何工作的？",
-      "answer": "TheSIM使用无杠杆的网格交易策略，消除了损失全部资本的风险。系统自动在网格中分配订单，适应市场波动，只与经过验证的高流动性资产合作。所有资金都保留在您的币安账户中。"
-    },
-    "cryptocurrencies": {
-      "question": "支持哪些加密货币？",
-      "answer": "我们支持所有顶级加密货币：比特币、以太坊、BNB、索拉纳、卡尔达诺，以及流行的DeFi代币。我们不断分析市场并添加具有高流动性的有前景资产。",
-      "supportedAssets": [
-        "BTC", "ETH", "BNB", "SOL", "ADA", "XRP", "DOGE", "AVAX", "MATIC", "DOT",
-        "LINK", "UNI", "AAVE", "COMP", "CRV", "LDO", "PENDLE", "RENDER", "SUI", "TAO",
-        "1INCH", "BONK", "ENA", "ENS", "ETHFI", "JTO", "JUP", "PEPE", "RAY", "RED",
-        "RESOLV", "REZ", "SPK", "ZRO"
-      ]
-    },
-    "investmentStart": {
-      "question": "如何开始使用TheSim投资？",
-      "answer": "过程很简单：在网站上提交请求，我们的经理将联系您进行咨询，为您的预算和目标选择最佳策略，之后您可以在24小时内开始投资。"
-    },
-    "risks": {
-      "question": "TheSIM交易系统有哪些风险？",
-      "answer": "主要风险：市场波动和个别资产流动性降低。然而，TheSIM交易系统通过网格中的订单分配、无杠杆工作、自动风险控制和适应当前市场条件的动态定价来最小化这些威胁。"
-    },
-    "returns": {
-      "question": "可以期望什么回报？",
-      "answer": "根据TheSIM系统统计，回报率为12-60%年化，取决于市场。启用再投资时，利润呈指数增长。具体结果可能有所不同，但策略专注于受控风险的稳定收入。"
-    },
-    "security": {
-      "question": "TheSIM交易系统有多安全？",
-      "answer": "TheSIM系统直接通过币安API工作，不在自己的账户上存储资金 — 所有资金都保留在用户的个人钱包中，不会被系统阻止。我们只交易经过验证的资产，其列表在官方网站上发布。这种方法保证了透明度和用户对其财务的完全控制。"
-    },
-    "minimumInvestment": {
-      "question": "最低投资金额是多少？",
-      "answer": "我们使用的资产对中每对交易的最低金额为2,000美元。这足以在网格中正确分配订单并进行有效的风险管理。"
-    },
-    "withdrawal": {
-      "question": "资金可以多快提取？",
-      "answer": "TheSIM系统不存储您的资金 — 所有资金都在您的币安个人钱包中。您可以随时直接通过交易所提取，使用标准的币安机制。速度和手续费仅取决于交易所本身和选择的提取方式。"
-    },
-    "support": {
-      "question": "为投资者提供什么支持？",
-      "answer": "我们专门为TheSIM算法的运行提供支持，并始终准备在系统范围内回答您的问题。我们不提供市场或其他策略的咨询 — 重点完全放在算法的正确运行和使用便利性上。"
-    },
-    "contactText": "没有找到您问题的答案？",
-    "contactButton": "联系我们"
-  },
-  "cookies": {
-    "title": "Cookie文件",
-    "subtitle": "我们使用cookies",
-    "description": "我们使用cookies来改善您在我们网站上的体验，个性化内容和分析流量。您的隐私对我们很重要。",
-    "acceptAll": "接受全部",
-    "reject": "拒绝",
-    "showDetails": "了解更多",
-    "hideDetails": "隐藏",
-    "learnMore": "了解更多关于cookies",
-    "necessary": {
-      "title": "必要的cookies",
-      "description": "这些文件是网站工作所必需的，不能被禁用。",
-      "only": "仅必要"
-    },
-    "analytics": {
-      "title": "分析cookies",
-      "description": "帮助我们了解访问者如何与网站互动。"
     }
   }
 }
