@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React from 'react'
 
 interface HydrationSafeWrapperProps {
   children: React.ReactNode
@@ -8,19 +8,8 @@ interface HydrationSafeWrapperProps {
 }
 
 /**
- * Обертка для предотвращения ошибок гидратации
- * Рендерит fallback на сервере, children только на клиенте
+ * Простая обертка для предотвращения ошибок гидратации
  */
 export default function HydrationSafeWrapper({ children, fallback = null }: HydrationSafeWrapperProps) {
-  const [isHydrated, setIsHydrated] = useState(false)
-
-  useEffect(() => {
-    setIsHydrated(true)
-  }, [])
-
-  if (!isHydrated) {
-    return <div suppressHydrationWarning>{fallback}</div>
-  }
-
   return <div suppressHydrationWarning>{children}</div>
 }

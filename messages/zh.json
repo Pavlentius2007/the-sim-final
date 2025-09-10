@@ -23,6 +23,10 @@
   "about": {
     "title": "数字资产服务",
     "description": "从市场波动中获利，而非预测。",
+    "demoTitle": "个人中心演示",
+    "playDemo": "播放演示",
+    "pauseDemo": "暂停",
+    "loadingDemo": "加载演示中...",
     "features": {
       "market": {
         "title": "适用于任何市场阶段",
@@ -283,10 +287,17 @@
         "terms": "使用条款",
         "termsOfService": "服务条款",
         "cookies": "Cookie"
+      },
+      "contact": {
+        "title": "联系信息",
+        "address": "地址：หมู่ที่ 12 163 Phra Tamnak, Bang Lamung District, Chon Buri 20150",
+        "phone": "电话：+66 614 68 0860",
+        "email": "邮箱：info@thesim.com"
       }
     },
     "copyright": "© 2025 The SIM. 保留所有权利。",
-    "creator": "网站创建者 - Sianoro"
+    "creator": "网站创建者 - Sianoro",
+    "disclaimer": "投资有风险，请谨慎决策"
   },
   "faq": {
     "title": "常见问题",

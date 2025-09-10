@@ -23,8 +23,7 @@ export default function Investment() {
       title: t('investment.minAmount.title'),
       value: t('investment.minAmount.value'),
       description: t('investment.minAmount.description'),
-      color: 'from-green-500 to-emerald-600',
-      highlight: true
+      color: 'from-green-500 to-emerald-600'
     },
     {
       icon: Users,
@@ -78,9 +77,7 @@ export default function Investment() {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`glass rounded-2xl p-6 text-center hover-lift group ${
-                term.highlight ? 'ring-2 ring-primary-500/50 bg-primary-500/10' : ''
-              }`}
+              className="glass rounded-2xl p-6 text-center hover-lift group"
             >
               <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r ${term.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
                 <term.icon className="w-8 h-8 text-white" />

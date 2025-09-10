@@ -1,10 +1,8 @@
 'use client'
 
-import { m } from '@/components/LazyMotionProvider'
 import { MessageCircle, Youtube } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import Link from 'next/link'
-
 
 interface FooterProps {
   currentLocale: string
@@ -14,22 +12,11 @@ export default function Footer({ currentLocale }: FooterProps) {
   const { t } = useTranslations()
 
   return (
-    <footer className="relative overflow-hidden" suppressHydrationWarning>
-      {/* Убираем градиентные фоны */}
-      {/* <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-dark-800"></div> */}
-      {/* <div className="absolute top-0 left-0 w-full h-full opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/2 to-transparent"></div>
-      </div> */}
-
+    <footer className="relative bg-black/20 backdrop-blur-sm border-t border-white/10" suppressHydrationWarning>
       <div className="container mx-auto px-4 relative z-10">
-        <m.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="py-8 lg:py-12"
-        >
+        <div className="py-8 lg:py-12">
           {/* Company Info and Links Grid - Mobile First Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-8">
             {/* Left Column - Company Info */}
             <div>
               <div className="mb-4">
@@ -39,46 +26,50 @@ export default function Footer({ currentLocale }: FooterProps) {
                 </div>
               </div>
               
-              <p className="text-gray-300 leading-relaxed max-w-md mb-4">
+              <p className="text-gray-300 leading-relaxed max-w-sm mb-6 text-sm">
                 {t('footer.description')}
               </p>
               
               {/* Social Links */}
               <div className="flex space-x-4">
-                <m.a
+                <a
                   href="https://t.me/Sergey_Loye"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
                   className="w-10 h-10 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-400 hover:text-primary-300 hover:bg-primary-500/30 transition-all"
                 >
                   <MessageCircle className="w-5 h-5" />
-                </m.a>
+                </a>
                 
-                <m.a
+                <a
                   href="https://www.youtube.com/watch?v=gHkWXzRLNno"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
                   className="w-10 h-10 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-400 hover:text-primary-300 hover:bg-primary-500/30 transition-all"
                 >
                   <Youtube className="w-5 h-5" />
-                </m.a>
+                </a>
               </div>
             </div>
 
-            {/* Right Column - Links - Three Columns */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Right Column - Links Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
               {/* Product - Left */}
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.product.title')}</h4>
                 <ul className="space-y-1">
                   <li>
-                    <a href="#about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <button 
+                      onClick={() => {
+                        document.getElementById('about')?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        })
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
+                    >
                       {t('footer.sections.product.about')}
-                    </a>
+                    </button>
                   </li>
                   <li>
                     <button 
@@ -109,10 +100,17 @@ export default function Footer({ currentLocale }: FooterProps) {
                   <li>
                     <button 
                       onClick={() => {
-                        document.getElementById('video')?.scrollIntoView({
-                          behavior: 'smooth',
-                          block: 'start'
-                        })
+                        const videoElement = document.getElementById('video')
+                        if (videoElement) {
+                          // Если есть, прокручиваем к нему
+                          videoElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                          })
+                        } else {
+                          // Если нет, переходим на главную с якорем
+                          window.location.href = `/${currentLocale}#video`
+                        }
                       }}
                       className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
                     >
@@ -122,26 +120,40 @@ export default function Footer({ currentLocale }: FooterProps) {
                 </ul>
               </div>
 
-              {/* Support - Center */}
+              {/* Legal - Center Left */}
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.legal.title')}</h4>
+                <ul className="space-y-1">
+                  <li>
+                    <Link href={`/${currentLocale}/privacy`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {t('footer.sections.legal.privacy')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${currentLocale}/terms`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {t('footer.sections.legal.terms')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${currentLocale}/cookies`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {t('footer.sections.legal.cookies')}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Support - Center Right */}
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.support.title')}</h4>
                 <ul className="space-y-1">
                   <li>
-                    <button 
-                      onClick={() => {
-                        document.getElementById('contact-form')?.scrollIntoView({
-                          behavior: 'smooth',
-                          block: 'start'
-                        })
-                      }}
-                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer text-left w-full"
-                    >
-                      {t('footer.sections.support.contact')}
-                    </button>
+                    <a href="https://t.me/Sergey_Loye" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {t('footer.sections.support.telegram')}
+                    </a>
                   </li>
                   <li>
                     <a href="https://t.me/Sergey_Loye" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {t('footer.sections.support.telegram')}
+                      {t('footer.sections.support.socialNetwork')}
                     </a>
                   </li>
                   <li>
@@ -149,71 +161,24 @@ export default function Footer({ currentLocale }: FooterProps) {
                       {t('footer.sections.support.email')}
                     </a>
                   </li>
-                  <li>
-                    <a href="https://t.me/Sergey_Loye" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {t('footer.sections.support.help')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Legal - Right */}
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.legal.title')}</h4>
-                <ul className="space-y-1">
-                  <li>
-                    <a 
-                      href={`/${currentLocale}/privacy`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
-                    >
-                      {t('footer.sections.legal.privacy')}
-                    </a>
-                  </li>
-                  <li>
-                    <a 
-                      href={`/${currentLocale}/terms`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
-                    >
-                      {t('footer.sections.legal.terms')}
-                    </a>
-                  </li>
-                  <li>
-                    <Link 
-                      href={`/${currentLocale}/terms-of-service`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
-                    >
-                      {t('footer.sections.legal.termsOfService')}
-                    </Link>
-                  </li>
-                  <li>
-                    <a 
-                      href={`/${currentLocale}/cookies`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
-                    >
-                      {t('footer.sections.legal.cookies')}
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>
           </div>
-
-
 
           {/* Bottom Bar */}
-          <div className="border-t border-gray-800 pt-6">
-            <div className="text-center space-y-2">
-              <p className="text-gray-400 text-sm">
+          <div className="pt-8 border-t border-white/10">
+            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+              <div className="text-gray-400 text-sm text-center lg:text-left">
                 {t('footer.copyright')}
-              </p>
-              <p className="text-gray-500 text-xs">
-                {t('footer.creator')}
-              </p>
+              </div>
+              <div className="text-gray-500 text-xs text-center lg:text-right max-w-md">
+                {t('footer.disclaimer')}
+              </div>
             </div>
           </div>
-        </m.div>
+        </div>
       </div>
-
     </footer>
   )
 }

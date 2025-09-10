@@ -87,10 +87,12 @@ export default function SEOStructuredData({ locale = 'ru' }: { locale?: string }
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        suppressHydrationWarning
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+        suppressHydrationWarning
       />
     </>
   )

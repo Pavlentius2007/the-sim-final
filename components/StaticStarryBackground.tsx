@@ -10,10 +10,10 @@ export default function StaticStarryBackground({
   className = '' 
 }: StaticStarryBackgroundProps) {
   return (
-    <div 
+    <div
       className={`fixed inset-0 pointer-events-none z-0 ${className}`}
       style={{
-        backgroundImage: 'url(/fon.png)',
+        backgroundImage: 'url(/fon.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

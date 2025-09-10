@@ -23,6 +23,10 @@
   "about": {
     "title": "service for working with digital assets",
     "description": "That earns from market volatility, not predictions.",
+    "demoTitle": "Personal Cabinet Demo",
+    "playDemo": "Play Demo",
+    "pauseDemo": "Pause",
+    "loadingDemo": "Loading demo...",
     "features": {
       "market": {
         "title": "Works at any market stage",
@@ -284,10 +288,17 @@
         "terms": "Terms of Use",
         "termsOfService": "Terms of Service",
         "cookies": "Cookies"
+      },
+      "contact": {
+        "title": "Contact Information",
+        "address": "Address: หมู่ที่ 12 163 Phra Tamnak, Bang Lamung District, Chon Buri 20150",
+        "phone": "Phone: +66 614 68 0860",
+        "email": "Email: info@thesim.com"
       }
     },
     "copyright": "© 2025 The SIM. All rights reserved.",
-    "creator": "Website creator - Sianoro"
+    "creator": "Website creator - Sianoro",
+    "disclaimer": "Investments carry risks, make informed decisions"
   },
   "faq": {
     "title": "Frequently Asked Questions",

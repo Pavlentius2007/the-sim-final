@@ -99,11 +99,8 @@ export default function Testimonials() {
       </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <m.div
+        <div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -112,15 +109,10 @@ export default function Testimonials() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('testimonials.subtitle')}
           </p>
-        </m.div>
+        </div>
 
         {/* Testimonials Carousel */}
-        <m.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mb-16"
-        >
+        <div className="relative mb-16">
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
@@ -147,12 +139,9 @@ export default function Testimonials() {
               }}
             >
               {testimonials.map((testimonial, index) => (
-                <m.div
+                <div
                   key={index}
                   className="w-full md:w-1/3 px-2 md:px-4 flex-shrink-0"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 >
                   <div className="glass rounded-2xl p-6 md:p-8 h-full hover-lift relative group">
                     {/* Quote Icon */}
@@ -162,24 +151,15 @@ export default function Testimonials() {
                     
                     {/* Rating */}
                     <div className="flex items-center mb-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
+                      <span className="text-yellow-400 text-sm font-medium">
+                        {'★'.repeat(testimonial.rating)} {testimonial.rating}/5
+                      </span>
                     </div>
                     
                     {/* Content */}
                     <div className="mb-6">
                       <p className="text-gray-300 leading-relaxed text-sm md:text-base line-clamp-4 md:line-clamp-none">
-                        {testimonial.content.split(testimonial.highlight).map((part, i, arr) => (
-                          <span key={i}>
-                            {part}
-                            {i < arr.length - 1 && (
-                              <span className="text-primary-400 font-semibold">
-                                {testimonial.highlight}
-                              </span>
-                            )}
-                          </span>
-                        ))}
+                        {testimonial.content}
                       </p>
                     </div>
                     
@@ -196,7 +176,7 @@ export default function Testimonials() {
                       </div>
                     </div>
                   </div>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>
@@ -217,10 +197,10 @@ export default function Testimonials() {
               />
             ))}
           </div>
-        </m.div>
+        </div>
 
         {/* CTA Section */}
-        <m.div
+        <div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -233,9 +213,7 @@ export default function Testimonials() {
             <p className="text-gray-300 mb-6">
               {t('testimonials.cta.subtitle')}
             </p>
-            <m.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => {
                 const contactForm = document.getElementById('contact-form')
                 if (contactForm) {
@@ -252,12 +230,12 @@ export default function Testimonials() {
                   }, 500)
                 }
               }}
-              className="bg-gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all cursor-pointer transform hover:-translate-y-1"
+              className="bg-gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 hover:scale-105 transition-all cursor-pointer transform hover:-translate-y-1"
             >
               {t('testimonials.cta.button')}
-            </m.button>
+            </button>
           </div>
-        </m.div>
+        </div>
       </div>
     </section>
   )

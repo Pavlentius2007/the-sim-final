@@ -98,8 +98,9 @@ export default function About() {
                      {/* Live Dashboard */}
            <div className="space-y-4">
              <h4 className="text-lg font-semibold text-blue-400 text-center">
-               Демоверсия личного кабинета
+               {t('about.demoTitle')}
              </h4>
+             {/* Загружаем видео сразу, не зависимо от viewport */}
              <DashboardVideo 
                videoSrc="/videos/dashboard/DEMO.mp4"
                fallbackImage="/images/dashboard-preview.jpg"

@@ -17,19 +17,10 @@ export default function Video() {
 
   const [showVideo, setShowVideo] = useState(false)
   const [selectedQuality, setSelectedQuality] = useState<'480p' | '720p' | '1080p'>('720p')
-  const [currentLanguage, setCurrentLanguage] = useState('en')
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  // Получаем текущий язык с проверкой на клиенте
-  React.useEffect(() => {
-    if (params.locale) {
-      const locale = params.locale as string
-      console.log('Setting current language from params:', locale)
-      setCurrentLanguage(locale)
-    } else {
-      console.log('No locale in params, using default: en')
-    }
-  }, [params.locale])
+  // Получаем текущий язык напрямую из params
+  const currentLanguage = (params.locale as string) || 'en'
 
   // Прямые пути к видео файлам для каждого языка
   const getVideoPaths = (language: string) => {
@@ -56,12 +47,12 @@ export default function Video() {
   // Логика установки первого кадра теперь в onLoadedMetadata
 
   return (
-    <section ref={ref} className="relative py-20 px-4 sm:px-6 lg:px-8" suppressHydrationWarning>
+    <section id="video" ref={ref} className="relative py-20 px-4 sm:px-6 lg:px-8" suppressHydrationWarning>
       
       {/* Content */}
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <m.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -73,10 +64,10 @@ export default function Video() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t('video.subtitle')}
           </p>
-        </m.div>
+        </div>
 
         {/* Video Section */}
-        <m.div
+        <div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -99,6 +90,7 @@ export default function Video() {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                     poster="/images/dashboard-preview.jpg"
                     onLoadStart={() => {}}
                     onLoadedData={() => {}}
@@ -116,37 +108,6 @@ export default function Video() {
                     <source src={videoPaths[selectedQuality]} type="video/mp4" />
                   </video>
                   
-                  {/* Video Quality Options */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-                    {(['480p', '720p', '1080p'] as const).map((quality) => (
-                      <button
-                        key={quality}
-                        onClick={(e) => {
-                          e.stopPropagation(); // Предотвращаем открытие модального окна
-                          setSelectedQuality(quality);
-                          // Сохраняем текущее время воспроизведения
-                          const currentTime = videoRef.current?.currentTime || 0;
-                          // После смены источника восстанавливаем время и воспроизведение
-                          if (videoRef.current) {
-                            const video = videoRef.current;
-                            video.addEventListener('loadedmetadata', () => {
-                              video.currentTime = currentTime;
-                              video.play().catch(() => {
-                                // Autoplay prevented after quality change
-                              });
-                            }, { once: true });
-                          }
-                        }}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all backdrop-blur-sm ${
-                          selectedQuality === quality
-                            ? 'bg-blue-500/90 text-white'
-                            : 'bg-black/50 text-gray-300 hover:bg-black/70'
-                        }`}
-                      >
-                        {quality}
-                      </button>
-                    ))}
-                  </div>
                   
                   {/* Градиент поверх превью */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-purple-600/30 to-indigo-600/30"></div>
@@ -170,17 +131,15 @@ export default function Video() {
                 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <m.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="relative w-24 h-24 bg-gradient-to-r from-blue-500/90 to-purple-600/90 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/40 shadow-2xl"
+                  <div
+                    className="relative w-24 h-24 bg-gradient-to-r from-blue-500/90 to-purple-600/90 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/40 shadow-2xl hover:scale-110 transition-transform duration-300"
                   >
                     <Play className="w-10 h-10 text-white ml-1" />
                     {/* Glow Effect */}
                     <div className="absolute inset-0 w-24 h-24 bg-blue-500/30 rounded-full blur-xl animate-pulse"></div>
                     {/* Inner Glow */}
                     <div className="absolute inset-2 w-20 h-20 bg-white/20 rounded-full"></div>
-                  </m.div>
+                  </div>
                 </div>
                 
                 {/* Video Info */}
@@ -205,7 +164,7 @@ export default function Video() {
                   <button
                     key={quality}
                     onClick={() => setSelectedQuality(quality)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                       selectedQuality === quality
                         ? 'bg-blue-500 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
@@ -293,18 +252,16 @@ export default function Video() {
             </div>
             
             {/* CTA Button */}
-            <m.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-600 text-white px-10 py-5 rounded-2xl font-semibold shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:shadow-blue-500/40 transition-all duration-300 flex items-center gap-4 overflow-hidden group"
+            <button
+              className="relative bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-600 text-white px-10 py-5 rounded-2xl font-semibold shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:shadow-blue-500/40 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 overflow-hidden group"
               onClick={() => setShowVideo(true)}
             >
               <Play className="w-6 h-6" />
               {t('video.watchVideo')}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-            </m.button>
+            </button>
           </div>
-        </m.div>
+        </div>
       </div>
 
       {/* Video Modal */}

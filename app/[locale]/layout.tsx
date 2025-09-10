@@ -13,11 +13,15 @@ import ErrorSuppressor from '@/components/ErrorSuppressor'
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-inter',
+  display: 'swap',
+  preload: true,
 })
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-manrope',
+  display: 'swap',
+  preload: true,
 })
 
 export async function generateStaticParams() {
@@ -123,7 +127,7 @@ export default async function LocaleLayout({
   params: { locale: string }
 }) {
   return (
-    <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
         {/* Viewport и базовые meta теги */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
@@ -132,13 +136,23 @@ export default async function LocaleLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         
+        {/* Meta description для SEO */}
+        <meta name="description" content={
+          locale === 'ru' 
+            ? "TheSim - профессиональная платформа управления цифровыми активами с защитой капитала. Умные инвестиции, диверсификация портфеля, интеграция с Binance API."
+            : "TheSim - professional digital asset management platform with capital protection. Smart investments, portfolio diversification, Binance API integration."
+        } />
+        
+        {/* CSS загружается через globals.css */}
+        
         {/* Preload критичных ресурсов */}
-        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
         <link rel="preload" href="/images/dashboard-preview.jpg" as="image" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* CSS загружается автоматически */}
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
@@ -146,31 +160,28 @@ export default async function LocaleLayout({
         
         {/* Безопасность - Content Security Policy (только для продакшена) */}
         {process.env.NODE_ENV === 'production' && (
-          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
         )}
         
         {/* Структурированные данные для SEO */}
         <SEOStructuredData locale={locale} />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <LocaleProvider locale={locale as 'ru' | 'en' | 'zh' | 'th'}>
-          {/* Глобальный LazyMotion Provider для оптимизации */}
+          <ErrorSuppressor />
           <LazyMotionProvider>
-            <ClientOnly>
-              <ErrorSuppressor />
-            </ClientOnly>
-            <div className="relative z-20" suppressHydrationWarning>
-              {children}
-            </div>
             <ClientOnly>
               <StaticStarryBackground />
             </ClientOnly>
+            <main className="relative z-10">
+              {children}
+            </main>
             <ClientOnly>
-              <CookieConsent currentLocale={locale} />
+              <CookieConsent />
             </ClientOnly>
           </LazyMotionProvider>
         </LocaleProvider>
       </body>
     </html>
   )
-} 
+}
