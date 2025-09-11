@@ -217,7 +217,7 @@ export default function ContactForm() {
                   <MessageCircle className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Telegram</div>
+                  <div className="font-semibold text-white">{t('contact.info.telegram')}</div>
                   <div className="text-gray-400">@Sergey_Loye, @Pavlentius2007</div>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function ContactForm() {
                   <Mail className="w-6 h-6 text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Email</div>
+                  <div className="font-semibold text-white">{t('contact.info.email')}</div>
                   <div className="text-gray-400">info@thesim.com</div>
                 </div>
               </div>
@@ -237,8 +237,8 @@ export default function ContactForm() {
                   <Clock className="w-6 h-6 text-orange-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Техническая поддержка</div>
-                  <div className="text-gray-400">24/7</div>
+                  <div className="font-semibold text-white">{t('contact.info.support')}</div>
+                  <div className="text-gray-400">{t('contact.info.supportHours')}</div>
                 </div>
               </div>
             </div>

@@ -53,7 +53,7 @@ export default function Footer({ currentLocale }: FooterProps) {
             </div>
 
             {/* Right Column - Links Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
               {/* Product - Left */}
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.product.title')}</h4>
@@ -102,13 +102,11 @@ export default function Footer({ currentLocale }: FooterProps) {
                       onClick={() => {
                         const videoElement = document.getElementById('video')
                         if (videoElement) {
-                          // Если есть, прокручиваем к нему
                           videoElement.scrollIntoView({
                             behavior: 'smooth',
                             block: 'start'
                           })
                         } else {
-                          // Если нет, переходим на главную с якорем
                           window.location.href = `/${currentLocale}#video`
                         }
                       }}
@@ -120,7 +118,7 @@ export default function Footer({ currentLocale }: FooterProps) {
                 </ul>
               </div>
 
-              {/* Legal - Center Left */}
+              {/* Legal - Center */}
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.legal.title')}</h4>
                 <ul className="space-y-1">
@@ -142,7 +140,7 @@ export default function Footer({ currentLocale }: FooterProps) {
                 </ul>
               </div>
 
-              {/* Support - Center Right */}
+              {/* Support - Right */}
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.support.title')}</h4>
                 <ul className="space-y-1">
@@ -152,14 +150,14 @@ export default function Footer({ currentLocale }: FooterProps) {
                     </a>
                   </li>
                   <li>
-                    <a href="https://t.me/Sergey_Loye" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {t('footer.sections.support.socialNetwork')}
+                    <a href="mailto:info@thesim.com" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {t('footer.sections.support.email')}
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:info@thesim.com" className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {t('contact.info.support')}
-                    </a>
+                    <Link href={`/${currentLocale}/contact`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {t('footer.sections.support.contact')}
+                    </Link>
                   </li>
                 </ul>
               </div>

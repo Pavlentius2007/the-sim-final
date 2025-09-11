@@ -316,7 +316,8 @@
       "title": "Contact Information",
       "description": "We are always ready to help you",
       "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
-      "email": "info@thesim.com",
+      "telegram": "Telegram",
+      "email": "Email",
       "support": "Technical Support",
       "supportHours": "24/7"
     },
@@ -348,7 +349,13 @@
         "title": "Support",
         "contact": "Contact",
         "telegram": "Telegram",
-        "socialNetwork": "Social Networks"
+        "email": "Email"
+      },
+      "legal": {
+        "title": "Legal Information",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "cookies": "Cookie Policy"
       },
       "cookies": {
         "title": "We use cookies",
@@ -368,12 +375,6 @@
         },
         "reject": "Reject",
         "learnMore": "Learn more"
-      },
-      "legal": {
-        "title": "Legal Information",
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Use",
-        "cookies": "Cookie Policy"
       }
     }
   }

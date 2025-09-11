@@ -316,7 +316,8 @@
       "title": "联系信息",
       "description": "我们随时准备帮助您",
       "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
-      "email": "info@thesim.com",
+      "telegram": "Telegram",
+      "email": "邮箱",
       "support": "技术支持",
       "supportHours": "24/7"
     },
@@ -348,7 +349,13 @@
         "title": "支持",
         "contact": "联系",
         "telegram": "Telegram",
-        "socialNetwork": "社交网络"
+        "email": "邮箱"
+      },
+      "legal": {
+        "title": "法律信息",
+        "privacy": "隐私政策",
+        "terms": "使用条款",
+        "cookies": "Cookie政策"
       },
       "cookies": {
         "title": "我们使用cookies",
@@ -368,12 +375,6 @@
         },
         "reject": "拒绝",
         "learnMore": "了解更多"
-      },
-      "legal": {
-        "title": "法律信息",
-        "privacy": "隐私政策",
-        "terms": "使用条款",
-        "cookies": "Cookie政策"
       }
     }
   }
