@@ -155,9 +155,9 @@ export default function Footer({ currentLocale }: FooterProps) {
                     </a>
                   </li>
                   <li>
-                    <Link href={`/${currentLocale}/contact`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href="#contact-form" className="text-gray-400 hover:text-white transition-colors text-sm">
                       {t('footer.sections.support.contact')}
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
