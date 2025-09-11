@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { m } from '@/components/LazyMotionProvider'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -19,6 +19,14 @@ export default function FAQ() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Используем inView только на клиенте для избежания гидратации
+  const shouldAnimate = isClient && inView
 
   const faqItems: FAQItem[] = useMemo(() => [
     {
@@ -83,7 +91,7 @@ export default function FAQ() {
       <div className="container mx-auto px-4">
         <m.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -100,7 +108,7 @@ export default function FAQ() {
             <m.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="mb-4"
             >
@@ -159,7 +167,7 @@ export default function FAQ() {
 
         <m.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >

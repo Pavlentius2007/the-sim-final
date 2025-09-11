@@ -49,8 +49,9 @@
       "title": "完全控制您的投资",
       "description": "强大的控制面板，实时跟踪您的所有资产",
       "features": {
-        "realtime": "实时数据",
+        "realTime": "实时数据",
         "analytics": "详细分析",
+        "security": "最大安全性",
         "portfolio": "投资组合管理",
         "alerts": "智能通知"
       }
@@ -166,7 +167,7 @@
     "subtitle": "为您的目标选择合适的计划",
     "minAmount": {
       "title": "最低金额",
-      "value": "$1,000",
+      "value": "$2,000",
       "description": "从小额开始"
     },
     "professional": {
@@ -321,9 +322,14 @@
     },
     "trust": {
       "title": "为什么信任我们",
-      "freeConsultation": "免费咨询",
-      "personalApproach": "个人方法",
-      "quickStart": "快速开始"
+      "zeroLosses": "2年零损失",
+      "zeroLossesDesc": "我们的客户在整个合作期间都没有出现负增长",
+      "provenStrategy": "经过验证的策略",
+      "provenStrategyDesc": "独特的风险管理方法，保证资本保值",
+      "transparentReporting": "透明报告",
+      "transparentReportingDesc": "每周提供投资组合状态和收益报告",
+      "personalManager": "个人经理",
+      "personalManagerDesc": "为每位客户提供24/7个性化支持"
     }
   },
   "footer": {
@@ -342,8 +348,26 @@
         "title": "支持",
         "contact": "联系",
         "telegram": "Telegram",
-        "socialNetwork": "社交网络",
-        "email": "info@thesim.com"
+        "socialNetwork": "社交网络"
+      },
+      "cookies": {
+        "title": "我们使用cookies",
+        "subtitle": "为了改善您的体验",
+        "description": "我们使用cookies来分析流量、个性化内容和改善网站功能。",
+        "showDetails": "显示详情",
+        "hideDetails": "隐藏详情",
+        "acceptAll": "接受全部",
+        "necessary": {
+          "title": "必要的cookies",
+          "description": "提供基本网站功能",
+          "only": "仅必要"
+        },
+        "analytics": {
+          "title": "分析cookies",
+          "description": "帮助我们了解网站使用情况"
+        },
+        "reject": "拒绝",
+        "learnMore": "了解更多"
       },
       "legal": {
         "title": "法律信息",

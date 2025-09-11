@@ -49,8 +49,9 @@
       "title": "Full control over your investments",
       "description": "Powerful control panel for tracking all your assets in real time",
       "features": {
-        "realtime": "Real-time data",
+        "realTime": "Real-time data",
         "analytics": "Detailed analytics",
+        "security": "Maximum security",
         "portfolio": "Portfolio management",
         "alerts": "Smart notifications"
       }
@@ -166,7 +167,7 @@
     "subtitle": "Choose the right plan for your goals",
     "minAmount": {
       "title": "Minimum Amount",
-      "value": "$1,000",
+      "value": "$2,000",
       "description": "Start with a small amount"
     },
     "professional": {
@@ -321,9 +322,14 @@
     },
     "trust": {
       "title": "Why Trust Us",
-      "freeConsultation": "Free Consultation",
-      "personalApproach": "Personal Approach",
-      "quickStart": "Quick Start"
+      "zeroLosses": "Zero losses for 2 years",
+      "zeroLossesDesc": "None of our clients have shown negative dynamics throughout the entire cooperation period",
+      "provenStrategy": "Proven strategy",
+      "provenStrategyDesc": "Unique risk management methodology with capital preservation guarantee",
+      "transparentReporting": "Transparent reporting",
+      "transparentReportingDesc": "Weekly reports on portfolio status and returns",
+      "personalManager": "Personal manager",
+      "personalManagerDesc": "Individual support for each client 24/7"
     }
   },
   "footer": {
@@ -342,8 +348,26 @@
         "title": "Support",
         "contact": "Contact",
         "telegram": "Telegram",
-        "socialNetwork": "Social Networks",
-        "email": "info@thesim.com"
+        "socialNetwork": "Social Networks"
+      },
+      "cookies": {
+        "title": "We use cookies",
+        "subtitle": "To improve your experience",
+        "description": "We use cookies to analyze traffic, personalize content and improve website functionality.",
+        "showDetails": "Show details",
+        "hideDetails": "Hide details",
+        "acceptAll": "Accept all",
+        "necessary": {
+          "title": "Necessary cookies",
+          "description": "Provide basic website functionality",
+          "only": "Necessary only"
+        },
+        "analytics": {
+          "title": "Analytics cookies",
+          "description": "Help us understand how the site is used"
+        },
+        "reject": "Reject",
+        "learnMore": "Learn more"
       },
       "legal": {
         "title": "Legal Information",

@@ -7,7 +7,6 @@ import ClientOnly from '@/components/ClientOnly'
 import CookieConsent from '@/components/CookieConsent'
 import SEOStructuredData from '@/components/SEOStructuredData'
 import LazyMotionProvider from '@/components/LazyMotionProvider'
-import ErrorSuppressor from '@/components/ErrorSuppressor'
 
 
 const inter = Inter({
@@ -127,7 +126,7 @@ export default async function LocaleLayout({
   params: { locale: string }
 }) {
   return (
-    <html lang={locale} className={`${inter.variable} ${manrope.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
       <head>
         {/* Viewport и базовые meta теги */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
@@ -158,6 +157,7 @@ export default async function LocaleLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo.svg" />
         
+        
         {/* Безопасность - Content Security Policy (только для продакшена) */}
         {process.env.NODE_ENV === 'production' && (
           <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
@@ -166,9 +166,8 @@ export default async function LocaleLayout({
         {/* Структурированные данные для SEO */}
         <SEOStructuredData locale={locale} />
       </head>
-      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.className} antialiased`}>
         <LocaleProvider locale={locale as 'ru' | 'en' | 'zh' | 'th'}>
-          <ErrorSuppressor />
           <LazyMotionProvider>
             <ClientOnly>
               <StaticStarryBackground />

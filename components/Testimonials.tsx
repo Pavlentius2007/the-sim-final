@@ -2,7 +2,7 @@
 
 import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { useState, useEffect } from 'react'
 
@@ -13,18 +13,18 @@ export default function Testimonials() {
     threshold: 0.1,
   })
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
-  // Проверяем размер экрана
+  // Проверяем размер экрана только на клиенте
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
-    return () => window.removeEventListener('resize', checkScreenSize)
+    setIsClient(true)
   }, [])
+
+  // Вычисляем isMobile только на клиенте
+  const isMobile = isClient && typeof window !== 'undefined' && window.innerWidth < 768
+
+  // Используем inView только на клиенте для избежания гидратации
+  const shouldAnimate = isClient && inView
 
   const testimonials = [
     {
@@ -133,7 +133,7 @@ export default function Testimonials() {
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
-                transform: isMobile 
+                transform: isMobile
                   ? `translateX(-${currentIndex * 100}%)` 
                   : `translateX(-${currentIndex * 33.333}%)`
               }}
@@ -200,9 +200,9 @@ export default function Testimonials() {
         </div>
 
         {/* CTA Section */}
-        <div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
@@ -235,7 +235,7 @@ export default function Testimonials() {
               {t('testimonials.cta.button')}
             </button>
           </div>
-        </div>
+        </m.div>
       </div>
     </section>
   )

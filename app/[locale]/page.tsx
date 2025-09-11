@@ -1,13 +1,8 @@
-'use client'
-
-import { useEffect } from 'react'
-// Статические импорты для критичных компонентов
 import Security from '@/components/Security'
 import Footer from '@/components/Footer'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
-import PersonalCabinetButton from '@/components/PersonalCabinetButton'
 import ClientOnly from '@/components/ClientOnly'
 import LazyMotionProvider from '@/components/LazyMotionProvider'
+import Navigation from '@/components/Navigation'
 
 // Динамические импорты для оптимизации производительности
 import {
@@ -21,55 +16,22 @@ import {
   DynamicHero
 } from '@/components/DynamicComponents'
 
-// Убираем статические импорты переводов - используем только хук
-
 export default function LocalePage({ 
   params: { locale } 
 }: { 
   params: { locale: string } 
 }) {
-  // Обработка якорных ссылок
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash
-      if (hash) {
-        const element = document.querySelector(hash)
-        if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            })
-          }, 100)
-        }
-      }
-    }
-
-    // Обрабатываем хеш при загрузке страницы
-    handleHashChange()
-
-    // Обрабатываем изменения хеша
-    window.addEventListener('hashchange', handleHashChange)
-    
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange)
-    }
-  }, [])
-
   return (
-    <main className="min-h-screen relative overflow-x-hidden" suppressHydrationWarning>
+    <main className="min-h-screen relative overflow-x-hidden">
       {/* Navigation Controls - критичные компоненты загружаются сразу */}
-      <div className="fixed top-1 right-1 md:top-4 md:right-4 z-50 flex flex-col gap-2" suppressHydrationWarning>
+      <div className="fixed top-1 right-1 md:top-4 md:right-4 z-50 flex flex-col gap-2">
         <ClientOnly>
-          <PersonalCabinetButton />
-        </ClientOnly>
-        <ClientOnly>
-          <LanguageSwitcher currentLocale={locale} />
+          <Navigation currentLocale={locale} />
         </ClientOnly>
       </div>
       
       {/* Контент страницы с LazyMotion для оптимизации framer-motion */}
-      <div className="relative z-10" suppressHydrationWarning>
+      <div className="relative z-10">
         <LazyMotionProvider>
           {/* Hero секция - загружается динамически */}
           <DynamicHero />
@@ -83,8 +45,10 @@ export default function LocalePage({
             <DynamicVideo />
           </div>
           
-          {/* Security - статический для SEO */}
-          <Security />
+          {/* Security - обернут в ClientOnly для избежания гидратации */}
+          <ClientOnly>
+            <Security />
+          </ClientOnly>
           <DynamicInvestment />
           <DynamicTestimonials />
           <DynamicFAQ />
@@ -94,8 +58,10 @@ export default function LocalePage({
           </div>
         </LazyMotionProvider>
         
-        {/* Footer - статический для SEO */}
-        <Footer currentLocale={locale} />
+        {/* Footer - обернут в ClientOnly для избежания гидратации */}
+        <ClientOnly>
+          <Footer currentLocale={locale} />
+        </ClientOnly>
       </div>
     </main>
   )

@@ -3,39 +3,40 @@
 import { MessageCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 
-
 export default function Hero() {
   const { t } = useTranslations()
 
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Космический overlay */}
-      <div className="absolute inset-0">
-        {/* Убираем градиентный фон - используем статическую картинку */}
-        
-        {/* Упрощенные статичные элементы */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary-500/10 rounded-full blur-xl" />
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent-purple/10 rounded-full blur-xl" />
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-accent-cyan/10 rounded-full blur-lg" />
-      </div>
+      {/* Простой фон */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-indigo-900/20"></div>
+      
+      {/* Упрощенные декоративные элементы */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center pt-16 md:pt-8">
         <div className="max-w-4xl mx-auto">
-                     {/* Logo/Brand */}
-           <div className="mb-16 mt-8 md:mt-0">
-             <div className="flex justify-center mb-6">
-               <div className="text-center">
-                 <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-blue-500 mb-4 drop-shadow-2xl">TheSim</div>
-                 <div className="text-lg md:text-xl text-blue-400 font-medium uppercase tracking-wider">Smart Investments</div>
-               </div>
-             </div>
-             <div className="w-32 h-1.5 bg-gradient-primary mx-auto rounded-full"></div>
-           </div>
+          {/* Logo/Brand - оптимизированный */}
+          <div className="mb-16 mt-8 md:mt-0">
+            <div className="flex justify-center mb-6">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-500 mb-4" 
+                     style={{textShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>
+                  TheSim
+                </div>
+                <div className="text-lg md:text-xl text-blue-400 font-medium uppercase tracking-wider">
+                  Smart Investments
+                </div>
+              </div>
+            </div>
+            <div className="w-32 h-1.5 bg-gradient-primary mx-auto rounded-full"></div>
+          </div>
 
           {/* Main Headline */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight" 
+              style={{textShadow: '0 2px 4px rgba(0,0,0,0.5)'}}>
             {t('hero.title')}
           </h2>
 
@@ -82,11 +83,8 @@ export default function Hero() {
               <div className="text-gray-400">{t('hero.stats.support')}</div>
             </div>
           </div>
-
         </div>
       </div>
-
-
     </section>
   )
 } 

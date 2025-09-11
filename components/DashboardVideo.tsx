@@ -47,8 +47,8 @@ export default function DashboardVideo({ videoSrc, fallbackImage }: DashboardVid
       setIsLoading(false)
       video.play().then(() => {
         setIsPlaying(true)
-      }).catch((error) => {
-        console.log("Autoplay prevented:", error)
+      }).catch((_error) => {
+        // console.log("Autoplay prevented:", error)
         setIsLoading(false)
       })
     }

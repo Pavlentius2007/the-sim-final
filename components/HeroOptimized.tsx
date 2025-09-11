@@ -46,7 +46,7 @@ export default function HeroOptimized({
           <div className="mb-16 animate-scaleIn will-change-opacity">
             <div className="flex justify-center mb-6">
               <div className="text-center">
-                <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-blue-500 mb-4 drop-shadow-2xl">TheSim</div>
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-500 mb-4" style={{textShadow: '0 4px 8px rgba(0,0,0,0.3)'}}>TheSim</div>
                 <div className="text-lg md:text-xl text-blue-400 font-medium uppercase tracking-wider">Smart Investments</div>
               </div>
             </div>

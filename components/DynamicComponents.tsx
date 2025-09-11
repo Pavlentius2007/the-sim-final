@@ -1,14 +1,6 @@
 ﻿'use client'
 
 import dynamic from 'next/dynamic'
-import { ComponentType } from 'react'
-
-// Loading компонент для показа во время загрузки
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center py-20">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
-  </div>
-)
 
 const LoadingBox = ({ height = "h-64" }: { height?: string }) => (
   <div className={`animate-pulse bg-dark-700 ${height} rounded-xl loading-skeleton`}></div>

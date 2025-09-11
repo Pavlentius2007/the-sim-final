@@ -13,6 +13,7 @@ import {
   Droplets 
 } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
+import { useState, useEffect } from 'react'
 
 export default function Benefits() {
   const { t } = useTranslations()
@@ -20,6 +21,14 @@ export default function Benefits() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Используем inView только на клиенте для избежания гидратации
+  const shouldAnimate = isClient && inView
 
   const benefits = [
     {
@@ -85,7 +94,7 @@ export default function Benefits() {
         <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -100,7 +109,7 @@ export default function Benefits() {
         {/* Benefits Grid */}
         <m.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
@@ -108,7 +117,7 @@ export default function Benefits() {
             <m.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="glass rounded-2xl p-6 hover-lift group"
             >

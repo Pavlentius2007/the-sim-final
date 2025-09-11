@@ -30,40 +30,76 @@ export function useLocale() {
   return useContext(LocaleContext)
 }
 
+// Кэш для переводов
+const messagesCache: Record<Locale, Messages> = {} as Record<Locale, Messages>
+
 // Унифицированная загрузка переводов
 function getMessages(locale: Locale): Messages {
   try {
-    // Используем динамический import для обеих сред
-    const messages = require(`../messages/${locale}.json`)
+    // Проверяем кэш
+    if (messagesCache[locale]) {
+      return messagesCache[locale]
+    }
+
+    // Загружаем переводы синхронно с проверкой окружения
+    let messages: Messages
+    if (typeof window === 'undefined') {
+      // Серверная среда
+      switch (locale) {
+        case 'ru':
+          messages = require('../messages/ru.json')
+          break
+        case 'en':
+          messages = require('../messages/en.json')
+          break
+        case 'zh':
+          messages = require('../messages/zh.json')
+          break
+        case 'th':
+          messages = require('../messages/th.json')
+          break
+        default:
+          messages = require('../messages/ru.json')
+      }
+    } else {
+      // Клиентская среда
+      switch (locale) {
+        case 'ru':
+          messages = require('../messages/ru.json')
+          break
+        case 'en':
+          messages = require('../messages/en.json')
+          break
+        case 'zh':
+          messages = require('../messages/zh.json')
+          break
+        case 'th':
+          messages = require('../messages/th.json')
+          break
+        default:
+          messages = require('../messages/ru.json')
+      }
+    }
+
+    // Кэшируем результат
+    messagesCache[locale] = messages
     return messages
   } catch (error) {
     console.error(`Failed to load messages for locale: ${locale}`, error)
+    // Возвращаем пустой объект в случае ошибки
     return {}
   }
 }
 
-// Хук для использования переводов
+// Хук для использования переводов - синхронная версия для избежания гидратации
 export function useTranslations(locale?: Locale) {
   const contextLocale = useLocale()
   const currentLocale = locale || contextLocale
   
-  const [messages, setMessages] = useState<Messages>(() => {
-    // Загружаем переводы синхронно для обеих сред
-    return getMessages(currentLocale)
-  })
-  
-  // Не показываем состояние загрузки - переводы загружаются синхронно
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    // Обновляем переводы при изменении локали
-    const newMessages = getMessages(currentLocale)
-    setMessages(newMessages)
-  }, [currentLocale])
+  // Загружаем переводы синхронно для консистентности
+  const messages = getMessages(currentLocale)
 
   const t = (key: string, fallback?: string): string => {
-    if (isLoading) return fallback || key
-    
     const keys = key.split('.')
     let value: any = messages
     
@@ -78,5 +114,5 @@ export function useTranslations(locale?: Locale) {
     return typeof value === 'string' ? value : fallback || key
   }
 
-  return { t, isLoading, messages }
+  return { t, isLoading: false, messages }
 }

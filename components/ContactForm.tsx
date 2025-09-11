@@ -2,12 +2,12 @@
 
 import { useInView } from 'react-intersection-observer'
 import { useState } from 'react'
-import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { Send, CheckCircle, AlertCircle, MessageCircle, Mail, Clock } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 
 export default function ContactForm() {
   const { t } = useTranslations()
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
@@ -213,32 +213,32 @@ export default function ContactForm() {
 
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center">
-                  <Send className="w-6 h-6 text-primary-400" />
+                <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                  <MessageCircle className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{t('contact.info.socialNetwork')}</div>
-                  <div className="text-gray-400">@Sergey_Loye, @Pavlentius2007 </div>
+                  <div className="font-semibold text-white">Telegram</div>
+                  <div className="text-gray-400">@Sergey_Loye, @Pavlentius2007</div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center">
-                  <Send className="w-6 h-6 text-primary-400" />
+                <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{t('contact.info.email')}</div>
+                  <div className="font-semibold text-white">Email</div>
                   <div className="text-gray-400">info@thesim.com</div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center">
-                  <Send className="w-6 h-6 text-primary-400" />
+                <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-orange-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{t('contact.info.support')}</div>
-                  <div className="text-gray-400">{t('contact.info.supportHours')}</div>
+                  <div className="font-semibold text-white">Техническая поддержка</div>
+                  <div className="text-gray-400">24/7</div>
                 </div>
               </div>
             </div>
@@ -246,18 +246,34 @@ export default function ContactForm() {
             {/* Trust Indicators */}
             <div className="glass rounded-2xl p-6">
               <h4 className="text-lg font-semibold text-white mb-4">{t('contact.trust.title')}</h4>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-gray-300 text-sm">{t('contact.trust.freeConsultation')}</span>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.zeroLosses')}</span>
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.zeroLossesDesc')}</p>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-gray-300 text-sm">{t('contact.trust.personalApproach')}</span>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.provenStrategy')}</span>
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.provenStrategyDesc')}</p>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-gray-300 text-sm">{t('contact.trust.quickStart')}</span>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.transparentReporting')}</span>
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.transparentReportingDesc')}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.personalManager')}</span>
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.personalManagerDesc')}</p>
+                  </div>
                 </div>
               </div>
             </div>

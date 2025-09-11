@@ -4,6 +4,7 @@ import { m } from '@/components/LazyMotionProvider'
 import { useInView } from 'react-intersection-observer'
 import { Shield, Lock, Eye, CheckCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
+import { useState, useEffect } from 'react'
 
 export default function Security() {
   const { t } = useTranslations()
@@ -11,6 +12,14 @@ export default function Security() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Используем inView только на клиенте для избежания гидратации
+  const shouldAnimate = isClient && inView
 
   const securityFeatures = [
     {
@@ -52,7 +61,7 @@ export default function Security() {
         <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -67,7 +76,7 @@ export default function Security() {
         {/* Security Features Grid */}
         <m.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
         >
@@ -75,7 +84,7 @@ export default function Security() {
             <m.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="glass rounded-2xl p-8 hover-lift group"
             >
@@ -102,7 +111,7 @@ export default function Security() {
         {/* Security Stats */}
         <m.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >

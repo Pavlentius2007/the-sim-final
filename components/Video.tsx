@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useTranslations } from '@/hooks/useTranslations'
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, Square } from 'lucide-react'
 
 type VideoQuality = '480p' | '720p' | '1080p'
 
@@ -12,7 +12,9 @@ export default function Video() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false) // Звук включен по умолчанию
   const [selectedQuality, setSelectedQuality] = useState<VideoQuality>('1080p')
+  const [isPreviewPlaying, setIsPreviewPlaying] = useState(true) // Состояние превью видео
   const videoRef = useRef<HTMLVideoElement>(null)
+  const previewVideoRef = useRef<HTMLVideoElement>(null) // Отдельная ссылка для превью
 
   // Получаем locale из URL
   const locale = typeof window !== 'undefined' ? window.location.pathname.split('/')[1] || 'ru' : 'ru'
@@ -38,6 +40,26 @@ export default function Video() {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted
       setIsMuted(!isMuted)
+    }
+  }
+
+  const handlePreviewPlayPause = () => {
+    if (previewVideoRef.current) {
+      if (isPreviewPlaying) {
+        previewVideoRef.current.pause()
+        setIsPreviewPlaying(false)
+      } else {
+        previewVideoRef.current.play()
+        setIsPreviewPlaying(true)
+      }
+    }
+  }
+
+  const handlePreviewStop = () => {
+    if (previewVideoRef.current) {
+      previewVideoRef.current.pause()
+      previewVideoRef.current.currentTime = 0
+      setIsPreviewPlaying(false)
     }
   }
 
@@ -74,6 +96,23 @@ export default function Video() {
       video.removeEventListener('loadeddata', handleLoadedData)
     }
   }, [selectedQuality])
+
+  // Обработчики для превью видео
+  useEffect(() => {
+    const previewVideo = previewVideoRef.current
+    if (!previewVideo) return
+
+    const handlePreviewPlay = () => setIsPreviewPlaying(true)
+    const handlePreviewPause = () => setIsPreviewPlaying(false)
+
+    previewVideo.addEventListener('play', handlePreviewPlay)
+    previewVideo.addEventListener('pause', handlePreviewPause)
+
+    return () => {
+      previewVideo.removeEventListener('play', handlePreviewPlay)
+      previewVideo.removeEventListener('pause', handlePreviewPause)
+    }
+  }, [])
 
   if (showVideo) {
     return (
@@ -135,7 +174,7 @@ export default function Video() {
   }
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4" suppressHydrationWarning>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -158,12 +197,12 @@ export default function Video() {
               >
                 {/* Video Thumbnail Background */}
                 <div className="w-full h-full bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-indigo-600/20 relative">
-                  {/* Видео с автовоспроизведением */}
+                  {/* Видео с автовоспроизведением (без звука в превью) */}
                   <video
-                    ref={videoRef}
+                    ref={previewVideoRef}
                     className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
                     autoPlay
-                    muted={false} // Звук включен
+                    muted={true} // Без звука в превью
                     loop
                     playsInline
                     preload="auto" // Полная загрузка для мобильных
@@ -171,9 +210,9 @@ export default function Video() {
                     onLoadStart={() => {}}
                     onLoadedData={() => {}}
                     onLoadedMetadata={() => {
-                      if (videoRef.current) {
-                        videoRef.current.muted = false // Принудительно включаем звук
-                        videoRef.current.play().catch(() => {
+                      if (previewVideoRef.current) {
+                        previewVideoRef.current.muted = true // Принудительно отключаем звук в превью
+                        previewVideoRef.current.play().catch(() => {
                           // Autoplay prevented
                         });
                       }
@@ -189,6 +228,31 @@ export default function Video() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
                       <Play className="w-8 h-8 text-white ml-1" />
+                    </div>
+                  </div>
+                  
+                  {/* Video Controls Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handlePreviewPlayPause()
+                        }}
+                        className="bg-black/50 backdrop-blur-sm text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                      >
+                        {isPreviewPlaying ? <Pause size={20} /> : <Play size={20} />}
+                      </button>
+                      
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handlePreviewStop()
+                        }}
+                        className="bg-black/50 backdrop-blur-sm text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                      >
+                        <Square size={20} />
+                      </button>
                     </div>
                   </div>
                   

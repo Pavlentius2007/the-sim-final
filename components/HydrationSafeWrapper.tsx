@@ -10,6 +10,6 @@ interface HydrationSafeWrapperProps {
 /**
  * Простая обертка для предотвращения ошибок гидратации
  */
-export default function HydrationSafeWrapper({ children, fallback = null }: HydrationSafeWrapperProps) {
+export default function HydrationSafeWrapper({ children, fallback: _fallback = null }: HydrationSafeWrapperProps) {
   return <div suppressHydrationWarning>{children}</div>
 }

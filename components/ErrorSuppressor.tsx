@@ -11,7 +11,7 @@ export default function ErrorSuppressor() {
 
     const originalError = window.console.error
     
-    const shouldSuppress = (message) => {
+    const shouldSuppress = (message: any) => {
       const msg = message?.toString() || ''
       return (
         // Только ошибки браузерных расширений
@@ -31,7 +31,7 @@ export default function ErrorSuppressor() {
       )
     }
 
-    window.console.error = (...args) => {
+    window.console.error = (...args: any[]) => {
       if (shouldSuppress(args[0])) {
         return
       }
@@ -39,14 +39,14 @@ export default function ErrorSuppressor() {
     }
 
     // Подавляем глобальные ошибки
-    const handleError = (event) => {
+    const handleError = (event: ErrorEvent) => {
       if (shouldSuppress(event.message)) {
         event.preventDefault()
         return false
       }
     }
 
-    const handleUnhandledRejection = (event) => {
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
       if (shouldSuppress(event.reason)) {
         event.preventDefault()
         return false

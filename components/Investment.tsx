@@ -9,6 +9,7 @@ import {
   Headphones 
 } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
+import { useState, useEffect } from 'react'
 
 export default function Investment() {
   const { t } = useTranslations()
@@ -16,6 +17,14 @@ export default function Investment() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Используем inView только на клиенте для избежания гидратации
+  const shouldAnimate = isClient && inView
 
   const terms = [
     {
@@ -58,7 +67,7 @@ export default function Investment() {
         <m.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -75,7 +84,7 @@ export default function Investment() {
             <m.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="glass rounded-2xl p-6 text-center hover-lift group"
             >

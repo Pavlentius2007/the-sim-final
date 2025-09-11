@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to send to any Telegram account')
     }
 
-    console.log(`✅ Lead sent to ${successCount}/${chatIds.length} Telegram accounts`)
+    // console.log(`✅ Lead sent to ${successCount}/${chatIds.length} Telegram accounts`)
 
     return NextResponse.json({ 
       success: true, 

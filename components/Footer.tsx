@@ -9,10 +9,10 @@ interface FooterProps {
 }
 
 export default function Footer({ currentLocale }: FooterProps) {
-  const { t } = useTranslations()
+  const { t } = useTranslations(currentLocale as any)
 
   return (
-    <footer className="relative bg-black/20 backdrop-blur-sm border-t border-white/10" suppressHydrationWarning>
+    <footer className="relative bg-black/20 backdrop-blur-sm border-t border-white/10">
       <div className="container mx-auto px-4 relative z-10">
         <div className="py-8 lg:py-12">
           {/* Company Info and Links Grid - Mobile First Layout */}
@@ -21,7 +21,7 @@ export default function Footer({ currentLocale }: FooterProps) {
             <div>
               <div className="mb-4">
                 <div className="text-left">
-                  <div className="text-3xl font-bold text-blue-500 mb-2 drop-shadow-lg">TheSim</div>
+                  <div className="text-3xl font-bold text-blue-500 mb-2" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>TheSim</div>
                   <div className="text-sm text-blue-400 font-medium uppercase tracking-wider mb-3">Smart Investments</div>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function Footer({ currentLocale }: FooterProps) {
                   </li>
                   <li>
                     <a href="mailto:info@thesim.com" className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {t('footer.sections.support.email')}
+                      {t('contact.info.support')}
                     </a>
                   </li>
                 </ul>

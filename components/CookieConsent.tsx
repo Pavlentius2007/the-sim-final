@@ -4,40 +4,47 @@ import { useState, useEffect } from 'react'
 import { m } from '@/components/LazyMotionProvider'
 import { AnimatePresence } from 'framer-motion'
 import { Cookie, X, Shield, Eye } from 'lucide-react'
-import { useTranslations } from '@/hooks/useTranslations'
+import { useTranslations, useLocale } from '@/hooks/useTranslations'
 import Link from 'next/link'
 
 interface CookieConsentProps {
-  currentLocale: string
+  currentLocale?: string
 }
 
-export default function CookieConsent({ currentLocale }: CookieConsentProps) {
+export default function CookieConsent({ currentLocale: _currentLocale }: CookieConsentProps = {}) {
   const { t } = useTranslations()
+  const locale = useLocale()
   const [showBanner, setShowBanner] = useState(false)
   const [showDetails, setShowDetails] = useState(false)
 
   useEffect(() => {
-    // Проверяем, дал ли пользователь согласие ранее
-    const consent = localStorage.getItem('cookieConsent')
-    if (!consent) {
-      // Показываем баннер через небольшую задержку
-      const timer = setTimeout(() => {
-        setShowBanner(true)
-      }, 2000)
-      return () => clearTimeout(timer)
+    // Проверяем, дал ли пользователь согласие ранее (только на клиенте)
+    if (typeof window !== 'undefined') {
+      const consent = localStorage.getItem('cookieConsent')
+      if (!consent) {
+        // Показываем баннер через небольшую задержку
+        const timer = setTimeout(() => {
+          setShowBanner(true)
+        }, 2000)
+        return () => clearTimeout(timer)
+      }
     }
   }, [])
 
   const acceptCookies = (type: 'all' | 'necessary') => {
-    localStorage.setItem('cookieConsent', type)
-    localStorage.setItem('cookieConsentDate', new Date().toISOString())
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('cookieConsent', type)
+      localStorage.setItem('cookieConsentDate', new Date().toISOString())
+    }
     setShowBanner(false)
     setShowDetails(false)
   }
 
   const rejectCookies = () => {
-    localStorage.setItem('cookieConsent', 'rejected')
-    localStorage.setItem('cookieConsentDate', new Date().toISOString())
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('cookieConsent', 'rejected')
+      localStorage.setItem('cookieConsentDate', new Date().toISOString())
+    }
     setShowBanner(false)
     setShowDetails(false)
   }
@@ -162,7 +169,7 @@ export default function CookieConsent({ currentLocale }: CookieConsentProps) {
             {/* Privacy Policy Link */}
             <div className="text-center">
               <Link 
-                href={`/${currentLocale}/cookies`}
+                href={`/${locale}/cookies`}
                 className="text-gray-400 hover:text-primary-400 text-xs transition-colors"
               >
                 {t('cookies.learnMore')}
