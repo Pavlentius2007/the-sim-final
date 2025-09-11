@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import ErrorSuppressor from '@/components/ErrorSuppressor'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'TheSim - Управление цифровыми активами',
@@ -63,11 +60,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning={true}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="/clean-styles.css" />
         <script src="/suppress-errors.js" defer></script>
       </head>
-      <body className={inter.className}>
+      <body suppressHydrationWarning={true}>
         <ErrorSuppressor />
         {children}
       </body>
