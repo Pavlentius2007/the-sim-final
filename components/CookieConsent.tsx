@@ -69,10 +69,10 @@ export default function CookieConsent({ currentLocale: _currentLocale }: CookieC
               </div>
               <div>
                 <h3 className="text-white font-semibold text-lg">
-                  {t('cookies.title')}
+                  {t('footer.sections.cookies.title')}
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  {t('cookies.subtitle')}
+                  {t('footer.sections.cookies.subtitle')}
                 </p>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function CookieConsent({ currentLocale: _currentLocale }: CookieC
 
           {/* Description */}
           <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-            {t('cookies.description')}
+            {t('footer.sections.cookies.description')}
           </p>
 
           {/* Cookie Details */}
@@ -105,10 +105,10 @@ export default function CookieConsent({ currentLocale: _currentLocale }: CookieC
                     <Shield className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-white text-sm font-medium">
-                        {t('cookies.necessary.title')}
+                        {t('footer.sections.cookies.necessary.title')}
                       </p>
                       <p className="text-gray-400 text-xs">
-                        {t('cookies.necessary.description')}
+                        {t('footer.sections.cookies.necessary.description')}
                       </p>
                     </div>
                   </div>
@@ -118,10 +118,10 @@ export default function CookieConsent({ currentLocale: _currentLocale }: CookieC
                     <Eye className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-white text-sm font-medium">
-                        {t('cookies.analytics.title')}
+                        {t('footer.sections.cookies.analytics.title')}
                       </p>
                       <p className="text-gray-400 text-xs">
-                        {t('cookies.analytics.description')}
+                        {t('footer.sections.cookies.analytics.description')}
                       </p>
                     </div>
                   </div>
@@ -137,33 +137,35 @@ export default function CookieConsent({ currentLocale: _currentLocale }: CookieC
               onClick={() => setShowDetails(!showDetails)}
               className="text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors"
             >
-              {showDetails ? t('cookies.hideDetails') : t('cookies.showDetails')}
+              {showDetails ? t('footer.sections.cookies.hideDetails') : t('footer.sections.cookies.showDetails')}
             </button>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2">
-              <button
-                onClick={() => acceptCookies('all')}
-                className="flex-1 bg-gradient-primary text-white px-4 py-2.5 rounded-lg font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all text-sm"
-              >
-                {t('cookies.acceptAll')}
-              </button>
-              
+            <div className="flex flex-col gap-3">
+              {/* Primary Actions */}
               <div className="flex gap-2">
                 <button
-                  onClick={() => acceptCookies('necessary')}
-                  className="px-4 py-2.5 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors text-sm"
+                  onClick={() => acceptCookies('all')}
+                  className="flex-1 bg-gradient-primary text-white px-4 py-2.5 rounded-lg font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all text-sm"
                 >
-                  {t('cookies.necessary.only')}
+                  {t('footer.sections.cookies.acceptAll')}
                 </button>
                 
                 <button
                   onClick={rejectCookies}
                   className="px-4 py-2.5 bg-transparent hover:bg-gray-800 text-gray-300 border border-gray-600 rounded-lg font-medium transition-colors text-sm"
                 >
-                  {t('cookies.reject')}
+                  {t('footer.sections.cookies.reject')}
                 </button>
               </div>
+              
+              {/* Secondary Action */}
+              <button
+                onClick={() => acceptCookies('necessary')}
+                className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors text-sm"
+              >
+                {t('footer.sections.cookies.necessary.only')}
+              </button>
             </div>
 
             {/* Privacy Policy Link */}
@@ -172,7 +174,7 @@ export default function CookieConsent({ currentLocale: _currentLocale }: CookieC
                 href={`/${locale}/cookies`}
                 className="text-gray-400 hover:text-primary-400 text-xs transition-colors"
               >
-                {t('cookies.learnMore')}
+                {t('footer.sections.cookies.learnMore')}
               </Link>
             </div>
           </div>
