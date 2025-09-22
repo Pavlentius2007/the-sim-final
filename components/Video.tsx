@@ -116,11 +116,11 @@ export default function Video() {
 
   if (showVideo) {
     return (
-      <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 md:p-4">
         <div className="relative w-full max-w-6xl">
           <button
             onClick={() => setShowVideo(false)}
-            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+            className="absolute -top-8 md:-top-12 right-0 text-white hover:text-gray-300 transition-colors text-sm md:text-base"
           >
              {t('video.close', 'Закрыть')}
           </button>
@@ -132,34 +132,35 @@ export default function Video() {
               controls
               autoPlay
               muted={isMuted}
+              playsInline
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             >
               <source src={videoPaths[selectedQuality]} type="video/mp4" />
             </video>
             
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
+            <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 flex items-center justify-between">
+              <div className="flex items-center gap-1 md:gap-2">
                 <button
                   onClick={handlePlayPause}
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors p-1"
                 >
-                  {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+                  {isPlaying ? <Pause size={20} className="md:w-6 md:h-6" /> : <Play size={20} className="md:w-6 md:h-6" />}
                 </button>
                 
                 <button
                   onClick={handleMute}
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors p-1"
                 >
-                  {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+                  {isMuted ? <VolumeX size={20} className="md:w-6 md:h-6" /> : <Volume2 size={20} className="md:w-6 md:h-6" />}
                 </button>
               </div>
               
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 md:gap-2">
                 <select
                   value={selectedQuality}
                   onChange={(e) => handleQualityChange(e.target.value as VideoQuality)}
-                  className="bg-gray-800 text-white px-3 py-1 rounded"
+                  className="bg-gray-800 text-white px-2 md:px-3 py-1 rounded text-xs md:text-sm"
                 >
                   <option value="480p">480p</option>
                   <option value="720p">720p</option>
@@ -174,20 +175,20 @@ export default function Video() {
   }
 
   return (
-    <section className="py-20 px-4" suppressHydrationWarning>
+    <section className="py-12 md:py-20 px-4" suppressHydrationWarning>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
             {t('video.title', 'Видеообзор')} <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">The SIM</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             {t('video.subtitle', 'Посмотрите, как работает наша платформа для управления цифровыми активами')}
           </p>
         </div>
 
-        {/* Video Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Video Section - адаптивная сетка */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Video Thumbnail */}
           <div className="relative">
             <div className="video-preview-container relative rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
@@ -266,43 +267,43 @@ export default function Video() {
           </div>
 
           {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
+          <div className="space-y-6 md:space-y-8 px-4 md:px-0">
+            <div className="space-y-3 md:space-y-4">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
                 {t('video.contentTitle', 'Полный обзор платформы')}
               </h3>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
                 {t('video.contentDescription', 'Узнайте, как наша платформа помогает инвесторам управлять цифровыми активами с максимальной эффективностью и безопасностью.')}
               </p>
             </div>
 
-            <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-white">{t('video.whatYouWillSee', 'Что вы увидите:')}</h4>
-              <ul className="space-y-2 text-gray-300">
+            <div className="space-y-3 md:space-y-4">
+              <h4 className="text-lg md:text-xl font-semibold text-white">{t('video.whatYouWillSee', 'Что вы увидите:')}</h4>
+              <ul className="space-y-2 md:space-y-3 text-gray-300">
                 <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  {t('video.feature1', 'Интерфейс личного кабинета')}
+                  <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm md:text-base">{t('video.feature1', 'Интерфейс личного кабинета')}</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  {t('video.feature2', 'Процесс инвестирования')}
+                  <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm md:text-base">{t('video.feature2', 'Процесс инвестирования')}</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  {t('video.feature3', 'Аналитические инструменты')}
+                  <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm md:text-base">{t('video.feature3', 'Аналитические инструменты')}</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  {t('video.feature4', 'Система безопасности')}
+                  <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm md:text-base">{t('video.feature4', 'Система безопасности')}</span>
                 </li>
               </ul>
             </div>
 
             <button
               onClick={() => setShowVideo(true)}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
+              className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 text-sm md:text-base"
             >
-              <Play className="w-5 h-5" />
+              <Play className="w-4 h-4 md:w-5 md:h-5" />
               {t('video.watchButton', 'Смотреть видео')}
             </button>
           </div>

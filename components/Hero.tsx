@@ -2,18 +2,21 @@
 
 import { MessageCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
+import HeroNavigation from '@/components/HeroNavigation'
 
-export default function Hero() {
+interface HeroProps {
+  currentLocale: string
+}
+
+export default function Hero({ currentLocale }: HeroProps) {
   const { t } = useTranslations()
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Простой фон */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-indigo-900/20"></div>
-      
-      {/* Упрощенные декоративные элементы */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 right-20 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
+      {/* Навигация в правом верхнем углу */}
+      <div className="absolute top-4 right-4 md:top-6 md:right-6 z-[10000]">
+        <HeroNavigation currentLocale={currentLocale} />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center pt-16 md:pt-8">
@@ -47,19 +50,19 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button 
+            <button
               onClick={() => {
-                document.getElementById('contact-form')?.scrollIntoView({ 
-                  behavior: 'smooth' 
+                document.getElementById('contact-form')?.scrollIntoView({
+                  behavior: 'smooth'
                 });
               }}
               className="px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
             >
               {t('hero.ctaButton')}
             </button>
-            <a 
-              href="https://t.me/Sergey_Loye" 
-              target="_blank" 
+            <a
+              href="https://t.me/Sergey_Loye"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-4 bg-white/10 backdrop-blur-lg text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
             >

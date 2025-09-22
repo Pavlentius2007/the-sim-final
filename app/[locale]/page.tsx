@@ -2,7 +2,7 @@ import Security from '@/components/Security'
 import Footer from '@/components/Footer'
 import ClientOnly from '@/components/ClientOnly'
 import LazyMotionProvider from '@/components/LazyMotionProvider'
-import Navigation from '@/components/Navigation'
+import ScrollToTop from '@/components/ScrollToTop'
 
 // Динамические импорты для оптимизации производительности
 import {
@@ -23,27 +23,18 @@ export default function LocalePage({
 }) {
   return (
     <main className="min-h-screen relative overflow-x-hidden">
-      {/* Navigation Controls - критичные компоненты загружаются сразу */}
-      <div className="fixed top-1 right-1 md:top-4 md:right-4 z-50 flex flex-col gap-2">
-        <ClientOnly>
-          <Navigation currentLocale={locale} />
-        </ClientOnly>
-      </div>
-      
       {/* Контент страницы с LazyMotion для оптимизации framer-motion */}
       <div className="relative z-10">
         <LazyMotionProvider>
           {/* Hero секция - загружается динамически */}
-          <DynamicHero />
+          <DynamicHero currentLocale={locale} />
           
           {/* Остальной контент загружается динамически */}
           <DynamicAbout />
           <DynamicBenefits />
           
-          {/* Видео скрыто на мобильных устройствах из-за наложения */}
-          <div className="hidden md:block">
-            <DynamicVideo />
-          </div>
+          {/* Видеообзор - адаптивный для всех устройств */}
+          <DynamicVideo />
           
           {/* Security - обернут в ClientOnly для избежания гидратации */}
           <ClientOnly>
@@ -63,6 +54,11 @@ export default function LocalePage({
           <Footer currentLocale={locale} />
         </ClientOnly>
       </div>
+      
+      {/* Кнопка быстрой перемотки наверх */}
+      <ClientOnly>
+        <ScrollToTop />
+      </ClientOnly>
     </main>
   )
 }

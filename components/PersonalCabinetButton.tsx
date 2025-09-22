@@ -13,15 +13,12 @@ export default function PersonalCabinetButton() {
       href="https://thesim.in/"
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-2 py-2 md:px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-      title={t('navigation.personalCabinet')} // Добавляем tooltip для мобильных
+      className="group relative inline-flex items-center justify-center gap-2 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 backdrop-blur-sm border-2 border-white/40"
+      title={t('navigation.personalCabinet')}
+      suppressHydrationWarning
     >
-      {/* На мобильных показываем только иконку пользователя */}
-      <User className="w-4 h-4 md:hidden" />
-      
-      {/* На десктопе показываем текст + иконку */}
-      <span className="hidden md:block">{t('navigation.personalCabinet')}</span>
-      <ExternalLink className="w-4 h-4 hidden md:block" />
+      {/* Иконка пользователя */}
+      <User className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-300" />
     </Link>
   )
 }

@@ -172,7 +172,7 @@ export default async function LocaleLayout({
             <ClientOnly>
               <StaticStarryBackground />
             </ClientOnly>
-            <main className="relative z-10">
+            <main className="relative">
               {children}
             </main>
             <ClientOnly>
