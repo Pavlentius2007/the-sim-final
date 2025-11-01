@@ -1,9 +1,6 @@
 # 🚀 Production Dockerfile for TheSim
 FROM node:18-alpine AS base
 
-# Устанавливаем зависимости для сборки
-RUN apk add --no-cache libc6-compat
-
 # Рабочая директория
 WORKDIR /app
 
@@ -22,15 +19,6 @@ COPY . .
 
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
-# Секреты должны передаваться через docker-compose env_file или docker run --env-file
-ARG CSRF_SECRET
-ARG JWT_SECRET
-ARG ENCRYPTION_KEY
-ARG COOKIE_SECRET
-ENV CSRF_SECRET=${CSRF_SECRET}
-ENV JWT_SECRET=${JWT_SECRET}
-ENV ENCRYPTION_KEY=${ENCRYPTION_KEY}
-ENV COOKIE_SECRET=${COOKIE_SECRET}
 
 # Создаем production сборку
 RUN npm run build
