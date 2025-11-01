@@ -15,13 +15,20 @@ COPY tsconfig.json ./
 COPY . .
 
 # Устанавливаем все зависимости (включая dev для сборки)
-RUN npm install --production=false && npm cache clean --force
+RUN npm install --production=false
+
+# Проверяем что установилось
+RUN ls -la node_modules/ && \
+    which next || echo "next not in PATH" && \
+    ls -la node_modules/.bin/ || echo "no .bin folder" && \
+    test -f node_modules/.bin/next && echo "next binary found" || echo "next binary NOT found"
 
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
+ENV PATH=/app/node_modules/.bin:$PATH
 
-# Создаем production сборку
-RUN npm run build
+# Создаем production сборку  
+RUN npm run build && npm cache clean --force
 
 # Production образ
 FROM node:18-alpine AS runner
