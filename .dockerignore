@@ -69,3 +69,11 @@ the-sim-final/
 
 # SSL (will be mounted)
 ssl/
+
+# Videos (large files - will be mounted via volume)
+public/videos/
+*.mp4
+*.avi
+*.mov
+*.webm
+*.mkv
