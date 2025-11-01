@@ -3,6 +3,7 @@
 import { MessageCircle } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import HeroNavigation from '@/components/HeroNavigation'
+import ClientOnly from '@/components/ClientOnly'
 
 interface HeroProps {
   currentLocale: string
@@ -12,10 +13,12 @@ export default function Hero({ currentLocale }: HeroProps) {
   const { t } = useTranslations()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" suppressHydrationWarning>
       {/* Навигация в правом верхнем углу */}
       <div className="absolute top-4 right-4 md:top-6 md:right-6 z-[10000]">
-        <HeroNavigation currentLocale={currentLocale} />
+        <ClientOnly>
+          <HeroNavigation currentLocale={currentLocale} />
+        </ClientOnly>
       </div>
 
       {/* Content */}

@@ -9,7 +9,7 @@ interface FooterProps {
 }
 
 export default function Footer({ currentLocale }: FooterProps) {
-  const { t } = useTranslations(currentLocale as any)
+  const { t } = useTranslations()
 
   return (
     <footer className="relative bg-black/20 backdrop-blur-sm border-t border-white/10">

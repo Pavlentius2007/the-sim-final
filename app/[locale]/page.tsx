@@ -11,7 +11,6 @@ import {
   DynamicVideo,
   DynamicInvestment,
   DynamicTestimonials,
-  DynamicFAQ,
   DynamicContactForm,
   DynamicHero
 } from '@/components/DynamicComponents'
@@ -42,7 +41,7 @@ export default function LocalePage({
           </ClientOnly>
           <DynamicInvestment />
           <DynamicTestimonials />
-          <DynamicFAQ />
+          {/* <DynamicFAQ /> */}
           
           <div id="contact-form">
             <DynamicContactForm />

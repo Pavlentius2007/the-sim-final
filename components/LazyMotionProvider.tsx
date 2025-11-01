@@ -37,3 +37,6 @@ export const m = {
   ),
 }
 
+// Заглушка для AnimatePresence
+export const AnimatePresence = ({ children }: { children: ReactNode }) => <>{children}</>
+

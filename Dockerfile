@@ -22,10 +22,15 @@ COPY . .
 
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
-ENV CSRF_SECRET=HmbmcNZ8g8sfhZGC8e6Vs3ESsx9Eh8ZpNAqUvjHWkT9ErcKwGr6HMkamMpdzBE4G
-ENV JWT_SECRET=rSA4hfVLhhwa3u2dfgH8bwzbj7Q5SG9zGwnqeFLfFvYQZTYYdPnXu9cH9zqkLpks
-ENV ENCRYPTION_KEY=hQEhGj93DC4cQrnfbvmgYWG2WMKDqj93
-ENV COOKIE_SECRET=KCTe6jLdwJs9ChaBZc8XMJLqF7v5D8uZ
+# Секреты должны передаваться через docker-compose env_file или docker run --env-file
+ARG CSRF_SECRET
+ARG JWT_SECRET
+ARG ENCRYPTION_KEY
+ARG COOKIE_SECRET
+ENV CSRF_SECRET=${CSRF_SECRET}
+ENV JWT_SECRET=${JWT_SECRET}
+ENV ENCRYPTION_KEY=${ENCRYPTION_KEY}
+ENV COOKIE_SECRET=${COOKIE_SECRET}
 
 # Создаем production сборку
 RUN npm run build

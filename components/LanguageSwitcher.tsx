@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { m } from '@/components/LazyMotionProvider'
 import { AnimatePresence } from 'framer-motion'
-import { Globe, ChevronDown } from 'lucide-react'
+import { Globe } from 'lucide-react'
 import { useRouter, usePathname } from 'next/navigation'
 import { getLanguageOptions } from '@/utils/languageUtils'
 

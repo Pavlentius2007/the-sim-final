@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ExternalLink, User } from 'lucide-react'
+import { User } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 
 export default function PersonalCabinetButton() {

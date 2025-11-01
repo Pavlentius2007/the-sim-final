@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useMemo, useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
+// import { useInView } from 'react-intersection-observer'
 import { m } from '@/components/LazyMotionProvider'
 import { useTranslations } from '@/hooks/useTranslations'
 import { ChevronDown, ChevronUp } from 'lucide-react'
@@ -15,10 +15,12 @@ interface FAQItem {
 export default function FAQ() {
   const { t } = useTranslations()
   const [openItems, setOpenItems] = useState<number[]>([])
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+  // const [ref, inView] = useInView({
+  //   triggerOnce: true,
+  //   threshold: 0.1,
+  // })
+  const ref = useCallback(() => {}, [])
+  const inView = true
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
