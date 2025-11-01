@@ -14,14 +14,11 @@ COPY tsconfig.json ./
 # Копируем исходный код
 COPY . .
 
-# Устанавливаем все зависимости (включая dev для сборки)
-RUN npm install --production=false
+# Удаляем package-lock.json и node_modules если есть
+RUN rm -f package-lock.json && rm -rf node_modules
 
-# Проверяем что установилось
-RUN ls -la node_modules/ && \
-    which next || echo "next not in PATH" && \
-    ls -la node_modules/.bin/ || echo "no .bin folder" && \
-    test -f node_modules/.bin/next && echo "next binary found" || echo "next binary NOT found"
+# Устанавливаем все зависимости (включая dev для сборки)
+RUN npm install
 
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
