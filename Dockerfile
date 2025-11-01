@@ -12,7 +12,7 @@ COPY postcss.config.js ./
 COPY tsconfig.json ./
 
 # Устанавливаем все зависимости (включая dev для сборки)
-RUN npm ci && npm cache clean --force
+RUN npm install && npm cache clean --force
 
 # Копируем исходный код
 COPY . .
