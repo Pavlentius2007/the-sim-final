@@ -73,7 +73,7 @@
   "benefits": {
     "title": "为什么选择我们",
     "why": {
-      "title": "为什么选择The SIM？",
+      "title": "为什么选择",
       "subtitle": "我们的优势"
     },
     "hedging": {
@@ -203,7 +203,7 @@
     "button": "开始投资"
   },
   "testimonials": {
-    "title": "客户评价 The SIM",
+    "title": "客户评价",
     "subtitle": "我们用户的反馈",
     "items": {
       "anton": {
@@ -300,7 +300,7 @@
     }
   },
   "contact": {
-    "title": "联系我们 The SIM",
+    "title": "联系我们",
     "subtitle": "准备开始您的财务独立之旅了吗？",
     "form": {
       "name": "姓名",

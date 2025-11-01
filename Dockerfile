@@ -12,7 +12,7 @@ COPY postcss.config.js ./
 COPY tsconfig.json ./
 
 # Устанавливаем все зависимости (включая dev для сборки)
-RUN npm install && npm cache clean --force
+RUN npm install
 
 # Копируем исходный код
 COPY . .
@@ -20,8 +20,10 @@ COPY . .
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
 
-# Создаем production сборку
-RUN npm run build
+# Проверяем установку Next.js и собираем
+RUN ls -la node_modules/.bin/ && \
+    ./node_modules/.bin/next build && \
+    npm cache clean --force
 
 # Production образ
 FROM node:18-alpine AS runner

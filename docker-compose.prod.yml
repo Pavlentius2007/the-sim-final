@@ -14,6 +14,8 @@ services:
       - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
+    volumes:
+      - ./public/videos:/app/public/videos:ro
     networks:
       - thesim-network
     expose:
