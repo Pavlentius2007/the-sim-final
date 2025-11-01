@@ -20,10 +20,8 @@ COPY . .
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
 
-# Проверяем установку Next.js и собираем
-RUN ls -la node_modules/.bin/ && \
-    ./node_modules/.bin/next build && \
-    npm cache clean --force
+# Создаем production сборку
+RUN npm run build && npm cache clean --force
 
 # Production образ
 FROM node:18-alpine AS runner
