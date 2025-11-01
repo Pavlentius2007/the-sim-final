@@ -11,17 +11,17 @@ COPY tailwind.config.js ./
 COPY postcss.config.js ./
 COPY tsconfig.json ./
 
-# Устанавливаем все зависимости (включая dev для сборки)
-RUN npm install
-
 # Копируем исходный код
 COPY . .
+
+# Устанавливаем все зависимости (включая dev для сборки)
+RUN npm install --production=false && npm cache clean --force
 
 # Устанавливаем переменные окружения для сборки
 ENV NODE_ENV=production
 
 # Создаем production сборку
-RUN npm run build && npm cache clean --force
+RUN npm run build
 
 # Production образ
 FROM node:18-alpine AS runner
