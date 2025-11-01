@@ -1,5 +1,4 @@
 # 🐳 TheSim - Production Docker Compose с Nginx + SSL
-version: '3.8'
 
 services:
   # Next.js приложение
@@ -34,7 +33,7 @@ services:
       - ./data:/app/data
       - ./ssl:/app/ssl  # Добавляем SSL сертификаты
     working_dir: /app
-    command: sh -c "npm install --include=dev && npm run build && npm start"
+    command: sh -c "npm install --include=dev && npm run build && node .next/standalone/server.js"
     networks:
       - thesim-network
     expose:
