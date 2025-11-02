@@ -53,7 +53,7 @@ export default function PrivacyPage({
             </ul>
             
             <h2>6. Контактная информация</h2>
-            <p>По вопросам обработки персональных данных обращайтесь по адресу: info@thesim.com</p>
+            <p>По вопросам обработки персональных данных обращайтесь по адресу: Info@thesim.in</p>
           `
         }
       case 'en':
@@ -94,7 +94,7 @@ export default function PrivacyPage({
             </ul>
             
             <h2>6. Contact Information</h2>
-            <p>For questions regarding personal data processing, contact us at: info@thesim.com</p>
+            <p>For questions regarding personal data processing, contact us at: Info@thesim.in</p>
           `
         }
       case 'th':
@@ -135,7 +135,7 @@ export default function PrivacyPage({
             </ul>
             
             <h2>6. ข้อมูลการติดต่อ</h2>
-            <p>สำหรับคำถามเกี่ยวกับการประมวลผลข้อมูลส่วนบุคคล ติดต่อเราที่: info@thesim.com</p>
+            <p>สำหรับคำถามเกี่ยวกับการประมวลผลข้อมูลส่วนบุคคล ติดต่อเราที่: Info@thesim.in</p>
           `
         }
       case 'zh':
@@ -176,7 +176,7 @@ export default function PrivacyPage({
             </ul>
             
             <h2>6. 联系信息</h2>
-            <p>有关个人数据处理的问题，请联系我们：info@thesim.com</p>
+            <p>有关个人数据处理的问题，请联系我们：Info@thesim.in</p>
           `
         }
       default:
@@ -217,7 +217,7 @@ export default function PrivacyPage({
             </ul>
             
             <h2>6. Contact Information</h2>
-            <p>For questions regarding personal data processing, contact us at: info@thesim.com</p>
+            <p>For questions regarding personal data processing, contact us at: Info@thesim.in</p>
           `
         }
     }

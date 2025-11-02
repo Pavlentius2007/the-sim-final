@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, telegram, message } = body
+    const { name, email, phone, socialNetwork, message } = body
 
     // Список chat_id для отправки уведомлений
     const chatIds = [
@@ -14,9 +14,9 @@ export async function POST(request: NextRequest) {
     const messageText = `🚀 Новая заявка с сайта The SIM
 
 👤 Имя: ${name}
-📧 Email: ${email}
-📱 Телефон: ${phone}
-💬 Telegram: ${telegram || 'Не указан'}
+📧 Email: ${email || 'Не указан'}
+📱 Телефон: ${phone || 'Не указан'}
+💬 Социальная сеть: ${socialNetwork || 'Не указана'}
 💭 Сообщение: ${message || 'Нет сообщения'}
 
 ⏰ Время: ${new Date().toLocaleString('ru-RU')}

@@ -150,7 +150,7 @@ export default function Footer({ currentLocale }: FooterProps) {
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:info@thesim.com" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href="mailto:Info@thesim.in" className="text-gray-400 hover:text-white transition-colors text-sm">
                       {t('footer.sections.support.email')}
                     </a>
                   </li>

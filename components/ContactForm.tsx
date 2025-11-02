@@ -101,7 +101,7 @@ export default function ContactForm() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  {t('contact.form.name')}
+                  {t('contact.form.name')} <span className="text-red-400">*</span>
                 </label>
                 <input
                   type="text"
@@ -118,15 +118,14 @@ export default function ContactForm() {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  {t('contact.form.email')}
+                  {t('contact.form.email')} <span className="text-gray-500 text-xs">(необязательно)</span>
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  required
                   autoComplete="email"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder={t('contact.form.email')}
@@ -135,7 +134,7 @@ export default function ContactForm() {
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                  {t('contact.form.phone')}
+                  {t('contact.form.phone')} <span className="text-gray-500 text-xs">(необязательно)</span>
                 </label>
                 <input
                   type="tel"
@@ -151,7 +150,7 @@ export default function ContactForm() {
 
               <div>
                 <label htmlFor="socialNetwork" className="block text-sm font-medium text-gray-300 mb-2">
-                  {t('contact.form.socialNetwork') || 'Социальная сеть / Мессенджер'}
+                  {t('contact.form.socialNetwork') || 'Социальная сеть / Мессенджер'} <span className="text-gray-500 text-xs">(необязательно)</span>
                 </label>
                 <input
                   type="text"
@@ -163,6 +162,11 @@ export default function ContactForm() {
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder={t('contact.form.socialNetwork') || 'Telegram, WeChat, Line, WhatsApp...'}
                 />
+              </div>
+
+              {/* Подсказка о необязательных полях */}
+              <div className="text-xs text-gray-400 italic">
+                <span className="text-red-400">*</span> Обязательное поле. Остальные поля можно не заполнять.
               </div>
 
               {/* Status Message */}
@@ -228,7 +232,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">{t('contact.info.email')}</div>
-                  <div className="text-gray-400">info@thesim.com</div>
+                  <div className="text-gray-400">Info@thesim.in</div>
                 </div>
               </div>
 

@@ -53,7 +53,7 @@ export default function TermsPage({
             <p>The SIM оставляет за собой право изменять настоящие условия. Пользователи будут уведомлены об изменениях заблаговременно.</p>
             
             <h2>8. Контактная информация</h2>
-            <p>По вопросам использования услуг обращайтесь: info@thesim.com</p>
+            <p>По вопросам использования услуг обращайтесь: Info@thesim.in</p>
           `
         }
       case 'en':
@@ -94,7 +94,7 @@ export default function TermsPage({
             <p>The SIM reserves the right to modify these terms. Users will be notified of changes in advance.</p>
             
             <h2>8. Contact Information</h2>
-            <p>For questions about using our services, contact: info@thesim.com</p>
+            <p>For questions about using our services, contact: Info@thesim.in</p>
           `
         }
       case 'th':
@@ -135,7 +135,7 @@ export default function TermsPage({
             <p>The SIM ขอสงวนสิทธิ์ในการแก้ไขเงื่อนไขเหล่านี้ ผู้ใช้จะได้รับแจ้งการเปลี่ยนแปลงล่วงหน้า</p>
             
             <h2>8. ข้อมูลการติดต่อ</h2>
-            <p>สำหรับคำถามเกี่ยวกับการใช้บริการของเรา ติดต่อ: info@thesim.com</p>
+            <p>สำหรับคำถามเกี่ยวกับการใช้บริการของเรา ติดต่อ: Info@thesim.in</p>
           `
         }
       case 'zh':
@@ -176,7 +176,7 @@ export default function TermsPage({
             <p>The SIM 保留修改这些条款的权利。用户将提前收到变更通知。</p>
             
             <h2>8. 联系信息</h2>
-            <p>有关使用我们服务的问题，请联系：info@thesim.com</p>
+            <p>有关使用我们服务的问题，请联系：Info@thesim.in</p>
           `
         }
       default:
@@ -217,7 +217,7 @@ export default function TermsPage({
             <p>The SIM reserves the right to modify these terms. Users will be notified of changes in advance.</p>
             
             <h2>8. Contact Information</h2>
-            <p>For questions about using our services, contact: info@thesim.com</p>
+            <p>For questions about using our services, contact: Info@thesim.in</p>
           `
         }
     }

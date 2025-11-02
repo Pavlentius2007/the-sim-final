@@ -66,7 +66,7 @@ export default function CookiesPage({
             </ul>
             
             <h2>7. Контактная информация</h2>
-            <p>По вопросам использования файлов cookie обращайтесь: info@thesim.com</p>
+            <p>По вопросам использования файлов cookie обращайтесь: Info@thesim.in</p>
           `
         }
       case 'en':
@@ -120,7 +120,7 @@ export default function CookiesPage({
             </ul>
             
             <h2>7. Contact information</h2>
-            <p>For questions about cookie usage, contact: info@thesim.com</p>
+            <p>For questions about cookie usage, contact: Info@thesim.in</p>
           `
         }
       case 'th':
@@ -174,7 +174,7 @@ export default function CookiesPage({
             </ul>
             
             <h2>7. ข้อมูลการติดต่อ</h2>
-            <p>สำหรับคำถามเกี่ยวกับการใช้คุกกี้ ติดต่อ: info@thesim.com</p>
+            <p>สำหรับคำถามเกี่ยวกับการใช้คุกกี้ ติดต่อ: Info@thesim.in</p>
           `
         }
       case 'zh':
@@ -228,7 +228,7 @@ export default function CookiesPage({
             </ul>
             
             <h2>7. 联系信息</h2>
-            <p>有关 Cookie 使用的问题，请联系：info@thesim.com</p>
+            <p>有关 Cookie 使用的问题，请联系：Info@thesim.in</p>
           `
         }
       default:
@@ -282,7 +282,7 @@ export default function CookiesPage({
             </ul>
             
             <h2>7. Contact information</h2>
-            <p>For questions about cookie usage, contact: info@thesim.com</p>
+            <p>For questions about cookie usage, contact: Info@thesim.in</p>
           `
         }
     }
