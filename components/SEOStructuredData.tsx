@@ -14,10 +14,10 @@ export default function SEOStructuredData({ locale = 'ru' }: { locale?: string }
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "url": "https://t.me/Sergey_Loye"
+      "url": "https://t.me/TheSim_service"
     },
     "sameAs": [
-      "https://t.me/Sergey_Loye"
+      "https://t.me/TheSim_service"
     ],
     "offers": {
       "@type": "Offer",

@@ -33,7 +33,7 @@ export default function Footer({ currentLocale }: FooterProps) {
               {/* Social Links */}
               <div className="flex space-x-4">
                 <a
-                  href="https://t.me/Sergey_Loye"
+                  href="https://t.me/TheSim_service"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-400 hover:text-primary-300 hover:bg-primary-500/30 transition-all"
@@ -145,7 +145,7 @@ export default function Footer({ currentLocale }: FooterProps) {
                 <h4 className="text-lg font-semibold text-white mb-2">{t('footer.sections.support.title')}</h4>
                 <ul className="space-y-1">
                   <li>
-                    <a href="https://t.me/Sergey_Loye" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href="https://t.me/TheSim_service" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
                       {t('footer.sections.support.telegram')}
                     </a>
                   </li>

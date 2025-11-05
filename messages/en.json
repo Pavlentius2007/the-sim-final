@@ -306,7 +306,7 @@
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
-      "socialNetwork": "Social Network",
+      "socialNetwork": "Referral Code",
       "submit": "Submit",
       "sending": "Sending...",
       "success": "Message sent!",
@@ -315,7 +315,7 @@
     "info": {
       "title": "Contact Information",
       "description": "We are always ready to help you",
-      "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
+      "socialNetwork": "@TheSim_service, @Pavlentius2007",
       "telegram": "Telegram",
       "email": "Email",
       "support": "Technical Support",

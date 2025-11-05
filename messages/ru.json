@@ -306,7 +306,7 @@
       "name": "Имя",
       "email": "Email",
       "phone": "Телефон",
-      "socialNetwork": "Социальная сеть",
+      "socialNetwork": "Реферальный код",
       "submit": "Отправить",
       "sending": "Отправка...",
       "success": "Сообщение отправлено!",
@@ -315,7 +315,7 @@
     "info": {
       "title": "Контактная информация",
       "description": "Мы всегда готовы помочь вам",
-      "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
+      "socialNetwork": "@TheSim_service, @Pavlentius2007",
       "telegram": "Telegram",
       "email": "Email",
       "support": "Техническая поддержка",

@@ -274,7 +274,7 @@
       "name": "ชื่อ",
       "email": "อีเมล",
       "phone": "โทรศัพท์",
-      "socialNetwork": "เครือข่ายสังคม",
+      "socialNetwork": "รหัสแนะนำ",
       "submit": "ส่ง",
       "sending": "กำลังส่ง...",
       "success": "ส่งข้อความแล้ว!",
@@ -283,7 +283,7 @@
     "info": {
       "title": "ข้อมูลติดต่อ",
       "description": "เราพร้อมช่วยเหลือคุณเสมอ",
-      "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
+      "socialNetwork": "@TheSim_service, @Pavlentius2007",
       "telegram": "Telegram",
       "email": "อีเมล",
       "support": "การสนับสนุนทางเทคนิค",

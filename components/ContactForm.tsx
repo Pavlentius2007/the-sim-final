@@ -150,7 +150,7 @@ export default function ContactForm() {
 
               <div>
                 <label htmlFor="socialNetwork" className="block text-sm font-medium text-gray-300 mb-2">
-                  {t('contact.form.socialNetwork') || 'Социальная сеть / Мессенджер'} <span className="text-gray-500 text-xs">(необязательно)</span>
+                  {t('contact.form.socialNetwork') || 'Реферальный код'} <span className="text-gray-500 text-xs">(необязательно)</span>
                 </label>
                 <input
                   type="text"
@@ -160,7 +160,7 @@ export default function ContactForm() {
                   onChange={handleInputChange}
                   autoComplete="off"
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder={t('contact.form.socialNetwork') || 'Telegram, WeChat, Line, WhatsApp...'}
+                  placeholder={t('contact.form.socialNetwork') || 'Введите реферальный код, если есть'}
                 />
               </div>
 
@@ -222,7 +222,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">{t('contact.info.telegram')}</div>
-                  <div className="text-gray-400">@Sergey_Loye, @Pavlentius2007</div>
+                  <div className="text-gray-400">@TheSim_service, @Pavlentius2007</div>
                 </div>
               </div>
 

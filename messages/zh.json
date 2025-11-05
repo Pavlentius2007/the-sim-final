@@ -306,7 +306,7 @@
       "name": "姓名",
       "email": "邮箱",
       "phone": "电话",
-      "socialNetwork": "社交网络",
+      "socialNetwork": "推荐码",
       "submit": "提交",
       "sending": "发送中...",
       "success": "消息已发送！",
@@ -315,7 +315,7 @@
     "info": {
       "title": "联系信息",
       "description": "我们随时准备帮助您",
-      "socialNetwork": "@Sergey_Loye, @Pavlentius2007",
+      "socialNetwork": "@TheSim_service, @Pavlentius2007",
       "telegram": "Telegram",
       "email": "邮箱",
       "support": "技术支持",

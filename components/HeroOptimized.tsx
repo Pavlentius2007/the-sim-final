@@ -72,7 +72,7 @@ export default function HeroOptimized({
               {ctaButton}
             </a>
             <a 
-              href="https://t.me/Sergey_Loye" 
+              href="https://t.me/TheSim_service" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-4 bg-white/10 backdrop-blur-lg text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"

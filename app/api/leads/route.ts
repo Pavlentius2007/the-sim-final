@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 👤 Имя: ${name}
 📧 Email: ${email || 'Не указан'}
 📱 Телефон: ${phone || 'Не указан'}
-💬 Социальная сеть: ${socialNetwork || 'Не указана'}
+🎁 Реферальный код: ${socialNetwork || 'Не указан'}
 💭 Сообщение: ${message || 'Нет сообщения'}
 
 ⏰ Время: ${new Date().toLocaleString('ru-RU')}
