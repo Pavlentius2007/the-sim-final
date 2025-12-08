@@ -84,7 +84,8 @@ export async function POST(request: NextRequest) {
       throw new Error(`Telegram API error: ${errorData.description || 'Unknown error'}`)
     }
     
-    const result = await telegramResponse.json()
+    // Проверяем что ответ успешный (результат не нужен для безопасности)
+    await telegramResponse.json()
     
     return Response.json({
       success: true,
