@@ -166,13 +166,13 @@ export default async function LocaleLayout({
         {/* Структурированные данные для SEO */}
         <SEOStructuredData locale={locale} />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
         <LocaleProvider locale={locale as 'ru' | 'en' | 'zh' | 'th'}>
           <LazyMotionProvider>
             <ClientOnly>
               <StaticStarryBackground />
             </ClientOnly>
-            <main className="relative">
+            <main className="relative flex-1">
               {children}
             </main>
             <ClientOnly>
