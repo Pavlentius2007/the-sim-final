@@ -1,8 +1,45 @@
 import { NextRequest } from 'next/server'
 
+// Простая защита от злоупотребления - проверка Origin
+function isValidOrigin(origin: string | null): boolean {
+  if (!origin) return false
+  
+  const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [
+    'https://thesim.site',
+    'https://www.thesim.site',
+    'http://localhost:3000'
+  ]
+  
+  return allowedOrigins.some(allowed => origin.startsWith(allowed.trim()))
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Проверка Origin для защиты от CSRF
+    const origin = request.headers.get('origin')
+    if (process.env.NODE_ENV === 'production' && !isValidOrigin(origin)) {
+      return Response.json(
+        { error: 'Неавторизованный запрос' },
+        { status: 403 }
+      )
+    }
+    
     const { message, chatId } = await request.json()
+    
+    // Валидация данных
+    if (!message || typeof message !== 'string' || message.trim().length === 0) {
+      return Response.json(
+        { error: 'Сообщение обязательно для заполнения' },
+        { status: 400 }
+      )
+    }
+    
+    if (message.length > 4096) {
+      return Response.json(
+        { error: 'Сообщение слишком длинное (максимум 4096 символов)' },
+        { status: 400 }
+      )
+    }
     
     const botToken = process.env.TELEGRAM_BOT_TOKEN
     const defaultChatId = process.env.TELEGRAM_CHAT_ID
@@ -39,24 +76,32 @@ export async function POST(request: NextRequest) {
     )
     
     if (!telegramResponse.ok) {
-      const errorData = await telegramResponse.json()
-      console.error('Telegram API error:', errorData)
-      throw new Error(`Telegram API error: ${errorData.description}`)
+      const errorData = await telegramResponse.json().catch(() => ({}))
+      // Не логируем детали ошибки в production для безопасности
+      if (process.env.NODE_ENV !== 'production') {
+        console.error('Telegram API error:', errorData)
+      }
+      throw new Error(`Telegram API error: ${errorData.description || 'Unknown error'}`)
     }
     
     const result = await telegramResponse.json()
     
     return Response.json({
       success: true,
-      message: 'Message sent to Telegram successfully',
-      telegramResult: result
+      message: 'Message sent to Telegram successfully'
+      // Не возвращаем telegramResult в production для безопасности
     })
     
   } catch (error) {
-    console.error('Telegram send error:', error)
+    // Не логируем детали ошибки в production
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('Telegram send error:', error)
+    }
     return Response.json({ 
       error: 'Failed to send message to Telegram',
-      details: error instanceof Error ? error.message : 'Unknown error'
+      details: process.env.NODE_ENV === 'production' 
+        ? undefined 
+        : (error instanceof Error ? error.message : 'Unknown error')
     }, { status: 500 })
   }
 }
