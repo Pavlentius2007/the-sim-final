@@ -160,7 +160,7 @@ export default async function LocaleLayout({
         
         {/* Безопасность - Content Security Policy (только для продакшена) */}
         {process.env.NODE_ENV === 'production' && (
-          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.telegram.org; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;" />
+          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.telegram.org; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;" />
         )}
         
         {/* Структурированные данные для SEO */}

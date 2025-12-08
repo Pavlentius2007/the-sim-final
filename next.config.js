@@ -17,7 +17,7 @@ const nextConfig = {
     return config
   },
   
-  output: 'standalone',
+  //output: 'standalone',
   poweredByHeader: false,
   generateEtags: false,
   
