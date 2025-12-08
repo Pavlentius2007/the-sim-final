@@ -64,3 +64,9 @@ the-sim-final/
 *.zip
 videos.tar*
 videos.zip
+
+# Git command artifacts (случайно созданные файлы от команд)
+" --date=iso*"
+tatus*
+*--porcelain*
+*--date=iso*
